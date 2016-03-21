@@ -1,11 +1,11 @@
 ---
-title       : Insert the chapter title here
+title       : Raising anchor
 description : Insert the chapter description here
-attachments :
+attachments :In this first chapter you will be introduced to DataCamp's interactive interface and the Titanic data set. Once you're familiar with the data, you make your first predictions using survival rate, gender data, as well as age data. 
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
---- type:VideoExercise lang:python xp:50 skills:1
-## Analyze movie ratings
+--- type:NormalExercise xp:100 skills:1
+## How it works
 
 *** =video_link
 //player.vimeo.com/video/154783078
