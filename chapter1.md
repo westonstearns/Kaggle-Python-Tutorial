@@ -1,7 +1,7 @@
 ---
 title       : Raising anchor
-description : Insert the chapter description here
-attachments :In this first chapter you will be introduced to DataCamp's interactive interface and the Titanic data set. Once you're familiar with the data, you make your first predictions using survival rate, gender data, as well as age data. 
+description :In this first chapter you will be introduced to DataCamp's interactive interface and the Titanic data set. Once you're familiar with the data, you make your first predictions using survival rate, gender data, as well as age data. 
+attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
 --- type:NormalExercise xp:100 skills:1
