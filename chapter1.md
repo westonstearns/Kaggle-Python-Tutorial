@@ -1,6 +1,6 @@
 ---
 title       : Getting Started with Python
-description : In this chapter we will go trough the essential steps that you will need to take before beginning to beuil predictive models.
+description : In this chapter we will go trough the essential steps that you will need to take before beginning to build predictive models.
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
