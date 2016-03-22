@@ -238,7 +238,7 @@ would give a value of 0 to the variable `new_var` for the subset of passengers t
 
 *** =instructions
 
-- Create a new column `Child` in the `train` data frame that takes the value `NA`, if the passenger's age is `NA`, `1` when the passenger is < 18 years and the value `0` when the passenger is >= 18 years.
+- Create a new column `Child` in the `train` data frame that takes the value `NaN`, if the passenger's age is `NaN`, `1` when the passenger is < 18 years and the value `0` when the passenger is >= 18 years. To create `NaN` use `float('NaN')`.
 - Compare the normalized survival rates for those who are <18 and those who are older. Use code similar to what you had in the previous exercise.
 
 *** =hint
@@ -266,7 +266,7 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 
 ```{python}
 # Create the column child, and indicate whether child or no child
-train["Child"] = NaN
+train["Child"] = float('NaN')
 train.Child[train$Age < 18] = 1
 train.Child[train$Age >= 18] = 0
 
