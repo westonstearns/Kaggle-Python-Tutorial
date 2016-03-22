@@ -4,8 +4,17 @@ description : In this chapter we will go trough the essential steps that you wil
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise xp:100 skills:2
 ## How it works
+To gain some initial familiarity with Python lets do some very basic operations.
+First we can do arithmatic and algebra:
+Adittion: 5 + 7
+Subtraction: 7 - 5
+Multiplication: 5*7
+Division: 35/5
+We can use the = operator to assign variables and make life simpler:
+Say x1 = 5 and x2 = 7,
+then y = (x1*x2)/x1 + x2 = 14
 
 *** =instructions
 Lets begin by evaluating algebraic expressions and assigning values to variables
@@ -16,13 +25,35 @@ Lets begin by evaluating algebraic expressions and assigning values to variables
 
 *** =sample_code
 ```{python}
-#Begin by evaluating algebraic expressions and assigning values to variables
+#Begin by evaluating algebraic expressions and assigning values to variables: t1 = 4, t2 = 8. Don't froget to print
+
+#Add the two variables
+
+#Subtract t2 from t1: negative numbers work
+
+#Multiply the two variables
+
+#Compute the ratio of the sum and difference of t2 and t1 and assign to y:
+
 ```
 *** =solution
+```{python}
+#Begin by evaluating algebraic expressions and assigning values to variables: t1 = 4, t2 = 8. Don't froget to print
+
+#Add the two variables
+print(t1 + t2)
+#Subtract t2 from t1: negative numbers work
+print(t2 - t1)
+#Multiply the two variables
+print(t1*t2)
+#Compute the ratio of the sum and difference of t2 and t1 and assign to y:
+y = (t2+t1)/(t2-t1)
+print(y)
+```
 
 *** =sct
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise xp:100 skills:2
 ## Get the Data with Pandas
 
 *** =instructions
