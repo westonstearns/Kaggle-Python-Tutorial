@@ -237,10 +237,47 @@ train.new_var[train$Survived == 1] = 0
 would give a value of 0 to the variable `new_var` for the subset of passengers that survived the disaster.
 
 *** =instructions
+
+- Create a new column `Child` in the `train` data frame that takes the value `NA`, if the passenger's age is `NA`, `1` when the passenger is < 18 years and the value `0` when the passenger is >= 18 years.
+- Compare the normalized survival rates for those who are <18 and those who are older. Use code similar to what you had in the previous exercise.
+
 *** =hint
 *** =pre_exercise_code
+
+```{python}
+import pandas as pd
+train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
+test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
+```
+
 *** =sample_code
+
+```{python}
+# Create the column child, and indicate whether child or no child
+
+
+# Normalized Survival Rates for under 18
+
+# Normalized Survival Rates for over 18
+
+```
+
 *** =solution
+
+```{python}
+# Create the column child, and indicate whether child or no child
+train["Child"] = NaN
+train.Child[train$Age < 18] = 1
+train.Child[train$Age >= 18] = 0
+
+# Normalized Survival Rates for under 18
+print(train.Survived[train.Child == 1].value.count(normalize = True))
+
+# Normalized Survival Rates for over 18
+print(train.Survived[train.Child == 0].value.count(normalize = True))
+
+```
+
 *** =sct
 
 --- type:NormalExercise xp:100 skills:2
