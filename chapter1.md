@@ -22,7 +22,36 @@ Lets begin by evaluating algebraic expressions and assigning values to variables
 
 *** =sct
 
+--- type:NormalExercise xp:100 skills:1
+## Get the Data with Pandas
 
+*** =instructions
+First we will need to import the Pandas library.
+Then we will load the data from the web.
+
+*** =hint
+
+*** =pre_exercise_code
+
+*** =sample_code
+```{python}
+# Imprt the Pandas library
+
+# Load the train and test datasets to create two DataFrames
+
+```
+*** =solution
+```{python}
+# Imprt the Pandas library
+import pandas as pd
+
+# Load the train and test datasets to create two DataFrames
+train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
+test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
+
+```
+
+*** =sct
 
 
 
