@@ -271,10 +271,10 @@ train.Child[train.Age < 18] = 1
 train.Child[train.Age >= 18] = 0
 
 # Normalized Survival Rates for under 18
-print(train.Survived[train.Child == 1].value.count(normalize = True))
+print(train.Survived[train.Child == 1].value_counts(normalize = True))
 
 # Normalized Survival Rates for over 18
-print(train.Survived[train.Child == 0].value.count(normalize = True))
+print(train.Survived[train.Child == 0].value_counts(normalize = True))
 
 ```
 
