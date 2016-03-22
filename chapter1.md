@@ -123,7 +123,7 @@ The training and test set are already available in the workspace, as `train` and
 ```{python}
 import pandas as pd
 train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
-test = train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
+test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
 ```
 
 *** =sct
