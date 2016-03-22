@@ -57,7 +57,7 @@ When the Titanic sank, 1502 of the 2224 passengers and crew got killed. One of t
 
 Those that have seen the movie know that some individuals were more likely to survive the sinking (lucky Rose) than others (poor Jack). In this course you will learn how to apply machine learning techniques to predict a passenger's chance of surviving using Python.
 
-Let's start with loading in the training and testing set into your Python environment. You will use the training set to build your model, and the test set to validate it. The data is stored on the web as csv files; their URLs are already available as character strings in the sample code. You can load this data with the read_csv() method from the Pandas library.
+Let's start with loading in the training and testing set into your Python environment. You will use the training set to build your model, and the test set to validate it. The data is stored on the web as `csv` files; their URLs are already available as character strings in the sample code. You can load this data with the `read_csv()` method from the Pandas library.
 
 *** =instructions
 -First import the Pandas library as np.
@@ -67,6 +67,7 @@ Let's start with loading in the training and testing set into your Python enviro
 *** =hint
 
 *** =pre_exercise_code
+
 
 *** =sample_code
 ```{python}
@@ -84,7 +85,7 @@ test_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
 *** =solution
 ```{python}
 # Import the Pandas library
-import pandas as np
+import pandas as pd
 # Load the train and test datasets to create two DataFrames
 train_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
 train = pd.read_csv(train_url)
