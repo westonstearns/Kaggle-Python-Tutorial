@@ -213,4 +213,13 @@ print(train.Survived[train.Sex == 'female'].value_counts(normalize = True))
 
 *** =sct
 
+--- type:NormalExercise xp:100 skills:2
+## Does age play a role?
+
+*** =instructions
+*** =hint
+*** =pre_exercise_code
+*** =sample_code
+*** =solution
+*** =sct
 
