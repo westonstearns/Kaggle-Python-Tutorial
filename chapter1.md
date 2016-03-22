@@ -60,9 +60,9 @@ Those that have seen the movie know that some individuals were more likely to su
 Let's start with loading in the training and testing set into your Python environment. You will use the training set to build your model, and the test set to validate it. The data is stored on the web as `csv` files; their URLs are already available as character strings in the sample code. You can load this data with the `read_csv()` method from the Pandas library.
 
 *** =instructions
--First import the Pandas library as np.
--Load the test data similarly to how the train data is loaded.
--Print the train DataFrame
+- First import the Pandas library as np.
+- Load the test data similarly to how the train data is loaded.
+- Print the train DataFrame
 
 *** =hint
 
