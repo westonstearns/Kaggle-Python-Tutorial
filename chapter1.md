@@ -106,15 +106,15 @@ success_msg("Fantastic. Now you have the data to work with and build your predic
 --- type:MultipleChoiceExercise xp:50 skills:1,3
 ## Understanding your data
 
-Before starting with the actual analysis, it's important to understand the structure of your data. Both `test` and `train` are DataFrame objects, the ay pandas in Python represents datasets. You can easily explore a data using the `.describe()` method. `.describe()` gives you a preview of the top rows of the data, and summurizes the columns/features of the DataFrame. Another useful trick is to look at the dimentions of the DataFrame. This is done by requesting the `.shape` attribute of your DataFrame object. (ex. `your_data.shape`)
+Before starting with the actual analysis, it's important to understand the structure of your data. Both `test` and `train` are DataFrame objects, the ay pandas in Python represents datasets. You can easily explore a data using the `.describe()` method. `.describe()` summurizes the columns/features of the DataFrame, including the count of observations, mean, max ans so on. Another useful trick is to look at the dimentions of the DataFrame. This is done by requesting the `.shape` attribute of your DataFrame object. (ex. `your_data.shape`)
 
 The training and test set are already available in the workspace, as `train` and `test`. Apply `.describe()` method and print the `.shape` attribute of the training set. Which of the following statements is correct?
 
 *** =instructions
-- The training set has 891 observations and 12 variables.
-- The training set has 418 observations and 11 variables.
-- The testing set has 891 observations and 11 variables.
-- The testing set has 418 observations and 12 variables.
+- The training set has 891 observations and 12 variables, count for Age is 714.
+- The training set has 418 observations and 11 variables, count for Age is 891.
+- The testing set has 891 observations and 11 variables, count for Age is 891.
+- The testing set has 418 observations and 12 variables, count for Age is 714.
 
 *** =hint
 
