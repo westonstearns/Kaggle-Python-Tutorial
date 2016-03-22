@@ -22,6 +22,10 @@ Lets begin by evaluating algebraic expressions and assigning values to variables
 *** =hint
 
 *** =pre_exercise_code
+```{python}
+t1 = 4
+t2 = 8
+```
 
 *** =sample_code
 ```{python}
