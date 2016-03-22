@@ -223,3 +223,13 @@ print(train.Survived[train.Sex == 'female'].value_counts(normalize = True))
 *** =solution
 *** =sct
 
+--- type:NormalExercise xp:100 skills:2
+## First Prediction
+
+*** =instructions
+*** =hint
+*** =pre_exercise_code
+*** =sample_code
+*** =solution
+*** =sct
+
