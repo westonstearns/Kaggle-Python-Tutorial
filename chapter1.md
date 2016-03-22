@@ -22,7 +22,8 @@ Just add a line of Python code that calculates the product of 6 and 9, just like
 
 *** =pre_exercise_code
 ```{python}
-
+x = 0
+y = 0
 ```
 
 *** =sample_code
