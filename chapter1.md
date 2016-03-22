@@ -216,6 +216,18 @@ print(train.Survived[train.Sex == 'female'].value_counts(normalize = True))
 --- type:NormalExercise xp:100 skills:2
 ## Does age play a role?
 
+Another variable that could influence survival is age; it's probable that children were saved first. You can test this by creating a new column with a categorical variable `child`. `child` will take the value 1 in cases where age is <18, and a value of 0 in cases where age is >=18. 
+
+To add this new variable you need to do two things (i) create a new column, and (ii) provide the values for each observation (i.e., row) based on the age of the passenger.
+
+Adding a new column with Pandas in Python is easy and can be done via the `your_data["new_var"] = 10` syntax. This code would create a new column in the `train` DataFrame titled `new_var` with `10` for each observation.
+
+To set the values based on the age of the passenger, you make use of a boolean test inside the square bracket operator. With the `[]`-operator you create a subset of rows and assign a value to a certain variable of that subset of observations. For example,
+```
+train.new_var[train$Survived == 1] <- 0
+```
+would give a value of 0 to the variable `new_var` for the subset of passengers that survived the disaster.
+
 *** =instructions
 *** =hint
 *** =pre_exercise_code
