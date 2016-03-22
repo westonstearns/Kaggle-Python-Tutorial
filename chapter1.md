@@ -1,14 +1,30 @@
 ---
-title       : Raising anchor
-description : something ok
+title       : Getting Started with Python
+description : In this chapter we will go trough the essential steps that you will need to take before beginning to beuil predictive models.
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
 --- type:NormalExercise xp:100 skills:1
 ## How it works
 
-*** =video_link
-//player.vimeo.com/video/154783078
+*** =instructions
+Lets begin by evaluating algebraic expressions and assigning values to variables
+
+*** =hint
+
+*** =pre_exercise_code
+
+*** =sample_code
+```{python}
+#Begin by evaluating algebraic expressions and assigning values to variables
+```
+*** =solution
+
+*** =sct
+
+
+
+
 
 --- type:MultipleChoiceExercise lang:python xp:50 skills:1
 ## A really bad movie
