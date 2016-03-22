@@ -6,56 +6,50 @@ attachments :
 
 --- type:NormalExercise xp:100 skills:2
 ## How it works
-To gain some initial familiarity with Python lets do some very basic operations.
-First we can do arithmatic and algebra:
-Adittion: 5 + 7
-Subtraction: 7 - 5
-Multiplication: 5*7
-Division: 35/5
-We can use the = operator to assign variables and make life simpler:
-Say x1 = 5 and x2 = 7,
-then y = (x1*x2)/x1 + x2 = 14
+Welcome to our Kaggle Machine Learning Tutorial. In this tutorial you will explore how to tackle Kaggle's Titanic competition using Python and Machine Learning. In case you're new to Python, it's recommended that you first take our free [Introduction to Python for Data Science Tutorial](https://www.datacamp.com/courses/intro-to-python-for-data-science). Furthermore, while not required, familiarity with machine learning techniques is a plus so you can get the maximum out of this tutorial.
+
+In the editor on the right you should type Python code to solve the exercises. When you hit the 'Submit Answer' button, every line of code is interpreted and executed by Python and you get a message whether or not your code was correct. The output of your Python code is shown in the console in the lower right corner. Python makes use of the # sign to add comments; these lines are not run as Python code, so they will not influence your result.
+
+You can also execute Python commands straight in the console. This is a good way to experiment with Python code, as your submission is not checked for correctness.
 
 *** =instructions
-Lets begin by evaluating algebraic expressions and assigning values to variables
+- In the editor to the right you see some Python code and annotations. This is what a typical exercise with look like.
+- To complete the exercise and see how the interavtive environment works  add the code to compute y and hit the 'Submit Answer' button. Don't forget to print the result.
 
 *** =hint
 
+Just add a line of Python code that calculates the product of 6 and 9, just like the example in the sample code!
+
 *** =pre_exercise_code
 ```{python}
-t1 = 4
-t2 = 8
+
 ```
 
 *** =sample_code
 ```{python}
-#Begin by evaluating algebraic expressions and assigning values to variables: t1 = 4, t2 = 8. Don't froget to print
+#Compute x = 4 * 3 and print the result
+x = 4 * 3
+print(x)
 
-#Add the two variables
-
-#Subtract t2 from t1: negative numbers work
-
-#Multiply the two variables
-
-#Compute the ratio of the sum and difference of t2 and t1 and assign to y:
+#Compute y = 6 * 9 and print the result
 
 ```
 *** =solution
 ```{python}
-#Begin by evaluating algebraic expressions and assigning values to variables: t1 = 4, t2 = 8. Don't froget to print
+#Compute x = 4 * 3 and print the result
+x = 4 * 3
+print(x)
 
-#Add the two variables
-print(t1 + t2)
-#Subtract t2 from t1: negative numbers work
-print(t2 - t1)
-#Multiply the two variables
-print(t1*t2)
-#Compute the ratio of the sum and difference of t2 and t1 and assign to y:
-y = (t2+t1)/(t2-t1)
+#Compute y = 6 * 9 and print the result
+y = 6*9
 print(y)
+
 ```
 
 *** =sct
+```{python}
+success_msg("Awesome! See how the console shows the result of the Python code you submitted? Now that you're familiar with the interface, let's get down to business!")
+```
 
 --- type:NormalExercise xp:100 skills:2
 ## Get the Data with Pandas
