@@ -146,18 +146,70 @@ train.Survived.value_counts(normalize = True)
 
 If you run these commands in the console, you'll see that 549 individuals died (62%) and 342 survived (38%). A simple way prediction heuristic could be: "majority wins". This would mean that you will predict every unseen observation to not survive.
 
-In general, the `table()` command can help you to explore what variables have predictive value. For example, maybe gender could play a role as well? You can explore this using the `table()` function for a two-way comparison on the number of males and females that survived, with this syntax:
+To dive in a little deaper we can prefrom similar pounts and percentage calculations on subsets of the Survived column. For example, maybe gender could play a role as well? You can explore this using the `.value_counts()` method for a two-way comparison on the number of males and females that survived, with this syntax:
 
 ```
-table(train$Sex, train$Survived)
+train.Survived[train.Sex == 'male'].value_counts()
+train.Survived[train.Sex == 'female'].value_counts()
 ```
 
-To get proportions, you can again wrap `prop.table()` around `table()`, but you'll have to specify whether you want row-wise or column-wise proportions. This is done by setting the second argument of `prop.table()`, called `margin`, to 1 or 2, respectively.
+To get proportions, you can again pass in the argument `normalize = True` to the `.value_counts()` method.
+
 *** =instructions
+
+
 *** =hint
+
 *** =pre_exercise_code
+```{python}
+import pandas as pd
+train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
+test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
+```
+
 *** =sample_code
+```{python}
+
+# Passengers that survived vs passengers that passed away
+
+
+# As proportions
+
+
+# Males that survived vs males that passed away
+
+
+# Females that survived vs Females that passed away
+
+
+# Normalized male survival
+
+
+# Normalized female survival
+
+```
+
 *** =solution
+```{python}
+
+# Passengers that survived vs passengers that passed away
+print(train.Survived.value_counts())
+
+# As proportions
+print(train.Survived.value_counts(normalize = True))
+
+# Males that survived vs males that passed away
+print(train.Survived[train.Sex == 'male'].value_counts()
+
+# Females that survived vs Females that passed away
+print(train.Survived[train.Sex == 'female'].value_counts())
+
+# Normalized male survival
+print(train.Survived[train.Sex == 'male'].value_counts(normalize = True))
+# Normalized female survival
+print(train.Survived[train.Sex == 'female'].value_counts(normalize = True))
+```
+
 *** =sct
 
 
