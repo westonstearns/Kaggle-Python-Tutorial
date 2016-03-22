@@ -267,8 +267,8 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 ```{python}
 # Create the column child, and indicate whether child or no child
 train["Child"] = float('NaN')
-train.Child[train$Age < 18] = 1
-train.Child[train$Age >= 18] = 0
+train.Child[train.Age < 18] = 1
+train.Child[train.Age >= 18] = 0
 
 # Normalized Survival Rates for under 18
 print(train.Survived[train.Child == 1].value.count(normalize = True))
