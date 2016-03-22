@@ -33,8 +33,8 @@ x = 4 * 3
 print(x)
 
 #Compute y = 6 * 9 and print the result
-
 ```
+
 *** =solution
 ```{python}
 #Compute x = 4 * 3 and print the result
@@ -44,7 +44,6 @@ print(x)
 #Compute y = 6 * 9 and print the result
 y = 6*9
 print(y)
-
 ```
 
 *** =sct
@@ -54,10 +53,16 @@ success_msg("Awesome! See how the console shows the result of the Python code yo
 
 --- type:NormalExercise xp:100 skills:2
 ## Get the Data with Pandas
+When the Titanic sank, 1502 of the 2224 passengers and crew got killed. One of the main reasons for this high level of casualties was the lack of lifeboats on this self-proclaimed "unsinkable" ship.
+
+Those that have seen the movie know that some individuals were more likely to survive the sinking (lucky Rose) than others (poor Jack). In this course you will learn how to apply machine learning techniques to predict a passenger's chance of surviving using Python.
+
+Let's start with loading in the training and testing set into your Python environment. You will use the training set to build your model, and the test set to validate it. The data is stored on the web as csv files; their URLs are already available as character strings in the sample code. You can load this data with the read_csv() method from the Pandas library.
 
 *** =instructions
-First we will need to import the Pandas library.
-Then we will load the data from the web.
+-First import the Pandas library as np.
+-Load the test data similarly to how the train data is loaded.
+-Print the train DataFrame
 
 *** =hint
 
@@ -65,24 +70,36 @@ Then we will load the data from the web.
 
 *** =sample_code
 ```{python}
-# Imprt the Pandas library
+# Import the Pandas library
 
 # Load the train and test datasets to create two DataFrames
+train_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
+train = pd.read_csv(train_url)
+
+test_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
+
+#Print the train DataFrame
 
 ```
 *** =solution
 ```{python}
-# Imprt the Pandas library
-import pandas as pd
-
+# Import the Pandas library
+import Pnadas as np
 # Load the train and test datasets to create two DataFrames
-train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
-test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
+train_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
+train = pd.read_csv(train_url)
 
+test_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
+test = train = pd.read_csv(test_url)
+
+#Print the train DataFrame
+print(train)
 ```
 
 *** =sct
-
+```{python}
+success_msg("Fantastic. Now you have the data to work with and build your predictive models")
+```
 
 
 --- type:MultipleChoiceExercise lang:python xp:50 skills:1
