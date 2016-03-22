@@ -222,7 +222,9 @@ To add this new variable you need to do two things (i) create a new column, and 
 
 Adding a new column with Pandas in Python is easy and can be done via the 
 
-```your_data["new_var"] = 10```
+```
+your_data["new_var"] = 10
+```
 
 syntax. This code would create a new column in the `train` DataFrame titled `new_var` with `10` for each observation.
 
