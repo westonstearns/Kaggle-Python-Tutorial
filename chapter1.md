@@ -283,10 +283,47 @@ print(train.Survived[train.Child == 0].value_counts(normalize = True))
 --- type:NormalExercise xp:100 skills:2
 ## First Prediction
 
+In one of the previous exercises you discovered that in your training set, females had over a 50% chance of surviving and males had less than a 50% chance of surviving. Hence, you could use this information for your first prediction: all females in the test set survive and all males in the test set die. 
+
+You use your test set for validating your predictions. You might have seen that, contrary to the training set, the test set has no `Survived` column. You add such a column using your predicted values. Next, when uploading your results, Kaggle will use this variable (= your predictions) to score your performance. 
+
 *** =instructions
+- Create a variable `test_one`, identical to dataset `test`
+- Add an additional column, `Survived`, that you initialize to zero.
+- Use vector subsetting like in the previous exercise to set the value of `Survived` to 1 for observations whose `Sex` equals `"female"`.
 *** =hint
 *** =pre_exercise_code
+
+```{python}
+import pandas as pd
+train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
+test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
+```
+
 *** =sample_code
+
+```{python}
+# Create a copy of test: test_one
+
+
+# Initialize a Survived column to 0
+
+
+# Set Survived to 1 if Sex equals "female"
+```
+
 *** =solution
+
+```{python}
+# Create a copy of test: test_one
+test_one = test
+
+# Initialize a Survived column to 0
+test_one["Survived"] = 0
+
+# Set Survived to 1 if Sex equals "female"
+test_one.Survived[test_one.Sex == female] = 1
+```
+
 *** =sct
 
