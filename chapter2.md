@@ -4,3 +4,123 @@ description : After making your first predictions in the previous chapter, it's 
 will be introduced to a fundamental concept in machine learning: decision trees.
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
+
+--- type:NormalExercise xp:100 skills:2
+## Intro to decision trees
+
+In the previous chapter you did all the slicing and dicing yourself to find subsets that have a higher chance of surviving. A decision tree automates this process for you, and outputs a flowchart-like structure that is easy to interpret (you'll make one yourself in the next exercise). 
+
+Conceptually, the decision tree algorithm starts with all the data at the root node and scans all the variables for the best one to split on. Once a variable is chosen, you do the split and go down one level (or one node) and repeat. The final nodes at the bottom of the decision tree are known as terminal nodes, and the majority vote of the observations in that node determine how to predict for new observations that end up in that terminal node.
+
+--- type:NormalExercise xp:100 skills:2
+## Creating your first decision tree
+
+You will use the the `rpart()` function inside of the [`rpart`](http://www.rdocumentation.org/packages/rpart) package to build your first decision tree. The `rpart()` function takes multiple arguments (type in `?rpart` and discover it yourself): 
+
+- `formula`: The variable of interest, and the variables used for prediction. You write this down as `formula = Survived ~ Sex + Age`.
+- `data`: The data set used to build the decision tree (here `train`).
+- `method`: Type of prediction you want. Here you predict a categorical variable (dead or alive), so you're classifying: `method = "class"`.
+
+So to summarize, your code would look something like this: 
+
+```
+my_tree <- rpart(Survived ~ Sex + Age, 
+                 data = train, 
+                 method ="class")
+```
+
+To visualize the resulting decision tree, you can use the functions `plot()` and `text()`:
+
+```
+plot(my_tree)
+text(my_tree)
+``` 
+
+If you tried out the above commands, you probably noticed the resulting graphs are not that informative. Luckily, R has packages to make these plots way fancier: [`rattle`](http://www.rdocumentation.org/packages/rattle), [`rpart.plot`](http://www.rdocumentation.org/packages/rpart.plot), and [`RColorBrewer`](http://www.rdocumentation.org/packages/RColorBrewer).
+
+*** =instructions
+*** =hint
+*** =pre_exercise_code
+*** =sample_code
+*** =solution
+*** =sct
+
+--- type:MultipleChoiceExercise xp:50 skills:2
+## Interpreting your decision tree
+
+On the right, you see the decision tree you just created. Looks nice, doesn't it? It's a very clear graph, that is easy to read and to interpret. Also, you see that thanks to the algorithm we can easily take into account more variables as opposed to creating the segments manually. 
+
+Based on your decision tree, what variables play the most important role to determine whether or not a passenger will survive? 
+
+*** =instructions
+*** =hint
+*** =pre_exercise_code
+*** =sample_code
+*** =solution
+*** =sct
+
+--- type:NormalExercise xp:100 skills:2
+## Predict and submit to Kaggle
+
+To send a submission to Kaggle you need to predict the survival rates for the observations in the test set. In the last exercise of the previous chapter we created rather amateuristic predictions based on a single subset or none at all. Luckily, with our decision tree we can make use of some simple functions to "generate" our answer without having to manually perform subsetting.
+
+First you make use of the rpart `predict()` function. You provide it the model (`my_tree_two`), the dataset for which predictions need to be made (`test`), and the type of prediction (`class`). You can check out the documentation of `predict()` by running `?predict` in the console.
+
+Next, you need to make sure your output is in line with the submission requirements of Kaggle: a csv file with exactly 418 entries and two columns: `PassengerId` and `Survived`. So you need to make a new data frame using `data.frame()`, and create a csv file using `write.csv()`.
+
+*** =instructions
+*** =hint
+*** =pre_exercise_code
+*** =sample_code
+*** =solution
+*** =sct
+
+--- type:NormalExercise xp:100 skills:1,6
+## Overfitting, the iceberg of decision trees
+
+If you submitted the solution of the previous exercise, you got a result that outperforms a solution using purely gender. Hurray! 
+
+Maybe we can improve even more by making a more complex model? In `rpart`, the depth of our model is defined by two parameters:
+- the `cp` parameter determines when the splitting up of the decision tree stops.
+- the `minsplit` parameter monitors the amount of observations in a bucket. If a certain threshold is not reached (e.g minimum 10 passengers) no further splitting can be done.
+
+Stated otherwise, if we set `cp` to zero (= no stopping of splits) and minsplit to 2 (= smallest bucket possible) we will create a super model! Or not? You can see the visualization by typing `fancyRpartPlot(super_model)`. Looking complex, right? 
+
+However, if you submit this solution to Kaggle your score will be lower than the score of a simple model based on e.g. gender. Why? Because you went too far when setting the rules for the decisions trees. You created very specific rules based on the data in the training set that are hence only relevant for the training set but that cannot be generalized to unknown sets. You overfitted. So when creating decision trees, always be aware of this danger!
+
+*** =instructions
+*** =hint
+*** =pre_exercise_code
+*** =sample_code
+*** =solution
+*** =sct
+
+--- type:NormalExercise xp:100 skills:1,6
+## Re-engineering our Titanic data set
+
+Data Science is an art that benefits from a human element. Enter feature engineering: creatively engineering your own features by combining the different existing variables. 
+
+While feature engineering is a discipline in itself, too broad to be covered here in detail, you will have a look at a simple example by creating your own new predictive attribute: `family_size`.  
+
+A valid assumption is that larger families need more time to get together on a sinking ship, and hence have less chance of surviving. Family size is determined by the variables `SibSp` and `Parch`, which indicate the number of family members a certain passenger is traveling with. So when doing feature engineering, you add a new variable `family_size`, which is the sum of `SibSp` and `Parch` plus one (the observation itself), to the test and train set.
+
+*** =instructions
+*** =hint
+*** =pre_exercise_code
+*** =sample_code
+*** =solution
+*** =sct
+
+--- type:NormalExercise xp:100 skills:1,6
+## Passenger Title and survival rate
+
+Was it coincidence that upper-class Rose survived and third-class passenger Jack not? Let's have a look... 
+
+You have access to a new train and test set named `train_new` and `test_new`. These data sets contain a new column with the name `Title` (referring to Miss, Mr, etc.). `Title` is another example of feature engineering: creating a new variable that possible improves the model.
+
+*** =instructions
+*** =hint
+*** =pre_exercise_code
+*** =sample_code
+*** =solution
+*** =sct
