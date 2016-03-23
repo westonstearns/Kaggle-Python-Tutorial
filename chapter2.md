@@ -46,7 +46,7 @@ from sklearn import tree
 You will use the `skit-learn` and `numpy` libraries to build your first decision tree. `skit-learn` can be used to create `tree` objects from the `DecisionTreeClassifier` class. The methods that we will require take `numpy` arrays as imputs and therefore we will need to create those from the `DataFrame` that we already have. We will need the following to build a decision tree
 
 - `target`: A one dimentional numpy array containing the target/responce from the train data. (Survival in your case)
-- `data`: A multidimentional numpy array containing the features/predictors from the train data. (ex. Age, Sex)
+- `data`: A multidimentional numpy array containing the features/predictors from the train data. (ex. Pclass, Fare)
 
 To how this would look like, take a look at the sample code below: 
 
