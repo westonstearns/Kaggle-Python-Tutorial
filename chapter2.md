@@ -12,6 +12,34 @@ In the previous chapter you did all the slicing and dicing yourself to find subs
 
 Conceptually, the decision tree algorithm starts with all the data at the root node and scans all the variables for the best one to split on. Once a variable is chosen, you do the split and go down one level (or one node) and repeat. The final nodes at the bottom of the decision tree are known as terminal nodes, and the majority vote of the observations in that node determine how to predict for new observations that end up in that terminal node.
 
+Before you begin building decision trees, you first need to import the necessary libraries:
+
+*** =instructions
+- Import the `numpy` library as `np`
+- From `sklearn` import the `tree`
+*** =hint
+*** =pre_exercise_code
+*** =sample_code
+```{python}
+#Import the Numpy library
+
+#Import 'tree' from scikit-learn library
+from sklearn 
+
+```
+
+*** =solution
+```{python}
+#Import the Numpy library
+Import numpy as np
+
+#Import 'tree' from scikit-learn library
+from sklearn import tree
+
+```
+
+*** =sct
+
 --- type:NormalExercise xp:100 skills:2
 ## Creating your first decision tree
 
@@ -23,28 +51,69 @@ You will use the `skit-learn` and `numpy` libraries to build your first decision
 To how this would look like, take a look at the sample code below: 
 
 ```
-target = np.array([train.Survived])
-features = np.array([train.Sex,train.Pclass, train.Age, train.Fare])
+target = np.array(train.Survived).transpose()
+
+features = np.array([train.Pclass, train.Fare]).transpose()
 
 my_tree = tree.DecisionTreeClassifier()
+
 my_tree = my_tree.fit(features, target)
 
 ```
 
-To visualize the resulting decision tree, you can use the functions `plot()` and `text()`:
+One way to see the result of your decision tree is to see the importance of the features that are included which can be done by requesting the `.feature_importances_` attribute of your tree object.
 
-```
-plot(my_tree)
-text(my_tree)
-``` 
+Ok time for you to build your first decision tree in Python! The train and testing data from chapter 1 are avaliable in your workspace.
 
-If you tried out the above commands, you probably noticed the resulting graphs are not that informative. Luckily, R has packages to make these plots way fancier: [`rattle`](http://www.rdocumentation.org/packages/rattle), [`rpart.plot`](http://www.rdocumentation.org/packages/rpart.plot), and [`RColorBrewer`](http://www.rdocumentation.org/packages/RColorBrewer).
 
 *** =instructions
+- Build a decision tree `my_tree_two` to predict survival based on the variables Passenger Class, Number of Siblings/Spouses Aboard, Number of Parents/Children Aboard, and Passenger Fare.
+- Look at the importance of features in your tree. Did the importance for features in the first tree change?
+
 *** =hint
 *** =pre_exercise_code
+```{python}
+Import pandas an pd
+Import numpy as np
+from sklearn import tree
+train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
+test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
+
+```
 *** =sample_code
+```{Python}
+#Print the train data to see the avaliable features
+
+#Create the target and features numpy arrays: target, features
+
+#Fit your first decision tree: my_tree_two
+
+#Look at the importance of the included features
+
+```
+
 *** =solution
+
+```{Python}
+#Print the train data to see the avaliable features
+
+print(train)
+
+#Create the target and features numpy arrays: target, features
+
+target = np.array(train.Survived).transpose()
+features = np.array([train.Pclass, train.Fare, train.SibSp, train.Parch]).transpose()
+
+#Fit your first decision tree: my_tree_two
+
+my_tree_two = tree.DecisionTreeClassifier()
+my_tree_two = my_tree.fit(features, target)
+
+#Look at the importance of the included features
+my_tree_two.feature_importances_
+
+```
+
 *** =sct
 
 --- type:MultipleChoiceExercise xp:50 skills:2
