@@ -31,7 +31,7 @@ from sklearn
 *** =solution
 ```{python}
 #Import the Numpy library
-Import numpy as np
+import numpy as np
 
 #Import 'tree' from scikit-learn library
 from sklearn import tree
