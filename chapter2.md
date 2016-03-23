@@ -84,9 +84,15 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 ```{Python}
 #Print the train data to see the avaliable features
 
+
+
 #Create the target and features numpy arrays: target, features
 
+
+
 #Fit your first decision tree: my_tree_two
+
+
 
 #Look at the importance of the included features
 
