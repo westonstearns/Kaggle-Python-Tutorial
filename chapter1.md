@@ -306,7 +306,9 @@ You use your test set for validating your predictions. You might have seen that,
 - Use vector subsetting like in the previous exercise to set the value of `Survived` to 1 for observations whose `Sex` equals `"female"`.
 
 *** =hint
-
+- To create a new variable, `y`, that is a copy of `x`, you can use `y = x`.
+- To initialize a new column `a` in a data frame `data` to zero, you can use `data['a'] = 0`.
+- Have another look at the previous exercise if you're struggling with the third instruction.
 
 *** =pre_exercise_code
 
