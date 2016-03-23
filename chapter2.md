@@ -15,18 +15,20 @@ Conceptually, the decision tree algorithm starts with all the data at the root n
 --- type:NormalExercise xp:100 skills:2
 ## Creating your first decision tree
 
-You will use the the `rpart()` function inside of the [`rpart`](http://www.rdocumentation.org/packages/rpart) package to build your first decision tree. The `rpart()` function takes multiple arguments (type in `?rpart` and discover it yourself): 
+You will use the `skit-learn` and `numpy` libraries to build your first decision tree. `skit-learn` can be used to create `tree` objects from the `DecisionTreeClassifier` class. The methods that we will require take `numpy` arrays as imputs and therefore we will need to create those from the `DataFrame` that we already have. We will need the following to build a decision tree
 
-- `formula`: The variable of interest, and the variables used for prediction. You write this down as `formula = Survived ~ Sex + Age`.
-- `data`: The data set used to build the decision tree (here `train`).
-- `method`: Type of prediction you want. Here you predict a categorical variable (dead or alive), so you're classifying: `method = "class"`.
+- `target`: A one dimentional numpy array containing the target/responce from the train data. (Survival in your case)
+- `data`: A multidimentional numpy array containing the features/predictors from the train data. (ex. Age, Sex)
 
-So to summarize, your code would look something like this: 
+To how this would look like, take a look at the sample code below: 
 
 ```
-my_tree <- rpart(Survived ~ Sex + Age, 
-                 data = train, 
-                 method ="class")
+target = np.array([train.Survived])
+features = np.array([train.Sex,train.Pclass, train.Age, train.Fare])
+
+my_tree = tree.DecisionTreeClassifier()
+my_tree = my_tree.fit(features, target)
+
 ```
 
 To visualize the resulting decision tree, you can use the functions `plot()` and `text()`:
