@@ -65,6 +65,8 @@ Let's start with loading in the training and testing set into your Python enviro
 - Print the train DataFrame
 
 *** =hint
+- You can load in the training set with `train = read_csv(train_url)`
+- To print a variable to the console, simply type the name of the variable on a new line.
 
 *** =pre_exercise_code
 
@@ -117,7 +119,7 @@ The training and test set are already available in the workspace, as `train` and
 - The testing set has 418 observations and 12 variables, count for Age is 714.
 
 *** =hint
-
+To see the description of the `test` variable try `test.describe()`.
 
 *** =pre_exercise_code
 ```{python}
@@ -159,6 +161,7 @@ To get proportions, you can again pass in the argument `normalize = True` to the
 
 
 *** =hint
+
 
 *** =pre_exercise_code
 ```{python}
