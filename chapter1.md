@@ -65,7 +65,7 @@ Let's start with loading in the training and testing set into your Python enviro
 - Print the train DataFrame
 
 *** =hint
-- You can load in the training set with `train = read_csv(train_url)`
+- You can load in the training set with `train = pd.read_csv(train_url)`
 - To print a variable to the console, simply type the name of the variable on a new line.
 
 *** =pre_exercise_code
@@ -158,10 +158,13 @@ train.Survived[train.Sex == 'female'].value_counts()
 To get proportions, you can again pass in the argument `normalize = True` to the `.value_counts()` method.
 
 *** =instructions
-
+- Calculate the survival rates in absolute numbers using `values_counts()` method.
+- Calculate the survival rates as proportions by setting the `normalize` argument to `True`.
+- Repeat the same calculations, but on subsets of survivals based in Sex.
 
 *** =hint
-
+- The code for the first four tasks is already given in the assignment!
+- Think about the `normalization` argument, and don't forget to print.
 
 *** =pre_exercise_code
 ```{python}
@@ -295,6 +298,12 @@ You use your test set for validating your predictions. You might have seen that,
 - Add an additional column, `Survived`, that you initialize to zero.
 - Use vector subsetting like in the previous exercise to set the value of `Survived` to 1 for observations whose `Sex` equals `"female"`.
 *** =hint
+Suppose you wanted to add a new column `clothes` to the `test` set and give all males the value `"pants"` and the others `"skirt"`:
+```
+test['clothes'] <- "skirt"
+test.clothes[test.Sex == "male"] = "pants"
+```
+
 *** =pre_exercise_code
 
 ```{python}
