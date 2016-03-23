@@ -248,6 +248,13 @@ would give a value of 0 to the variable `new_var` for the subset of passengers t
 - Compare the normalized survival rates for those who are <18 and those who are older. Use code similar to what you had in the previous exercise.
 
 *** =hint
+Suppose you wanted to add a new column `clothes` to the `test` set and give all males the value `"pants"` and the others `"skirt"`:
+```
+test['clothes'] <- "skirt"
+test.clothes[test.Sex == "male"] = "pants"
+```
+
+
 *** =pre_exercise_code
 
 ```{python}
@@ -297,12 +304,9 @@ You use your test set for validating your predictions. You might have seen that,
 - Create a variable `test_one`, identical to dataset `test`
 - Add an additional column, `Survived`, that you initialize to zero.
 - Use vector subsetting like in the previous exercise to set the value of `Survived` to 1 for observations whose `Sex` equals `"female"`.
+
 *** =hint
-Suppose you wanted to add a new column `clothes` to the `test` set and give all males the value `"pants"` and the others `"skirt"`:
-```
-test['clothes'] <- "skirt"
-test.clothes[test.Sex == "male"] = "pants"
-```
+
 
 *** =pre_exercise_code
 
