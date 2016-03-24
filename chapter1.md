@@ -100,9 +100,8 @@ print(train)
 ```
 
 *** =sct
-```{python}
-success_msg("Fantastic. Now you have the data to work with and build your predictive models!")
-```
+
+success_msg("Well done! Now that your data is loaded in, let's see if you can understand it.")
 
 
 --- type:MultipleChoiceExercise xp:50 skills:2
@@ -129,7 +128,7 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 ```
 
 *** =sct
-success_msg("Well done! Now that your data is loaded in, let's see if you can understand it.")
+success_msg("Well done! Now lets move on and explore some of the features in more detail")
 
 --- type:NormalExercise xp:100 skills:1
 ## Rose vs Jack, or Female vs Male
