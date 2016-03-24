@@ -169,8 +169,9 @@ Next, you need to make sure your output is in line with the submission requireme
 - Make a prediction on the test set using the `.predict()` method and `my_tree_two`. Assign the result to `my_prediction`.
 - Create a data frame `my_solution` containing the solution and the passenger ids from the test set. Make sure the solution is in line with the standards set forth by Kaggle.
 - Check the data frame has 418 entries using `.shape` attribute.
-- Turn your solution into a csv file with the name `my_solution.csv`, ready for submission. Do not forget to set the `file` argument to `"my_solution.csv"`.
-- 
+- Turn your solution into a csv file with the name `my_solution.csv`, ready for submission. Do not forget to set the `file` argument to
+`"my_solution.csv"`.
+
 *** =hint
 *** =pre_exercise_code
 *** =sample_code
