@@ -5,7 +5,7 @@ will be introduced to a fundamental concept in machine learning: decision trees.
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
---- type:NormalExercise xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2
 ## Intro to decision trees
 
 In the previous chapter you did all the slicing and dicing yourself to find subsets that have a higher chance of surviving. A decision tree automates this process for you, and outputs a flowchart-like structure that is easy to interpret (you'll make one yourself in the next exercise). 
@@ -40,7 +40,7 @@ from sklearn import tree
 
 *** =sct
 
---- type:NormalExercise xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2
 ## Creating your first decision tree
 
 You will use the `skit-learn` and `numpy` libraries to build your first decision tree. `skit-learn` can be used to create `tree` objects from the `DecisionTreeClassifier` class. The methods that we will require take `numpy` arrays as imputs and therefore we will need to create those from the `DataFrame` that we already have. We will need the following to build a decision tree
@@ -122,7 +122,7 @@ my_tree_two.feature_importances_
 
 *** =sct
 
---- type:MultipleChoiceExercise xp:50 skills:2
+--- type:MultipleChoiceExercise lang:python xp:50 skills:2
 ## Interpreting your decision tree
 
 On the right, you see the decision tree you just created. Looks nice, doesn't it? It's a very clear graph, that is easy to read and to interpret. Also, you see that thanks to the algorithm we can easily take into account more variables as opposed to creating the segments manually. 
@@ -136,7 +136,7 @@ Based on your decision tree, what variables play the most important role to dete
 *** =solution
 *** =sct
 
---- type:NormalExercise xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2
 ## Predict and submit to Kaggle
 
 To send a submission to Kaggle you need to predict the survival rates for the observations in the test set. In the last exercise of the previous chapter we created rather amateuristic predictions based on a single subset or none at all. Luckily, with our decision tree we can make use of some simple functions to "generate" our answer without having to manually perform subsetting.
@@ -152,7 +152,7 @@ Next, you need to make sure your output is in line with the submission requireme
 *** =solution
 *** =sct
 
---- type:NormalExercise xp:100 skills:1,6
+--- type:NormalExercise lang:python xp:100 skills:2
 ## Overfitting, the iceberg of decision trees
 
 If you submitted the solution of the previous exercise, you got a result that outperforms a solution using purely gender. Hurray! 
@@ -172,7 +172,7 @@ However, if you submit this solution to Kaggle your score will be lower than the
 *** =solution
 *** =sct
 
---- type:NormalExercise xp:100 skills:1,6
+--- type:NormalExercise lang:python xp:100 skills:2
 ## Re-engineering our Titanic data set
 
 Data Science is an art that benefits from a human element. Enter feature engineering: creatively engineering your own features by combining the different existing variables. 
@@ -188,7 +188,7 @@ A valid assumption is that larger families need more time to get together on a s
 *** =solution
 *** =sct
 
---- type:NormalExercise xp:100 skills:1,6
+--- type:NormalExercise lang:python xp:100 skills:2
 ## Passenger Title and survival rate
 
 Was it coincidence that upper-class Rose survived and third-class passenger Jack not? Let's have a look... 
