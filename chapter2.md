@@ -125,7 +125,7 @@ my_tree_two.feature_importances_
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2
 ## Interpreting your decision tree
 
-The `feature_importances_` attribute make it simple to interpret the significance of the predictors you include. Based on your decision tree, what variables play the most important role to determine whether or not a passenger will survive?
+The `feature_importances_` attribute make it simple to interpret the significance of the predictors you include. Based on your decision tree, what variable/s play the most important role to determine whether or not a passenger survived?
 
 *** =instructions
 - Passenger Class, Number of Siblings/Spouses Aboard, Number of Parents/Children Aboard, Passenger Fare
