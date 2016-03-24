@@ -18,6 +18,9 @@ Before you begin building decision trees, you first need to import the necessary
 - Import the `numpy` library as `np`
 - From `sklearn` import the `tree`
 *** =hint
+
+Use the `import` and `as` special keys.
+
 *** =pre_exercise_code
 *** =sample_code
 ```{python}
@@ -71,6 +74,9 @@ Ok time for you to build your first decision tree in Python! The train and testi
 - Look at the importance of features in your tree. Did the importance for features in the first tree change?
 
 *** =hint
+
+
+
 *** =pre_exercise_code
 ```{python}
 Import pandas an pd
