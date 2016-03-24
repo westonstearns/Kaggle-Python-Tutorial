@@ -169,23 +169,50 @@ Next, you need to make sure your output is in line with the submission requireme
 - Make a prediction on the test set using the `.predict()` method and `my_tree_two`. Assign the result to `my_prediction`.
 - Create a data frame `my_solution` containing the solution and the passenger ids from the test set. Make sure the solution is in line with the standards set forth by Kaggle.
 - Check the data frame has 418 entries using `.shape` attribute.
-- Turn your solution into a csv file with the name `my_solution.csv`, ready for submission. Do not forget to set the `file` argument to
-`"my_solution.csv"`.
+- Turn your solution into a csv file with the name `my_solution.csv`, ready for submission. Do not forget to set the `index` argument to `False`.
 
 *** =hint
 *** =pre_exercise_code
 *** =sample_code
+
 ```{python}
+#Extract the features from the test set
+test_features = np.array([test.___, ___, ___, ___]).transpose()
 
-test_features = np.array([test.Pclass, test.Fare, test.SibSp, test.Parch]).transpose()
-pred = my_tree.predict(test_features)
+# Make your prediction using the test set
+my_prediction = my_tree.predict(test_features)
 
-sub = test
-sub['Survive'] = pred
-sub.to_csv()
+# Create a data frame with two columns: PassengerId & Survived. Survived contains your predictions
+my_solution = test.PassengerId
+my_solution['Survive'] = my_prediction
+
+# Check that your data frame has 418 entries
+my_solution.shape
+
+# Write your solution to a csv file with the name my_solution.csv
+my_solution.to_csv("my_solution.csv", ___)
 ```
 
 *** =solution
+
+```{python}
+#Extract the features from the test set
+test_features = np.array([test.Pclass, test.Fare, test.SibSp, test.Parch]).transpose()
+
+# Make your prediction using the test set
+my_prediction = my_tree.predict(test_features)
+
+# Create a data frame with two columns: PassengerId & Survived. Survived contains your predictions
+my_solution = test.PassengerId
+my_solution['Survive'] = my_prediction
+
+# Check that your data frame has 418 entries
+my_solution.shape
+
+# Write your solution to a csv file with the name my_solution.csv
+my_solution.to_csv("my_solution.csv", index = False)
+```
+
 *** =sct
 
 --- type:NormalExercise lang:python xp:100 skills:2
