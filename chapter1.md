@@ -129,9 +129,7 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 ```
 
 *** =sct
-```{python}
-
-```
+success_msg("Well done! Now that your data is loaded in, let's see if you can understand it.")
 
 --- type:NormalExercise xp:100 skills:1
 ## Rose vs Jack, or Female vs Male
@@ -218,6 +216,8 @@ print(train.Survived[train.Sex == 'female'].value_counts(normalize = True))
 ```
 
 *** =sct
+
+success_msg("Well done! It looks like it makes sense to predict that all females will survive, and all men will die.")
 
 --- type:NormalExercise xp:100 skills:2
 ## Does age play a role?
