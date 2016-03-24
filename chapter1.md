@@ -164,7 +164,7 @@ To get proportions, you can again pass in the argument `normalize = True` to the
 
 *** =hint
 - The code for the first four tasks is already given in the assignment!
-- Think about the `normalization` argument, and don't forget to print.
+- Think about the `normalize` argument, and don't forget to print.
 
 *** =pre_exercise_code
 ```{python}
@@ -250,7 +250,7 @@ would give a value of 0 to the variable `new_var` for the subset of passengers t
 *** =hint
 Suppose you wanted to add a new column `clothes` to the `test` set and give all males the value `"pants"` and the others `"skirt"`:
 ```
-test['clothes'] <- "skirt"
+test['clothes'] = "skirt"
 test.clothes[test.Sex == "male"] = "pants"
 ```
 
@@ -344,4 +344,6 @@ test_one.Survived[test_one.Sex == "female"] = 1
 ```
 
 *** =sct
+
+success_msg("Well done! If you want, you can already submit these first predictions to Kaggle [by uploading this csv file](http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/ch1_ex4_solution/my_solution.csv). In the next chapter you will learn how to make more advanced predictions and create your own .csv file from Python.")
 
