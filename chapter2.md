@@ -125,13 +125,32 @@ my_tree_two.feature_importances_
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2
 ## Interpreting your decision tree
 
-On the right, you see the decision tree you just created. Looks nice, doesn't it? It's a very clear graph, that is easy to read and to interpret. Also, you see that thanks to the algorithm we can easily take into account more variables as opposed to creating the segments manually. 
-
-Based on your decision tree, what variables play the most important role to determine whether or not a passenger will survive? 
+The `feature_importances_` attribute make it simple to interpret the significance of the predictors you include. Based on your decision tree, what variables play the most important role to determine whether or not a passenger will survive?
 
 *** =instructions
+- Passenger Class, Number of Siblings/Spouses Aboard, Number of Parents/Children Aboard, Passenger Fare
+- Passenger Class, Number of Siblings/Spouses Aboard, Passenger Fare
+- Passenger Fare
+- Number of Siblings/Spouses Aboard
+
 *** =hint
+Have a close look at the attribute of your tree. What variable has the greatest coefficient? 
+
 *** =pre_exercise_code
+
+```{python}
+Import pandas an pd
+Import numpy as np
+from sklearn import tree
+train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
+test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
+target = np.array(train.Survived).transpose()
+features = np.array([train.Pclass, train.Fare, train.SibSp, train.Parch]).transpose()
+my_tree_two = tree.DecisionTreeClassifier()
+my_tree_two = my_tree.fit(features, target)
+my_tree_two.feature_importances_
+```
+
 *** =sample_code
 *** =solution
 *** =sct
