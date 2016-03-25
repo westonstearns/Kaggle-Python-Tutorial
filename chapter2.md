@@ -12,7 +12,7 @@ In the previous chapter you did all the slicing and dicing yourself to find subs
 
 Conceptually, the decision tree algorithm starts with all the data at the root node and scans all the variables for the best one to split on. Once a variable is chosen, you do the split and go down one level (or one node) and repeat. The final nodes at the bottom of the decision tree are known as terminal nodes, and the majority vote of the observations in that node determine how to predict for new observations that end up in that terminal node.
 
-Before you begin building decision trees, you first need to import the necessary libraries:
+First lets import the necessary libraries:
 
 *** =instructions
 - Import the `numpy` library as `np`
@@ -42,6 +42,36 @@ from sklearn import tree
 ```
 
 *** =sct
+
+--- type:NormalExercise lang:python xp:100 skills:2
+## Cleaning and Formating your Data
+
+Before you can begin constructing your trees you need to get your hands durty and clean the data so that you can use all the features avaliable to you. In the first chapter we saw that the Age variable had some missing value. Missigness is a whole subjec with and in itself, but we will use a simple imputation technique where we substitute each missing value with the median of the all present values.
+
+```
+train["Age"] = train["Age"].fillna(train["Age"].median())
+```
+
+Another problem is that the Sex and Embarcked variables are categorical but in a non-numeric format. Thus we will need to assign each class a unique integer so that Python can handle the information. Embarked also has some missing values which you should impute witht the most common class of embarkation, which is `"S"`.
+
+```
+train.loc[train["Sex"] == "male", "Sex"] = 0
+train.loc[train["Sex"] == "female", "Sex"] = 1
+
+train["Embarked"] = train["Embarked"].fillna("S")
+
+train.loc[train["Embarked"] == "S", "Embarked"] = 0
+train.loc[train["Embarked"] == "C", "Embarked"] = 1
+train.loc[train["Embarked"] == "Q", "Embarked"] = 2
+
+```
+*** =instructions
+*** =hint
+*** =pre_exercise_code
+*** =sample_code
+*** =solution
+*** =sct
+
 
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Creating your first decision tree
@@ -86,6 +116,7 @@ train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/t
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
 
 ```
+
 *** =sample_code
 ```{Python}
 #Print the train data to see the avaliable features
