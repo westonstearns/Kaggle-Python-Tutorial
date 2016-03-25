@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import sklearn as sk
+from sklearn import tree
+
 # Load the train and test datasets to create two DataFrames
 train_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
 train = pd.read_csv(train_url)
@@ -8,22 +10,109 @@ train = pd.read_csv(train_url)
 test_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
 test = pd.read_csv(test_url)
 
+
+## building the first tree
 target = np.array(train.Survived).transpose()
-features = np.array([train.Pclass, train.Fare]).transpose()
+features_one = np.array([train.Pclass, train.Fare, train.SibSp, train.Parch]).transpose()
 
-from sklearn import tree
+my_tree_one = tree.DecisionTreeClassifier()
+my_tree_one = my_tree.fit(features_one, target)
 
-my_tree = tree.DecisionTreeClassifier()
-my_tree = my_tree.fit(features, target)
+#### converting variables and clean the data
+train.loc[train["Sex"] == "male", "Sex"] = 0
+train.loc[train["Sex"] == "female", "Sex"] = 1
 
+train["Embarked"] = train["Embarked"].fillna("S")
+
+train.loc[train["Embarked"] == "S", "Embarked"] = 0
+train.loc[train["Embarked"] == "C", "Embarked"] = 1
+train.loc[train["Embarked"] == "Q", "Embarked"] = 2
+
+train["Age"] = train["Age"].fillna(train["Age"].median())
+
+#### second tree
+
+features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch,train.Embarked]).transpose()
+
+my_tree_two = tree.DecisionTreeClassifier()
+my_tree_two = my_tree_two.fit(features_two, target)
+
+### evaluating the models
+from sklearn.metrics import confusion_matrix
+
+
+pred_vec_two = my_tree_two.predict(features_two)
+pred_vec_one = my_tree.predict(features_one)
+
+def pred_eval(pred_vec,target):
+    cm = confusion_matrix(pred_vec,target)
+    true_positive = cm[0][0]
+    true_negative = cm[1][1]
+    false_positive = cm[0][1]
+    false_negative = cm[1][0]
+    positive = true_positive + false_negative
+    negative = true_negative + false_positive
+    sensitivity = true_positive/positive #proportion of survivals correctly classified (want to maximize)
+    specificity = true_negative/negative #proportion of deaths correctly classified (want to maximize)
+    ppv = true_positive/(true_positive + false_positive)
+    npv = true_negative/(true_negative + false_negative)
+    fnr = false_negative/positive #accordingly minimize 1 - sensitivity
+    fpr = false_positive/negative #accordingly minimize 1 - specificity
+    
+    eval = np.array([cm,sensitivity,specificity,ppv,npv,fnr,fpr])
+    return(eval)
+
+
+#### Graphiong the Tree
+
+
+from sklearn.externals.six import StringIO 
+import pydot
+dot_data = StringIO() 
+tree.export_graphviz(my_tree, out_file = dot_data)
+graph = pydot.graph_from_dot_data(dot_data.getvalue())
+graph.write_pdf("tree.pdf")
+
+from sklearn.externals.six import StringIO
+with open("tree.dot", 'w') as f:
+    f = tree.export_graphviz(my_tree_two, out_file=f)
+
+from IPython.display import Image
+dot_data = StringIO()
+tree.export_graphviz(my_tree_two, out_file=dot_data,  filled=True, rounded=True,  special_characters=True)
+graph = pydot.graph_from_dot_data(dot_data.getvalue())
+
+
+
+#### Useful Attributes
 my_tree.feature_importances_
 my_tree.tree_
 my_tree.n_classes_
 my_tree.n_features_
 my_tree.classes_
 
-import matplotlib.pyplot as plt
-pred = my_tree.predict(features)
 
-plt.hist(pred)
-plt.hist(target)
+
+####  Clean the test data.
+test.loc[test["Sex"] == "male", "Sex"] = 0
+test.loc[test["Sex"] == "female", "Sex"] = 1
+
+test["Embarked"] = test["Embarked"].fillna("S")
+
+test.loc[test["Embarked"] == "S", "Embarked"] = 0
+test.loc[test["Embarked"] == "C", "Embarked"] = 1
+test.loc[test["Embarked"] == "Q", "Embarked"] = 2
+
+test["Age"] = test["Age"].fillna(test["Age"].median())
+
+test.Fare[152] = test.Fare.median()
+
+
+#### Prediction
+
+test_features_one = np.array([test.Pclass, test.Fare, test.SibSp, test.Parch]).transpose()
+pred_one = my_tree_one.predict(test_features_one)
+
+
+test_features_two = np.array([test.Pclass,test.Age,test.Sex, test.Fare, test.SibSp, test.Parch,test.Embarked]).transpose()
+pred_two = my_tree_two.predict(test_features_two)
