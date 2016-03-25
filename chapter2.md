@@ -70,7 +70,7 @@ Ok time for you to build your first decision tree in Python! The train and testi
 
 
 *** =instructions
-- Build a decision tree `my_tree_two` to predict survival based on the variables Passenger Class, Number of Siblings/Spouses Aboard, Number of Parents/Children Aboard, and Passenger Fare.
+- Build a decision tree `my_tree_one` to predict survival based on the variables Passenger Class, Number of Siblings/Spouses Aboard, Number of Parents/Children Aboard, and Passenger Fare.
 - Look at the importance of features in your tree. Did the importance for features in the first tree change?
 
 *** =hint
@@ -96,7 +96,7 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 
 
 
-#Fit your first decision tree: my_tree_two
+#Fit your first decision tree: my_tree_one
 
 
 
@@ -116,13 +116,13 @@ print(train)
 target = np.array(train.Survived).transpose()
 features = np.array([train.Pclass, train.Fare, train.SibSp, train.Parch]).transpose()
 
-#Fit your first decision tree: my_tree_two
+#Fit your first decision tree: my_tree_one
 
-my_tree_two = tree.DecisionTreeClassifier()
-my_tree_two = my_tree.fit(features, target)
+my_tree_one = tree.DecisionTreeClassifier()
+my_tree_one = my_tree.fit(features, target)
 
 #Look at the importance of the included features
-my_tree_two.feature_importances_
+my_tree_one.feature_importances_
 
 ```
 
@@ -166,12 +166,12 @@ my_tree_two.feature_importances_
 
 To send a submission to Kaggle you need to predict the survival rates for the observations in the test set. In the last exercise of the previous chapter we created rather amateuristic predictions based on a single subset or none at all. Luckily, with our decision tree we can make use of some simple functions to "generate" our answer without having to manually perform subsetting.
 
-First you make use of the `.predict()` method. You provide it the model (`my_tree_two`), the values of features from the dataset for which predictions need to be made (`test`). To extract the features we will need to create a numpy array in the same way as we did when training the model.
+First you make use of the `.predict()` method. You provide it the model (`my_tree_two`), the values of features from the dataset for which predictions need to be made (`test`). To extract the features we will need to create a numpy array in the same way as we did when training the model. However we need to take care of a small but important problem first. There is a missing value in the Fare feature that needs to be imputed.
 
 Next, you need to make sure your output is in line with the submission requirements of Kaggle: a csv file with exactly 418 entries and two columns: `PassengerId` and `Survived`. So you need to make a new data frame using `DataFrame()`, and create a csv file using `to_csv()` method from Pandas.
 
 *** =instructions
-
+- Impute the missing value for Fare in row 153 with the medain of the column.
 - Make a prediction on the test set using the `.predict()` method and `my_tree_two`. Assign the result to `my_prediction`.
 - Create a data frame `my_solution` containing the solution and the passenger ids from the test set. Make sure the solution is in line with the standards set forth by Kaggle.
 - Check the data frame has 418 entries using `.shape` attribute.
@@ -182,6 +182,9 @@ Next, you need to make sure your output is in line with the submission requireme
 *** =sample_code
 
 ```{python}
+#Impute the missing value with the meadian
+test.Fare[152] = 
+
 #Extract the features from the test set
 test_features = np.array([test.___, ___, ___, ___]).transpose()
 
@@ -202,6 +205,9 @@ my_solution.to_csv("my_solution.csv", ___)
 *** =solution
 
 ```{python}
+#Impute the missing value with the meadian
+test.Fare[152] = test.Fare.median()
+
 #Extract the features from the test set
 test_features = np.array([test.Pclass, test.Fare, test.SibSp, test.Parch]).transpose()
 
