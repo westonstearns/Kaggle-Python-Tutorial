@@ -269,13 +269,13 @@ my_solution.to_csv("my_solution.csv", index = False)
 *** =sct
 
 --- type:NormalExercise lang:python xp:100 skills:2
-## Overfitting, the iceberg of decision trees
+## Overfitting and how to contol it.
 
 If you submitted the solution of the previous exercise, you got a result that outperforms a solution using purely gender. Hurray! 
 
-Maybe we can improve even more by making a more complex model? In `rpart`, the depth of our model is defined by two parameters:
-- the `cp` parameter determines when the splitting up of the decision tree stops.
-- the `minsplit` parameter monitors the amount of observations in a bucket. If a certain threshold is not reached (e.g minimum 10 passengers) no further splitting can be done.
+Maybe we can improve the ovefit model by making a less complex model? In `DecisionTreeRegressor`, the depth of our model is defined by two parameters:
+- the `max_depth` parameter determines when the splitting up of the decision tree stops.
+- the `min_samples_split` parameter monitors the amount of observations in a bucket. If a certain threshold is not reached (e.g minimum 10 passengers) no further splitting can be done.
 
 Stated otherwise, if we set `cp` to zero (= no stopping of splits) and minsplit to 2 (= smallest bucket possible) we will create a super model! Or not? You can see the visualization by typing `fancyRpartPlot(super_model)`. Looking complex, right? 
 
