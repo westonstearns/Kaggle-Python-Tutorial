@@ -22,6 +22,16 @@ First lets import the necessary libraries:
 Use the `import` and `as` special keys.
 
 *** =pre_exercise_code
+
+```{python}
+Import pandas an pd
+Import numpy as np
+from sklearn import tree
+train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
+test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
+
+```
+
 *** =sample_code
 ```{python}
 #Import the Numpy library
