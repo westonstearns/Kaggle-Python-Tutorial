@@ -12,7 +12,7 @@ In the previous chapter you did all the slicing and dicing yourself to find subs
 
 Conceptually, the decision tree algorithm starts with all the data at the root node and scans all the variables for the best one to split on. Once a variable is chosen, you do the split and go down one level (or one node) and repeat. The final nodes at the bottom of the decision tree are known as terminal nodes, and the majority vote of the observations in that node determine how to predict for new observations that end up in that terminal node.
 
-First lets import the necessary libraries:
+First let's import the necessary libraries:
 
 *** =instructions
 - Import the `numpy` library as `np`
@@ -54,15 +54,15 @@ from sklearn import tree
 *** =sct
 
 --- type:NormalExercise lang:python xp:100 skills:2
-## Cleaning and Formating your Data
+## Cleaning and Formatting your Data
 
-Before you can begin constructing your trees you need to get your hands durty and clean the data so that you can use all the features avaliable to you. In the first chapter we saw that the Age variable had some missing value. Missigness is a whole subjec with and in itself, but we will use a simple imputation technique where we substitute each missing value with the median of the all present values.
+Before you can begin constructing your trees you need to get your hands dirty and clean the data so that you can use all the features available to you. In the first chapter we saw that the Age variable had some missing value. Missingness is a whole subject with and in itself, but we will use a simple imputation technique where we substitute each missing value with the median of the all present values.
 
 ```
 train["Age"] = train["Age"].fillna(train["Age"].median())
 ```
 
-Another problem is that the Sex and Embarcked variables are categorical but in a non-numeric format. Thus we will need to assign each class a unique integer so that Python can handle the information. Embarked also has some missing values which you should impute witht the most common class of embarkation, which is `"S"`.
+Another problem is that the Sex and Embarked variables are categorical but in a non-numeric format. Thus we will need to assign each class a unique integer so that Python can handle the information. Embarked also has some missing values which you should impute witht the most common class of embarkation, which is `"S"`.
 
 ```
 train.loc[train["Sex"] == "male", "Sex"] = 0
@@ -86,10 +86,10 @@ train.loc[train["Embarked"] == "Q", "Embarked"] = 2
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Creating your first decision tree
 
-You will use the `skit-learn` and `numpy` libraries to build your first decision tree. `skit-learn` can be used to create `tree` objects from the `DecisionTreeClassifier` class. The methods that we will require take `numpy` arrays as imputs and therefore we will need to create those from the `DataFrame` that we already have. We will need the following to build a decision tree
+You will use the `skit-learn` and `numpy` libraries to build your first decision tree. `skit-learn` can be used to create `tree` objects from the `DecisionTreeClassifier` class. The methods that we will require take `numpy` arrays as inputs and therefore we will need to create those from the `DataFrame` that we already have. We will need the following to build a decision tree
 
-- `target`: A one dimentional numpy array containing the target/responce from the train data. (Survival in your case)
-- `data`: A multidimentional numpy array containing the features/predictors from the train data. (ex. Pclass, Fare)
+- `target`: A one dimensional numpy array containing the target/response from the train data. (Survival in your case)
+- `data`: A multidimensional numpy array containing the features/predictors from the train data. (ex. Pclass, Fare)
 
 To how this would look like, take a look at the sample code below: 
 
@@ -106,8 +106,7 @@ my_tree = my_tree.fit(features, target)
 
 One way to see the result of your decision tree is to see the importance of the features that are included which can be done by requesting the `.feature_importances_` attribute of your tree object.
 
-Ok time for you to build your first decision tree in Python! The train and testing data from chapter 1 are avaliable in your workspace.
-
+Ok time for you to build your first decision tree in Python! The train and testing data from chapter 1 are available in your workspace.
 
 *** =instructions
 - Build a decision tree `my_tree_one` to predict survival based on the variables Passenger Class, Number of Siblings/Spouses Aboard, Number of Parents/Children Aboard, and Passenger Fare.
@@ -269,16 +268,15 @@ my_solution.to_csv("my_solution.csv", index = False)
 *** =sct
 
 --- type:NormalExercise lang:python xp:100 skills:2
-## Overfitting and how to contol it.
+## Overfitting and how to control it.
 
-When you created your first decision tree the default arguments for  `max_depth` and `min_samples_split` were set to `None`. This means that no limit on the deapth of your tree was set.  That's a good thing no! Not so fast. We are likely overfitting. This means that while your model describes the training data extremely well, it doesn't generalize to new data, which is frankly the point of prediction. Just look at the Kaggle submission resuts for the simple model based on Gender and the compex decision tree. Which one does better?
+When you created your first decision tree the default arguments for  `max_depth` and `min_samples_split` were set to `None`. This means that no limit on the depth of your tree was set.  That's a good thing no! Not so fast. We are likely overfitting. This means that while your model describes the training data extremely well, it doesn't generalize to new data, which is frankly the point of prediction. Just look at the Kaggle submission results for the simple model based on Gender and the complex decision tree. Which one does better?
 
-Maybe we can improve the ovefit model by making a less complex model? In `DecisionTreeRegressor`, the depth of our model is defined by two parameters:
+Maybe we can improve the overfit model by making a less complex model? In `DecisionTreeRegressor`, the depth of our model is defined by two parameters:
 - the `max_depth` parameter determines when the splitting up of the decision tree stops.
 - the `min_samples_split` parameter monitors the amount of observations in a bucket. If a certain threshold is not reached (e.g minimum 10 passengers) no further splitting can be done.
 
-By limiting the complexity of your dcision tree you will increase its generality and thus its usefulness for prediction!
-
+By limiting the complexity of your decision tree you will increase its generality and thus its usefulness for prediction!
 *** =instructions
 
 
