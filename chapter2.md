@@ -17,6 +17,8 @@ First let's import the necessary libraries:
 *** =instructions
 - Import the `numpy` library as `np`
 - From `sklearn` import the `tree`
+
+
 *** =hint
 
 Use the `import` and `as` special keys.
@@ -24,8 +26,8 @@ Use the `import` and `as` special keys.
 *** =pre_exercise_code
 
 ```{python}
-Import pandas an pd
-Import numpy as np
+import pandas an pd
+import numpy as np
 from sklearn import tree
 train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
@@ -118,8 +120,8 @@ Ok time for you to build your first decision tree in Python! The train and testi
 
 *** =pre_exercise_code
 ```{python}
-Import pandas an pd
-Import numpy as np
+import pandas an pd
+import numpy as np
 from sklearn import tree
 train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
@@ -128,7 +130,7 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 
 *** =sample_code
 ```{Python}
-#Print the train data to see the avaliable features
+#Print the train data to see the available features
 
 
 
@@ -147,7 +149,7 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 *** =solution
 
 ```{Python}
-#Print the train data to see the avaliable features
+#Print the train data to see the available features
 
 print(train)
 
@@ -185,8 +187,8 @@ Have a close look at the attribute of your tree. What variable has the greatest 
 *** =pre_exercise_code
 
 ```{python}
-Import pandas an pd
-Import numpy as np
+import pandas an pd
+import numpy as np
 from sklearn import tree
 train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
@@ -211,7 +213,7 @@ First you make use of the `.predict()` method. You provide it the model (`my_tre
 Next, you need to make sure your output is in line with the submission requirements of Kaggle: a csv file with exactly 418 entries and two columns: `PassengerId` and `Survived`. So you need to make a new data frame using `DataFrame()`, and create a csv file using `to_csv()` method from Pandas.
 
 *** =instructions
-- Impute the missing value for Fare in row 153 with the medain of the column.
+- Impute the missing value for Fare in row 153 with the median of the column.
 - Make a prediction on the test set using the `.predict()` method and `my_tree_two`. Assign the result to `my_prediction`.
 - Create a data frame `my_solution` containing the solution and the passenger ids from the test set. Make sure the solution is in line with the standards set forth by Kaggle.
 - Check the data frame has 418 entries using `.shape` attribute.
@@ -222,7 +224,7 @@ Next, you need to make sure your output is in line with the submission requireme
 *** =sample_code
 
 ```{python}
-#Impute the missing value with the meadian
+#Impute the missing value with the median
 test.Fare[152] = 
 
 #Extract the features from the test set
@@ -245,7 +247,7 @@ my_solution.to_csv("my_solution.csv", ___)
 *** =solution
 
 ```{python}
-#Impute the missing value with the meadian
+#Impute the missing value with the median
 test.Fare[152] = test.Fare.median()
 
 #Extract the features from the test set
@@ -288,7 +290,7 @@ By limiting the complexity of your decision tree you will increase its generalit
 *** =sct
 
 --- type:NormalExercise lang:python xp:100 skills:2
-## Re-engineering our Titanic data set
+## Feature-engineering for our Titanic data set
 
 Data Science is an art that benefits from a human element. Enter feature engineering: creatively engineering your own features by combining the different existing variables. 
 
