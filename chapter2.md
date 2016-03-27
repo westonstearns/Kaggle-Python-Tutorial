@@ -271,17 +271,18 @@ my_solution.to_csv("my_solution.csv", index = False)
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Overfitting and how to contol it.
 
-If you submitted the solution of the previous exercise, you got a result that outperforms a solution using purely gender. Hurray! 
+When you created your first decision tree the default arguments for  `max_depth` and `min_samples_split` were set to `None`. This means that no limit on the deapth of your tree was set.  That's a good thing no! Not so fast. We are likely overfitting. This means that while your model describes the training data extremely well, it doesn't generalize to new data, which is frankly the point of prediction. Just look at the Kaggle submission resuts for the simple model based on Gender and the compex decision tree. Which one does better?
 
 Maybe we can improve the ovefit model by making a less complex model? In `DecisionTreeRegressor`, the depth of our model is defined by two parameters:
 - the `max_depth` parameter determines when the splitting up of the decision tree stops.
 - the `min_samples_split` parameter monitors the amount of observations in a bucket. If a certain threshold is not reached (e.g minimum 10 passengers) no further splitting can be done.
 
-Stated otherwise, if we set `cp` to zero (= no stopping of splits) and minsplit to 2 (= smallest bucket possible) we will create a super model! Or not? You can see the visualization by typing `fancyRpartPlot(super_model)`. Looking complex, right? 
-
-However, if you submit this solution to Kaggle your score will be lower than the score of a simple model based on e.g. gender. Why? Because you went too far when setting the rules for the decisions trees. You created very specific rules based on the data in the training set that are hence only relevant for the training set but that cannot be generalized to unknown sets. You overfitted. So when creating decision trees, always be aware of this danger!
+By limiting the complexity of your dcision tree you will increase its generality and thus its usefulness for prediction!
 
 *** =instructions
+
+
+
 *** =hint
 *** =pre_exercise_code
 *** =sample_code
