@@ -16,7 +16,8 @@ You can also execute Python commands straight in the console. This is a good way
 
 *** =instructions
 - In the editor to the right you see some Python code and annotations. This is what a typical exercise with look like.
-- To complete the exercise and see how the interavtive environment works  add the code to compute y and hit the 'Submit Answer' button. Don't forget to print the result.
+- To complete the exercise and see how the interactive environment works  add the code to compute y and hit the 'Submit Answer' button. Don't forget to print the result.
+
 
 *** =hint
 
