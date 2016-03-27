@@ -299,10 +299,48 @@ While feature engineering is a discipline in itself, too broad to be covered her
 A valid assumption is that larger families need more time to get together on a sinking ship, and hence have less chance of surviving. Family size is determined by the variables `SibSp` and `Parch`, which indicate the number of family members a certain passenger is traveling with. So when doing feature engineering, you add a new variable `family_size`, which is the sum of `SibSp` and `Parch` plus one (the observation itself), to the test and train set.
 
 *** =instructions
+- Create a new train set `train_two` that differs from `train` only by having an extra column with your feature engineered variable `family_size`.
+- Create a new decision tree. Again use the same variables as last time, but add your feature engineered variable `family_size` as well. Save your new model as `my_tree_four`. 
+
 *** =hint
 *** =pre_exercise_code
+```{python}
+import pandas as pd
+import numpy as np
+import sklearn as sk
+from sklearn import tree
+train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
+test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
+```
+
 *** =sample_code
+```{python}
+# create a new train set with the new variable
+train_two = train
+train_two['family_size'] = 
+
+# Create a new decision tree my_tree_four
+features_four = 
+my_tree_four = tree.DecisionTreeClassifier()
+my_tree_four =
+
+```
+
 *** =solution
+
+```{python}
+# create a new train set with the new variable
+train_two = train
+train_two['family_size'] = train.SibSp + train.Parch
+
+# Create a new decision tree my_tree_four
+features_four = np.array([train.Pclass, train.Fare, train.SibSp, train.Parch, train.family_size]).transpose()
+
+my_tree_four = tree.DecisionTreeClassifier()
+my_tree_four = my_tree.fit(features_one, target)
+
+```
+
 *** =sct
 
 --- type:NormalExercise lang:python xp:100 skills:2
