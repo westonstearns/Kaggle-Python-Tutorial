@@ -5,12 +5,14 @@ attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
 --- type:NormalExercise lang:python xp:100 skills:2
+
 ## How it works
-Welcome to our Kaggle Machine Learning Tutorial. In this tutorial you will explore how to tackle Kaggle's Titanic competition using Python and Machine Learning. In case you're new to Python, it's recommended that you first take our free [Introduction to Python for Data Science Tutorial](https://www.datacamp.com/courses/intro-to-python-for-data-science). Furthermore, while not required, familiarity with machine learning techniques is a plus so you can get the maximum out of this tutorial.
+Welcome to our Kaggle Machine Learning Tutorial. In this tutorial you will explore how to tackle Kaggle Titanic competition using Python and Machine Learning. In case you're new to Python, it's recommended that you first take our free [Introduction to Python for Data Science Tutorial](https://www.datacamp.com/courses/intro-to-python-for-data-science). Furthermore, while not required, familiarity with machine learning techniques is a plus so you can get the maximum out of this tutorial.
 
 In the editor on the right you should type Python code to solve the exercises. When you hit the 'Submit Answer' button, every line of code is interpreted and executed by Python and you get a message whether or not your code was correct. The output of your Python code is shown in the console in the lower right corner. Python makes use of the # sign to add comments; these lines are not run as Python code, so they will not influence your result.
 
 You can also execute Python commands straight in the console. This is a good way to experiment with Python code, as your submission is not checked for correctness.
+
 
 *** =instructions
 - In the editor to the right you see some Python code and annotations. This is what a typical exercise with look like.
@@ -107,7 +109,7 @@ success_msg("Well done! Now that your data is loaded in, let's see if you can un
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2
 ## Understanding your data
 
-Before starting with the actual analysis, it's important to understand the structure of your data. Both `test` and `train` are DataFrame objects, the ay pandas in Python represents datasets. You can easily explore a data using the `.describe()` method. `.describe()` summurizes the columns/features of the DataFrame, including the count of observations, mean, max ans so on. Another useful trick is to look at the dimentions of the DataFrame. This is done by requesting the `.shape` attribute of your DataFrame object. (ex. `your_data.shape`)
+Before starting with the actual analysis, it's important to understand the structure of your data. Both `test` and `train` are DataFrame objects, the ay pandas in Python represents datasets. You can easily explore a data using the `.describe()` method. `.describe()` summarizes the columns/features of the DataFrame, including the count of observations, mean, max and so on. Another useful trick is to look at the dimensions of the DataFrame. This is done by requesting the `.shape` attribute of your DataFrame object. (ex. `your_data.shape`)
 
 The training and test set are already available in the workspace, as `train` and `test`. Apply `.describe()` method and print the `.shape` attribute of the training set. Which of the following statements is correct?
 
@@ -145,7 +147,7 @@ train.Survived.value_counts(normalize = True)
 
 If you run these commands in the console, you'll see that 549 individuals died (62%) and 342 survived (38%). A simple way prediction heuristic could be: "majority wins". This would mean that you will predict every unseen observation to not survive.
 
-To dive in a little deaper we can prefrom similar pounts and percentage calculations on subsets of the Survived column. For example, maybe gender could play a role as well? You can explore this using the `.value_counts()` method for a two-way comparison on the number of males and females that survived, with this syntax:
+To dive in a little deeper we can perform similar points and percentage calculations on subsets of the Survived column. For example, maybe gender could play a role as well? You can explore this using the `.value_counts()` method for a two-way comparison on the number of males and females that survived, with this syntax:
 
 ```
 train.Survived[train.Sex == 'male'].value_counts()
