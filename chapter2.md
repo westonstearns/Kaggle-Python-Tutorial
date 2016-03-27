@@ -287,6 +287,12 @@ By limiting the complexity of your decision tree you will increase its generalit
 *** =pre_exercise_code
 *** =sample_code
 *** =solution
+```{python}
+# control overfitting
+my_tree_three = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
+my_tree_three = my_tree_three.fit(features_two, target)
+```
+
 *** =sct
 
 --- type:NormalExercise lang:python xp:100 skills:2
