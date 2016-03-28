@@ -100,7 +100,7 @@ pred_forest = my_forest.predict(test_features)
 
 *** =sct
 
---- type:MultipleChoiceExercise lang:python xp:50 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2
 ## Interpreting and Comparing
 
 Remember how we looked at `.feature_importances_` attribute for the decision trees? Well you can request the same attribute from your random forest as well and interpret the relevance of the included variables.
