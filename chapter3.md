@@ -164,3 +164,16 @@ print(my_forest.score(features_forest, target))
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2
 ## Conclude and Submit
 
+Based on your finding in the previous exercise deturmine which feature was of most importance, and for which model.
+After this final exercise you will be able to submit your random forest model to Kagle! 
+
+*** =hint
+*** =pre_exercise_code
+
+*** =instructions
+- `The most important feature was "Age", but it was more significant for "my_three_three"`
+- `The most important feature was "Sex", but it was more significant for "my_three_three"`
+- `The most important feature was "Sex", but it was more significant for "my_forest"`
+- `The most important feature was "Age", but it was more significant for "my_forest"`
+
+*** =sct
