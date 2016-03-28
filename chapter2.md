@@ -78,10 +78,41 @@ train.loc[train["Embarked"] == "Q", "Embarked"] = 2
 
 ```
 *** =instructions
+- Assign the integer 1 to all females
+- Impute missing values in `Embarked` with class `S`. Use `.fillna()` method.
+- Replace each class of Embarked with a uniques integer. `0` for `S`, `1` for `C`, and `2` for `Q`.
 *** =hint
 *** =pre_exercise_code
+
 *** =sample_code
+```{python}
+#Convert the male and female groups to integer form
+train.loc[train["Sex"] == "male", "Sex"] = 0
+
+#Impute the Embarked variable
+train["Embarked"] = 
+
+#Convert the Embarked classes to integer form
+train.loc[train["Embarked"] == "S", "Embarked"] = 0
+
+
+```
+
 *** =solution
+```{python}
+#Convert the male and female groups to integer form
+train.loc[train["Sex"] == "male", "Sex"] = 0
+train.loc[train["Sex"] == "female", "Sex"] = 1
+
+#Impute the Embarked variable
+train["Embarked"] = train["Embarked"].fillna("S")
+
+#Convert the Embarked classes to integer form
+train.loc[train["Embarked"] == "S", "Embarked"] = 0
+train.loc[train["Embarked"] == "C", "Embarked"] = 1
+train.loc[train["Embarked"] == "Q", "Embarked"] = 2
+
+```
 *** =sct
 
 
