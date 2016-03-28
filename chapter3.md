@@ -12,16 +12,16 @@ In layman's terms, the Random Forest technique handles the overfitting problem y
 
 Building a random forest in Python looks almost the same as building a decision tree so we can jup right to it. There are two key differeances however. Firstly a different class is used. And second a new arguments is necessary. Also, we need to import the necessary library from scikit-learn.
 
-- Use `RandomForestClassifier()` class intead of the `DecisionTreeClassifier()` class.
+- Use `RandomForestClassifier()` class intead of the `DecisionTreeClassifier()` class. 
 - `n_estimators` needs to be set when using the `RandomForestClassifier()` class. This argument allows you to set the number of trees you wish to plant and average over.
-- `from sklearn.ensemble import RandomForestClassifier`
 
 The latest training and testing data are preloaded for you.
 
 
 *** =instructions
-- Build an array with features we used for the most recent tree and call it features_forest
-- Build the random forest with `n_estimators` set to `100`
+- Import `RandomForestClassifier` from `from sklearn.ensemble`.
+- Build an array with features we used for the most recent tree and call it features_forest.
+- Build the random forest with `n_estimators` set to `100`.
 - Build an array with the features from the test set to make predicitons. Use this array and the model to compute the predictions.
 
 *** =hint
@@ -30,7 +30,7 @@ The latest training and testing data are preloaded for you.
 import pandas as pd
 import numpy as np
 import sklearn as sk
-from sklearn.ensemble import RandomForestClassifier
+
 
 train_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
 train = pd.read_csv(train_url)
@@ -55,13 +55,48 @@ test.loc[test["Embarked"] == "Q", "Embarked"] = 2
 test["Age"] = test["Age"].fillna(test["Age"].median())
 test.Fare[152] = test.Fare.median()
 
-
 ```
 
 *** =sample_code
+```{python}
 
+#Import the `RandomForestClassifier`
+from sklearn.ensemble import ___
+
+#We want the Pclass, Age, Sex, Fare,SibSp, Parch, and Embarked variables
+features_forest = np.array(___).transpose()
+
+#Building the Forest: my_forest
+forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, ___)
+my_forest = forest.fit(features_forest, target)
+my_forest.score(features_forest, target)
+
+#Computing Predictions:test_features, pred_forest
+test_features = np.array(___).transpose()
+pred_forest = 
+
+```
 
 *** =solution
+```{python}
+
+#Import the `RandomForestClassifier`
+from sklearn.ensemble import RandomForestClassifier
+
+#We want the Pclass, Age, Sex, Fare,SibSp, Parch, and Embarked variables
+features_forest = np.array([train.Pclass, train.Age, train.Sex, train.Fare, train.SibSp, train.Parch, train.Embarked]).transpose()
+
+#Building the Forest: my_forest
+forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, n_estimators=100)
+my_forest = forest.fit(features_forest, target)
+my_forest.score(features_forest, target)
+
+#Computing Predictions:test_features, pred_forest
+test_features = np.array([test.Pclass,test.Age,test.Sex, test.Fare, test.SibSp, test.Parch,test.Embarked]).transpose()
+pred_forest = my_forest.predict(test_features)
+
+```
+
 *** =sct
 
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2
