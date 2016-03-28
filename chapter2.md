@@ -28,6 +28,7 @@ Use the `import` and `as` special keys.
 ```{python}
 import pandas as pd
 import numpy as np
+import sklearn as sk
 from sklearn import tree
 train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
