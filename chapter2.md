@@ -311,17 +311,40 @@ Maybe we can improve the overfit model by making a less complex model? In `Decis
 
 By limiting the complexity of your decision tree you will increase its generality and thus its usefulness for prediction!
 *** =instructions
-
+- Include the Siblings/Spouses Abord, Parents/Childeren Aboard, and Embarked features in a new set of features.
+- Fit your second tree `my_tree_two` with the new featurs, and control for the the model compelexity by togoling the `max_depth` and `min_samples_split` arguments.
 
 
 *** =hint
 *** =pre_exercise_code
+```{python}
+import pandas an pd
+import numpy as np
+from sklearn import tree
+train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
+test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
+target = np.array(train.Survived).transpose()
+```
+
 *** =sample_code
+```{python}
+# Create a new array with the added features: features_two
+features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, ___, ___, ___]).transpose()
+
+#Control overfitting by setting "max_depth" to 10 and "min_samples_split" to 5 : my_tree_two
+my_tree_two = tree.DecisionTreeClassifier(max_depth = ___, min_samples_split = ____)
+my_tree_two = 
+```
+
+
 *** =solution
 ```{python}
-# control overfitting
-my_tree_three = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
-my_tree_three = my_tree_three.fit(features_two, target)
+# Create a new array with the added features: features_two
+features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch,train.Embarked]).transpose()
+
+#Control overfitting by setting "max_depth" to 10 and "min_samples_split" to 5 : my_tree_two
+my_tree_two = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
+my_tree_two = my_tree_two.fit(features_two, target)
 ```
 
 *** =sct
@@ -337,7 +360,7 @@ A valid assumption is that larger families need more time to get together on a s
 
 *** =instructions
 - Create a new train set `train_two` that differs from `train` only by having an extra column with your feature engineered variable `family_size`.
-- Create a new decision tree. Again use the same variables as last time, but add your feature engineered variable `family_size` as well. Save your new model as `my_tree_four`. 
+- Create a new decision tree. Again use the same variables as last time, but add your feature engineered variable `family_size` as well. Save your new model as `my_tree_three`. 
 
 *** =hint
 *** =pre_exercise_code
@@ -356,10 +379,10 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 train_two = train
 train_two['family_size'] = 
 
-# Create a new decision tree my_tree_four
-features_four = 
-my_tree_four = tree.DecisionTreeClassifier()
-my_tree_four =
+# Create a new decision tree my_tree_three
+features_three = 
+my_tree_three = tree.DecisionTreeClassifier()
+my_tree_three =
 
 ```
 
@@ -370,11 +393,11 @@ my_tree_four =
 train_two = train
 train_two['family_size'] = train.SibSp + train.Parch
 
-# Create a new decision tree my_tree_four
-features_four = np.array([train.Pclass, train.Fare, train.SibSp, train.Parch, train.family_size]).transpose()
+# Create a new decision tree my_tree_three
+features_three = np.array([train.Pclass, train.Sex, train.Age, train.Fare, train.SibSp, train.Parch, train.family_size]).transpose()
 
-my_tree_four = tree.DecisionTreeClassifier()
-my_tree_four = my_tree.fit(features_one, target)
+my_tree_three = tree.DecisionTreeClassifier()
+my_tree_three = my_tree_three.fit(features_three, target)
 
 ```
 
