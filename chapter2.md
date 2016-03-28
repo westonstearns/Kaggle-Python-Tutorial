@@ -26,7 +26,7 @@ Use the `import` and `as` special keys.
 *** =pre_exercise_code
 
 ```{python}
-import pandas an pd
+import pandas as pd
 import numpy as np
 from sklearn import tree
 train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
