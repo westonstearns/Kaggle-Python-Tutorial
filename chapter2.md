@@ -66,17 +66,7 @@ train["Age"] = train["Age"].fillna(train["Age"].median())
 
 Another problem is that the Sex and Embarked variables are categorical but in a non-numeric format. Thus we will need to assign each class a unique integer so that Python can handle the information. Embarked also has some missing values which you should impute witht the most common class of embarkation, which is `"S"`.
 
-```
-train.loc[train["Sex"] == "male", "Sex"] = 0
-train.loc[train["Sex"] == "female", "Sex"] = 1
 
-train["Embarked"] = train["Embarked"].fillna("S")
-
-train.loc[train["Embarked"] == "S", "Embarked"] = 0
-train.loc[train["Embarked"] == "C", "Embarked"] = 1
-train.loc[train["Embarked"] == "Q", "Embarked"] = 2
-
-```
 *** =instructions
 - Assign the integer 1 to all females
 - Impute missing values in `Embarked` with class `S`. Use `.fillna()` method.
