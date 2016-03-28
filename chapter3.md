@@ -15,7 +15,21 @@ Building a random forest in Python looks almost the same as building a decision 
 - Use `RandomForestClassifier()` class intead of the `DecisionTreeClassifier()` class.
 - `n_estimators` needs to be set when using the `RandomForestClassifier()` class. This argument allows you to set the number of trees you wish to plant and average over.
 
-
+*** =instructions
+*** =hint
+*** =pre_exercise_code
+*** =sample_code
+*** =solution
+*** =sct
 
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2
 ## Important variables
+
+
+
+*** =instructions
+*** =hint
+*** =pre_exercise_code
+*** =sample_code
+*** =solution
+*** =sct
