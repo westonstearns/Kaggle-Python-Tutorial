@@ -10,9 +10,9 @@ A detailed study of Random Forests would take this tutorial a bit too far. Howev
 
 In layman's terms, the Random Forest technique handles the overfitting problem you faced with decision trees. It grows multiple (very deep) classification trees using the training set. At the time of prediction, each tree is used to come up with a prediction and every outcome is counted as a vote. For example, if you have trained 3 trees with 2 saying a passenger in the test set will survive and 1 says he will not, the passenger will be classified as a survivor. This approach of overtraining trees, but having the majority's vote count as the actual classification decision, avoids overfitting.
 
-Building a random forest in Python looks almost the same as building a decision tree so we can jup right to it. There are two key differeances however. Firstly a different class is used. And second a new arguments is necessary. Also, we need to import the necessary library from scikit-learn.
+Building a random forest in Python looks almost the same as building a decision tree so we can jump right to it. There are two key differences however. Firstly a different class is used. And second a new arguments is necessary. Also, we need to import the necessary library from scikit-learn.
 
-- Use `RandomForestClassifier()` class intead of the `DecisionTreeClassifier()` class. 
+- Use `RandomForestClassifier()` class instead of the `DecisionTreeClassifier()` class. 
 - `n_estimators` needs to be set when using the `RandomForestClassifier()` class. This argument allows you to set the number of trees you wish to plant and average over.
 
 The latest training and testing data are preloaded for you.
@@ -22,8 +22,8 @@ The latest training and testing data are preloaded for you.
 - Import `RandomForestClassifier` from `from sklearn.ensemble`.
 - Build an array with features we used for the most recent tree and call it features_forest.
 - Build the random forest with `n_estimators` set to `100`.
-- Build an array with the features from the test set to make predicitons. Use this array and the model to compute the predictions.
-
+- Build an array with the features from the test set to make predictions. Use this array and the model to compute the predictions.
+- 
 *** =hint
 *** =pre_exercise_code
 ```{python}
@@ -104,12 +104,12 @@ pred_forest = my_forest.predict(test_features)
 ## Interpreting and Comparing
 
 Remember how we looked at `.feature_importances_` attribute for the decision trees? Well you can request the same attribute from your random forest as well and interpret the relevance of the included variables.
-You might also want to compare the models in some quick and easy way. For this we can use the `.score()` method. `.score()` method takes the features data and the target and computes mean accuracy of your model. You can apply this method to both the forest and individual trees. Remember, this measure should be high but not extreme because that would be a sign of overfiting.
+You might also want to compare the models in some quick and easy way. For this we can use the `.score()` method. `.score()` method takes the features data and the target and computes mean accuracy of your model. You can apply this method to both the forest and individual trees. Remember, this measure should be high but not extreme because that would be a sign of overfitting.
 
-For this exercise you have `my_forest` and `my_tree_three` avaliable to you. The features and target arrays are also ready for use.
+For this exercise you have `my_forest` and `my_tree_three` available to you. The features and target arrays are also ready for use.
 
 *** =instructions
-- Explore the feature importancs for both models
+- Explore the feature importance for both models
 - Compare the mean accuracy score of the two models
 
 *** =hint
@@ -164,7 +164,7 @@ print(my_forest.score(features_forest, target))
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2
 ## Conclude and Submit
 
-Based on your finding in the previous exercise deturmine which feature was of most importance, and for which model.
+Based on your finding in the previous exercise determine which feature was of most importance, and for which model.
 After this final exercise you will be able to submit your random forest model to Kagle! 
 
 *** =hint
