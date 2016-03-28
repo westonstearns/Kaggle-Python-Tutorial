@@ -52,8 +52,8 @@ my_forest = forest.fit(features_forest, target)
 
 
 features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch,train.Embarked]).transpose()
-my_tree_three = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
-my_tree_three = my_tree_three.fit(features_two, target)
+my_tree_two = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
+my_tree_two = my_tree_two.fit(features_two, target)
 
 
 ```
@@ -106,7 +106,7 @@ pred_forest = my_forest.predict(test_features)
 Remember how we looked at `.feature_importances_` attribute for the decision trees? Well you can request the same attribute from your random forest as well and interpret the relevance of the included variables.
 You might also want to compare the models in some quick and easy way. For this we can use the `.score()` method. `.score()` method takes the features data and the target and computes mean accuracy of your model. You can apply this method to both the forest and individual trees. Remember, this measure should be high but not extreme because that would be a sign of overfitting.
 
-For this exercise you have `my_forest` and `my_tree_three` available to you. The features and target arrays are also ready for use.
+For this exercise you have `my_forest` and `my_tree_two` available to you. The features and target arrays are also ready for use.
 
 *** =instructions
 - Explore the feature importance for both models
@@ -119,8 +119,6 @@ import pandas as pd
 import numpy as np
 import sklearn as sk
 from sklearn.ensemble import RandomForestClassifier
-
-
 
 train_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
 train = pd.read_csv(train_url)
@@ -135,28 +133,32 @@ train.loc[train["Embarked"] == "C", "Embarked"] = 1
 train.loc[train["Embarked"] == "Q", "Embarked"] = 2
 train["Age"] = train["Age"].fillna(train["Age"].median())
 
+features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch,train.Embarked]).transpose()
+my_tree_two = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
+my_tree_two = my_tree_two.fit(features_two, target)
+
 ```
 
 
 *** =sample_code
 ```{python}
 #Request and print the `.feature_importances_` attribute
-print(my_tree_three.feature_importances_)
+print(my_tree_two.feature_importances_)
 print()
 
 Compute and print the mean accuracy score for both models
-print(my_tree_three.score(features_two, target))
+print(my_tree_two.score(features_two, target))
 print()
 ```
 
 *** =solution
 ```{python}
 #Request and print the `.feature_importances_` attribute
-print(my_tree_three.feature_importances_)
+print(my_tree_two.feature_importances_)
 print(my_forest.feature_importances_)
 
 Compute and print the mean accuracy score for both models
-print(my_tree_three.score(features_two, target))
+print(my_tree_two.score(features_two, target))
 print(my_forest.score(features_forest, target))
 ```
 *** =sct
@@ -171,8 +173,8 @@ After this final exercise you will be able to submit your random forest model to
 *** =pre_exercise_code
 
 *** =instructions
-- `The most important feature was "Age", but it was more significant for "my_three_three"`
-- `The most important feature was "Sex", but it was more significant for "my_three_three"`
+- `The most important feature was "Age", but it was more significant for "my_three_two"`
+- `The most important feature was "Sex", but it was more significant for "my_three_two"`
 - `The most important feature was "Sex", but it was more significant for "my_forest"`
 - `The most important feature was "Age", but it was more significant for "my_forest"`
 
