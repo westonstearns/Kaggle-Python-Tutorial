@@ -30,6 +30,7 @@ The latest training and testing data are preloaded for you.
 import pandas as pd
 import numpy as np
 import sklearn as sk
+from sklearn import tree
 
 
 train_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
@@ -45,15 +46,15 @@ train.loc[train["Embarked"] == "C", "Embarked"] = 1
 train.loc[train["Embarked"] == "Q", "Embarked"] = 2
 train["Age"] = train["Age"].fillna(train["Age"].median())
 
+features_forest = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch,train.Embarked]).transpose()
+forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, ___)
+my_forest = forest.fit(features_forest, target)
 
-test.loc[test["Sex"] == "male", "Sex"] = 0
-test.loc[test["Sex"] == "female", "Sex"] = 1
-test["Embarked"] = test["Embarked"].fillna("S")
-test.loc[test["Embarked"] == "S", "Embarked"] = 0
-test.loc[test["Embarked"] == "C", "Embarked"] = 1
-test.loc[test["Embarked"] == "Q", "Embarked"] = 2
-test["Age"] = test["Age"].fillna(test["Age"].median())
-test.Fare[152] = test.Fare.median()
+
+features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch,train.Embarked]).transpose()
+my_tree_three = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
+my_tree_three = my_tree_three.fit(features_two, target)
+
 
 ```
 
@@ -89,7 +90,7 @@ features_forest = np.array([train.Pclass, train.Age, train.Sex, train.Fare, trai
 #Building the Forest: my_forest
 forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, n_estimators=100)
 my_forest = forest.fit(features_forest, target)
-my_forest.score(features_forest, target)
+
 
 #Computing Predictions:test_features, pred_forest
 test_features = np.array([test.Pclass,test.Age,test.Sex, test.Fare, test.SibSp, test.Parch,test.Embarked]).transpose()
@@ -100,13 +101,62 @@ pred_forest = my_forest.predict(test_features)
 *** =sct
 
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2
-## Important variables
+## Interpreting and Comparing
 
+Remember how we looked at `.feature_importances_` attribute for the decision trees? Well you can request the same attribute from your random forest as well and interpret the relevance of the included variables.
+You might also want to compare the models in some quick and easy way. For this we can use the `.score()` method. `.score()` method takes the features data and the target and computes mean accuracy of your model. You can apply this method to both the forest and individual trees. Remember, this measure should be high but not extreme because that would be a sign of overfiting.
 
+For this exercise you have `my_forest` and `my_tree_three` avaliable to you. The features and target arrays are also ready for use.
 
 *** =instructions
+- Explore the feature importancs for both models
+- Compare the mean accuracy score of the two models
+
 *** =hint
 *** =pre_exercise_code
+```{python}
+import pandas as pd
+import numpy as np
+import sklearn as sk
+from sklearn.ensemble import RandomForestClassifier
+
+
+
+train_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
+train = pd.read_csv(train_url)
+test_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
+test = pd.read_csv(test_url)
+
+train.loc[train["Sex"] == "male", "Sex"] = 0
+train.loc[train["Sex"] == "female", "Sex"] = 1
+train["Embarked"] = train["Embarked"].fillna("S")
+train.loc[train["Embarked"] == "S", "Embarked"] = 0
+train.loc[train["Embarked"] == "C", "Embarked"] = 1
+train.loc[train["Embarked"] == "Q", "Embarked"] = 2
+train["Age"] = train["Age"].fillna(train["Age"].median())
+
+```
+
+
 *** =sample_code
+```{python}
+#Request and print the `.feature_importances_` attribute
+print(my_tree_three.feature_importances_)
+print()
+
+Compute and print the mean accuracy score for both models
+print(my_tree_three.score(features_two, target))
+print()
+```
+
 *** =solution
+```{python}
+#Request and print the `.feature_importances_` attribute
+print(my_tree_three.feature_importances_)
+print(my_forest.feature_importances_)
+
+Compute and print the mean accuracy score for both models
+print(my_tree_three.score(features_two, target))
+print(my_forest.score(features_forest, target))
+```
 *** =sct
