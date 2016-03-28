@@ -74,6 +74,15 @@ Another problem is that the Sex and Embarked variables are categorical but in a 
 *** =hint
 *** =pre_exercise_code
 
+```{python}
+import pandas as pd
+import numpy as np
+from sklearn import tree
+train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
+test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
+
+```
+
 *** =sample_code
 ```{python}
 #Convert the male and female groups to integer form
