@@ -121,14 +121,14 @@ train.loc[train["Embarked"] == "Q", "Embarked"] = 2
 You will use the `skit-learn` and `numpy` libraries to build your first decision tree. `skit-learn` can be used to create `tree` objects from the `DecisionTreeClassifier` class. The methods that we will require take `numpy` arrays as inputs and therefore we will need to create those from the `DataFrame` that we already have. We will need the following to build a decision tree
 
 - `target`: A one dimensional numpy array containing the target/response from the train data. (Survival in your case)
-- `data`: A multidimensional numpy array containing the features/predictors from the train data. (ex. Pclass, Fare)
+- `data`: A multidimensional numpy array containing the features/predictors from the train data. (ex. Sex, Age)
 
 To how this would look like, take a look at the sample code below: 
 
 ```
 target = np.array(train.Survived).transpose()
 
-features = np.array([train.Pclass, train.Fare]).transpose()
+features = np.array([train.Sex, train.Age]).transpose()
 
 my_tree = tree.DecisionTreeClassifier()
 
@@ -136,13 +136,13 @@ my_tree = my_tree.fit(features, target)
 
 ```
 
-One way to see the result of your decision tree is to see the importance of the features that are included which can be done by requesting the `.feature_importances_` attribute of your tree object.
+One way to quickly see the result of your decision tree is to see the importance of the features that are included. This is done by requesting the `.feature_importances_` attribute of your tree object.
 
 Ok time for you to build your first decision tree in Python! The train and testing data from chapter 1 are available in your workspace.
 
 *** =instructions
-- Build a decision tree `my_tree_one` to predict survival based on the variables Passenger Class, Number of Siblings/Spouses Aboard, Number of Parents/Children Aboard, and Passenger Fare.
-- Look at the importance of features in your tree. Did the importance for features in the first tree change?
+- Build a decision tree `my_tree_one` to predict survival based on the variables Passenger Class, Sex, Age, and Passenger Fare.
+- Look at the importance of features in your tree.
 
 *** =hint
 
@@ -164,7 +164,7 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 
 
 
-#Create the target and features numpy arrays: target, features
+#Create the target and features numpy arrays: target, features_one
 
 
 
@@ -186,12 +186,12 @@ print(train)
 #Create the target and features numpy arrays: target, features
 
 target = np.array(train.Survived).transpose()
-features = np.array([train.Pclass, train.Fare, train.SibSp, train.Parch]).transpose()
+features_one = np.array([train.Pclass, train.Sex, train.Age,  train.Fare]).transpose()
 
 #Fit your first decision tree: my_tree_one
 
 my_tree_one = tree.DecisionTreeClassifier()
-my_tree_one = my_tree.fit(features, target)
+my_tree_one = my_tree_one.fit(features_one, target)
 
 #Look at the importance of the included features
 my_tree_one.feature_importances_
@@ -203,13 +203,13 @@ my_tree_one.feature_importances_
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2
 ## Interpreting your decision tree
 
-The `feature_importances_` attribute make it simple to interpret the significance of the predictors you include. Based on your decision tree, what variable/s play the most important role to determine whether or not a passenger survived?
+The `feature_importances_` attribute make it simple to interpret the significance of the predictors you include. Based on your decision tree, what variable plays the most important role to determine whether or not a passenger survived?
 
 *** =instructions
-- Passenger Class, Number of Siblings/Spouses Aboard, Number of Parents/Children Aboard, Passenger Fare
-- Passenger Class, Number of Siblings/Spouses Aboard, Passenger Fare
+- Passenger Class
+- Sex/Gender
 - Passenger Fare
-- Number of Siblings/Spouses Aboard
+- Age
 
 *** =hint
 Have a close look at the attribute of your tree. What variable has the greatest coefficient? 
@@ -223,10 +223,11 @@ from sklearn import tree
 train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
 target = np.array(train.Survived).transpose()
-features = np.array([train.Pclass, train.Fare, train.SibSp, train.Parch]).transpose()
-my_tree_two = tree.DecisionTreeClassifier()
-my_tree_two = my_tree.fit(features, target)
-my_tree_two.feature_importances_
+
+features_one = np.array([train.Pclass, train.Sex, train.Age,  train.Fare]).transpose()
+my_tree_one = tree.DecisionTreeClassifier()
+my_tree_one = my_tree_one.fit(features_one, target)
+my_tree_one.feature_importances_
 ```
 
 *** =sample_code
