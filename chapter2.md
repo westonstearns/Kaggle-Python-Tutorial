@@ -402,17 +402,3 @@ my_tree_three = my_tree_three.fit(features_three, target)
 ```
 
 *** =sct
-
---- type:NormalExercise lang:python xp:100 skills:2
-## Passenger Title and survival rate
-
-Was it coincidence that upper-class Rose survived and third-class passenger Jack not? Let's have a look... 
-
-You have access to a new train and test set named `train_new` and `test_new`. These data sets contain a new column with the name `Title` (referring to Miss, Mr, etc.). `Title` is another example of feature engineering: creating a new variable that possible improves the model.
-
-*** =instructions
-*** =hint
-*** =pre_exercise_code
-*** =sample_code
-*** =solution
-*** =sct
