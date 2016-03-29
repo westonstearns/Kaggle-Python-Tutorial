@@ -199,7 +199,7 @@ my_tree_one = tree.DecisionTreeClassifier()
 my_tree_one = my_tree_one.fit(features_one, target)
 
 #Look at the importance of the included features
-my_tree_one.feature_importances_
+print(my_tree_one.feature_importances_)
 
 ```
 
