@@ -27,6 +27,8 @@ The latest training and testing data are preloaded for you.
 
 *** =hint
 
+When computing the predictions you can use the `.predict()` mothod just like you did with decision trees!
+
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
@@ -126,6 +128,9 @@ For this exercise you have `my_forest` and `my_tree_two` available to you. The f
 - Compare the mean accuracy score of the two models
 
 *** =hint
+
+Make sure you are applying the commands to `my_forest` and are using correct arguments.
+
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
@@ -190,6 +195,8 @@ Based on your finding in the previous exercise determine which feature was of mo
 After this final exercise you will be able to submit your random forest model to Kagle! 
 
 *** =hint
+
+By significance we simly mean the magnitude of the values.
 
 *** =pre_exercise_code
 
