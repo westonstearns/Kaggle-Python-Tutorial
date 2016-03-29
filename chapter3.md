@@ -115,6 +115,15 @@ pred_forest = my_forest.predict(test_features)
 
 *** =sct
 
+```{python}
+test_function("RandomForestClassifier")
+test_object("n_estimators")
+test_object("features_forest")
+test_object("test_features")
+test_object("pred_forest")
+test_object("my_forest")
+```
+
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Interpreting and Comparing
 
@@ -188,6 +197,14 @@ print(my_forest.score(features_forest, target))
 ```
 *** =sct
 
+```{python}
+
+test_function("print")
+test_function("score")
+test_function("feature_importances_")
+
+```
+
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2
 ## Conclude and Submit
 
@@ -241,5 +258,9 @@ my_forest = forest.fit(features_forest, target)
 
 *** =sct
 
+```{python}
+
+
 success_msg("Great! You just created your first decision tree. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/ch2_ex4_solution/my_solution.csv), and submit the created csv to Kaggle to see the result of your effort.")
 
+```
