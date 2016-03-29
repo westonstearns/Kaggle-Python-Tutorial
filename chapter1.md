@@ -305,7 +305,7 @@ print(train.Survived[train.Child == 0].value_counts(normalize = True))
 *** =sct
 ```{python}
 
-test_object("train.Child")
+
 
 ```
 
@@ -363,7 +363,7 @@ test_one.Survived[test_one.Sex == "female"] = 1
 
 ```{python}
 test_object("test_one")
-test_object("test_one.Survived")
+
 
 ```
 
