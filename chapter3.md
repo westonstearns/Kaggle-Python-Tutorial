@@ -57,6 +57,19 @@ my_tree_two = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
 my_tree_two = my_tree_two.fit(features_two, target)
 
 
+test.loc[test["Sex"] == "male", "Sex"] = 0
+test.loc[test["Sex"] == "female", "Sex"] = 1
+
+test["Embarked"] = test["Embarked"].fillna("S")
+
+test.loc[test["Embarked"] == "S", "Embarked"] = 0
+test.loc[test["Embarked"] == "C", "Embarked"] = 1
+test.loc[test["Embarked"] == "Q", "Embarked"] = 2
+
+test["Age"] = test["Age"].fillna(test["Age"].median())
+
+test.Fare[152] = test.Fare.median()
+
 ```
 
 *** =sample_code
