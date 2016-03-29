@@ -160,7 +160,7 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 ```
 
 *** =sample_code
-```{Python}
+```{python}
 #Print the train data to see the available features
 
 
@@ -179,9 +179,8 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 
 *** =solution
 
-```{Python}
+```{python}
 #Print the train data to see the available features
-
 print(train)
 
 #Create the target and features numpy arrays: target, features
