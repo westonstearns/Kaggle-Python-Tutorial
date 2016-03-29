@@ -190,7 +190,41 @@ Based on your finding in the previous exercise determine which feature was of mo
 After this final exercise you will be able to submit your random forest model to Kagle! 
 
 *** =hint
+
 *** =pre_exercise_code
+
+```{python}
+
+import pandas as pd
+import numpy as np
+import sklearn as sk
+from sklearn import tree
+from sklearn.ensemble import RandomForestClassifier
+
+train_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
+train = pd.read_csv(train_url)
+test_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
+test = pd.read_csv(test_url)
+
+train.loc[train["Sex"] == "male", "Sex"] = 0
+train.loc[train["Sex"] == "female", "Sex"] = 1
+train["Embarked"] = train["Embarked"].fillna("S")
+train.loc[train["Embarked"] == "S", "Embarked"] = 0
+train.loc[train["Embarked"] == "C", "Embarked"] = 1
+train.loc[train["Embarked"] == "Q", "Embarked"] = 2
+train["Age"] = train["Age"].fillna(train["Age"].median())
+
+target = np.array(train.Survived).transpose()
+
+features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch,train.Embarked]).transpose()
+my_tree_two = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
+my_tree_two = my_tree_two.fit(features_two, target)
+
+features_forest = np.array([train.Pclass, train.Age, train.Sex, train.Fare, train.SibSp, train.Parch, train.Embarked]).transpose()
+forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, n_estimators=100)
+my_forest = forest.fit(features_forest, target)
+
+```
 
 *** =instructions
 - `The most important feature was "Age", but it was more significant for "my_three_two"`
