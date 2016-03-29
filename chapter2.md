@@ -261,7 +261,16 @@ Next, you need to make sure your output is in line with the submission requireme
 
 *** =hint
 *** =pre_exercise_code
+```{python}
+import pandas as pd
+import numpy as np
+import sklearn as sk
+from sklearn import tree
+train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
+test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
 *** =sample_code
+
+```
 
 ```{python}
 #Impute the missing value with the median
