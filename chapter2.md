@@ -56,6 +56,11 @@ from sklearn import tree
 
 *** =sct
 
+```{python}
+test_function("import")
+```
+
+
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Cleaning and Formatting your Data
 
@@ -117,6 +122,15 @@ train.loc[train["Embarked"] == "Q", "Embarked"] = 2
 
 ```
 *** =sct
+
+```{python}
+
+test_function("loc")
+test_function("fillna")
+test_object("train.Embarked")
+test_object("train.Sex")
+
+```
 
 
 --- type:NormalExercise lang:python xp:100 skills:2
@@ -210,6 +224,16 @@ print(my_tree_one.feature_importances_)
 
 *** =sct
 
+```{python}
+
+test_object("my_tree_one")
+test_object("features_one")
+test_object("target")
+test_function("print")
+test_function("feature_importances_")
+
+```
+
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2
 ## Interpreting your decision tree
 
@@ -247,6 +271,7 @@ my_tree_one = my_tree_one.fit(features_one, target)
 ```
 
 *** =sct
+
 
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Predict and submit to Kaggle
@@ -339,6 +364,13 @@ my_solution.to_csv("my_solution.csv", index = False)
 *** =sct
 
 ```{python}
+
+test_object("test_features")
+test_object("my_prediction")
+test_object("my_solution")
+test_function("to_csv")
+test_function("shape")
+
 success_msg("Great! You just created your first decision tree. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/ch2_ex4_solution/my_solution.csv), and submit the created csv to Kaggle to see the result of your effort.")
 
 ```
@@ -407,6 +439,13 @@ my_tree_two = my_tree_two.fit(features_two, target)
 
 *** =sct
 
+```{python}
+test_object("features_two")
+test_obejct("my_tree_two")
+test_object("max_depth")
+test_object("min_samples_split")
+```
+
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Feature-engineering for our Titanic data set
 
@@ -474,3 +513,12 @@ my_tree_three = my_tree_three.fit(features_three, target)
 ```
 
 *** =sct
+
+```{python}
+
+test_object("my_tree_three")
+test_object("features_three")
+test_object("train_two")
+
+```
+
