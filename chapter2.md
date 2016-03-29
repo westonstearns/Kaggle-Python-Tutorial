@@ -229,10 +229,15 @@ from sklearn import tree
 train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
 
+train["Age"] = train["Age"].fillna(train["Age"].median())
+train.loc[train["Sex"] == "male", "Sex"] = 0
+train.loc[train["Sex"] == "female", "Sex"] = 1
+
 target = np.array(train.Survived).transpose()
 features_one = np.array([train.Pclass, train.Sex, train.Age,  train.Fare]).transpose()
 my_tree_one = tree.DecisionTreeClassifier()
 my_tree_one = my_tree_one.fit(features_one, target)
+
 
 ```
 
