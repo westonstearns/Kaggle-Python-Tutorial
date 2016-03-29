@@ -230,14 +230,12 @@ train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/t
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
 
 target = np.array(train.Survived).transpose()
-
 features_one = np.array([train.Pclass, train.Sex, train.Age,  train.Fare]).transpose()
 my_tree_one = tree.DecisionTreeClassifier()
 my_tree_one = my_tree_one.fit(features_one, target)
-my_tree_one.feature_importances_
+
 ```
 
-*** =solution
 *** =sct
 
 --- type:NormalExercise lang:python xp:100 skills:2
