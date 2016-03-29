@@ -268,6 +268,16 @@ import sklearn as sk
 from sklearn import tree
 train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
+
+train["Age"] = train["Age"].fillna(train["Age"].median())
+train.loc[train["Sex"] == "male", "Sex"] = 0
+train.loc[train["Sex"] == "female", "Sex"] = 1
+
+target = np.array(train.Survived).transpose()
+features_one = np.array([train.Pclass, train.Sex, train.Age,  train.Fare]).transpose()
+my_tree_one = tree.DecisionTreeClassifier()
+my_tree_one = my_tree_one.fit(features_one, target)
+
 ```
 
 *** =sample_code
@@ -303,7 +313,7 @@ test.Fare[152] = test.Fare.median()
 test_features = np.array([test.Pclass, test.Fare, test.SibSp, test.Parch]).transpose()
 
 # Make your prediction using the test set
-my_prediction = my_tree.predict(test_features)
+my_prediction = my_tree_one.predict(test_features)
 
 # Create a data frame with two columns: PassengerId & Survived. Survived contains your predictions
 my_solution = test.PassengerId
