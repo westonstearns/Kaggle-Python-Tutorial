@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import sklearn as sk
 from sklearn import tree
+import matplotlib.pyplot as plt
 
 # Load the train and test datasets to create two DataFrames
 train_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
@@ -10,13 +11,6 @@ train = pd.read_csv(train_url)
 test_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
 test = pd.read_csv(test_url)
 
-
-## building the first tree
-target = np.array(train.Survived).transpose()
-features_one = np.array([train.Pclass, train.Fare, train.SibSp, train.Parch]).transpose()
-
-my_tree_one = tree.DecisionTreeClassifier()
-my_tree_one = my_tree.fit(features_one, target)
 
 #### converting variables and clean the data
 train.loc[train["Sex"] == "male", "Sex"] = 0
@@ -30,6 +24,13 @@ train.loc[train["Embarked"] == "Q", "Embarked"] = 2
 
 train["Age"] = train["Age"].fillna(train["Age"].median())
 
+## building the first tree
+target = np.array(train.Survived).transpose()
+features_one = np.array([train.Pclass, train.Sex, train.Age,  train.Fare]).transpose()
+
+my_tree_one = tree.DecisionTreeClassifier()
+my_tree_one = my_tree_one.fit(features_one, target)
+
 #### second tree
 
 features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch,train.Embarked]).transpose()
@@ -37,12 +38,18 @@ features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.Sib
 my_tree_two = tree.DecisionTreeClassifier()
 my_tree_two = my_tree_two.fit(features_two, target)
 
+#### third tree
+# control overfitting
+my_tree_three = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
+my_tree_three = my_tree_three.fit(features_two, target)
+
+
 ### evaluating the models
 from sklearn.metrics import confusion_matrix
 
-
+pred_vec_three = my_tree_three.predict(features_two)
 pred_vec_two = my_tree_two.predict(features_two)
-pred_vec_one = my_tree.predict(features_one)
+pred_vec_one = my_tree_one.predict(features_one)
 
 def pred_eval(pred_vec,target):
     cm = confusion_matrix(pred_vec,target)
@@ -62,34 +69,37 @@ def pred_eval(pred_vec,target):
     eval = np.array([cm,sensitivity,specificity,ppv,npv,fnr,fpr])
     return(eval)
 
+my_tree_one.score(features_one, target)
+my_tree_two.score(features_two, target)
+my_tree_three.score(features_two, target)
 
 #### Graphiong the Tree
 
 
-from sklearn.externals.six import StringIO 
-import pydot
-dot_data = StringIO() 
-tree.export_graphviz(my_tree, out_file = dot_data)
-graph = pydot.graph_from_dot_data(dot_data.getvalue())
-graph.write_pdf("tree.pdf")
+#from sklearn.externals.six import StringIO 
+#import pydot
+#dot_data = StringIO() 
+#tree.export_graphviz(my_tree_one, out_file = dot_data)
+#graph = pydot.graph_from_dot_data(dot_data.getvalue())
+#graph.write_pdf("tree.pdf")
 
-from sklearn.externals.six import StringIO
-with open("tree.dot", 'w') as f:
-    f = tree.export_graphviz(my_tree_two, out_file=f)
+#from sklearn.externals.six import StringIO
+#with open("tree.dot", 'w') as f:
+#    f = tree.export_graphviz(my_tree_two, out_file=f)
 
-from IPython.display import Image
-dot_data = StringIO()
-tree.export_graphviz(my_tree_two, out_file=dot_data,  filled=True, rounded=True,  special_characters=True)
-graph = pydot.graph_from_dot_data(dot_data.getvalue())
+#from IPython.display import Image
+#dot_data = StringIO()
+#tree.export_graphviz(my_tree_two, out_file=dot_data,  filled=True, rounded=True,  special_characters=True)
+#graph = pydot.graph_from_dot_data(dot_data.getvalue())
 
 
 
 #### Useful Attributes
-my_tree.feature_importances_
-my_tree.tree_
-my_tree.n_classes_
-my_tree.n_features_
-my_tree.classes_
+my_tree_one.feature_importances_
+my_tree_one.tree_
+my_tree_one.n_classes_
+my_tree_one.n_features_
+my_tree_one.classes_
 
 
 
@@ -116,3 +126,51 @@ pred_one = my_tree_one.predict(test_features_one)
 
 test_features_two = np.array([test.Pclass,test.Age,test.Sex, test.Fare, test.SibSp, test.Parch,test.Embarked]).transpose()
 pred_two = my_tree_two.predict(test_features_two)
+
+pred_three = my_tree_three.predict(test_features_two)
+
+
+#### Feature Engineering
+
+
+#### https://plot.ly/matplotlib/bar-charts/
+
+y1 = cm1[1:5] 
+y2 = cm2[1:5]
+y3 = cm3[1:5]
+N = len(y1)
+x = range(N)
+plt.bar(x, y2, color="red")
+plt.bar(x, y3, color="green")
+plt.bar(x, y1, color="blue")
+
+g1 = cm1[5:7] 
+g2 = cm2[5:7]
+g3 = cm3[5:7]
+M = len(g1)
+h = range(M)
+plt.bar(h, g1, color="blue")
+plt.bar(h, g3, color="green")
+plt.bar(h, g2, color="red")
+
+
+#### Building a Random Forest
+
+from sklearn import cross_validation
+from sklearn.ensemble import RandomForestClassifier
+
+features_forest = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch,train.Embarked]).transpose()
+
+forest = RandomForestClassifier(max_depth = 10, n_estimators=100, min_samples_split=2)
+my_forest = forest.fit(features_forest, target)
+my_forest.score(features_forest, target)
+
+#Evaluate the forest
+pred_vec_forest = my_forest.predict(features_forest)
+pred_eval(pred_vec_forest,target)
+
+#predict using the forest
+pred_forest = my_forest.predict(test_features_two)
+
+
+
