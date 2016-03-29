@@ -419,6 +419,14 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 
 target = np.array(train.Survived).transpose()
 
+train["Age"] = train["Age"].fillna(train["Age"].median())
+train.loc[train["Sex"] == "male", "Sex"] = 0
+train.loc[train["Sex"] == "female", "Sex"] = 1
+train["Embarked"] = train["Embarked"].fillna("S")
+train.loc[train["Embarked"] == "S", "Embarked"] = 0
+train.loc[train["Embarked"] == "C", "Embarked"] = 1
+train.loc[train["Embarked"] == "Q", "Embarked"] = 2
+
 ```
 
 *** =sample_code
