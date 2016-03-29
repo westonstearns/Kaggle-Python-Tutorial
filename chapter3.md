@@ -61,7 +61,6 @@ my_tree_two = my_tree_two.fit(features_two, target)
 
 *** =sample_code
 ```{python}
-
 #Import the `RandomForestClassifier`
 from sklearn.ensemble import ___
 
