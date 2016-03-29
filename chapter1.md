@@ -107,7 +107,6 @@ print(train)
 *** =sct
 
 ```{python}
-test_function("pd.read_csv")
 test_object("train")
 test_object("test")
 success_msg("Well done! Now that your data is loaded in, let's see if you can understand it.")
@@ -227,7 +226,6 @@ print(train.Survived[train.Sex == 'female'].value_counts(normalize = True))
 
 ```{python}
 
-test_function("value_counts")
 success_msg("Well done! It looks like it makes sense to predict that all females will survive, and all men will die.")
 
 ```
@@ -306,6 +304,7 @@ print(train.Survived[train.Child == 0].value_counts(normalize = True))
 
 *** =sct
 ```{python}
+
 test_object("train.Child")
 
 ```
