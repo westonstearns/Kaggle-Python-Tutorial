@@ -290,7 +290,7 @@ test.Fare[152] =
 test_features = np.array([test.___, ___, ___, ___]).transpose()
 
 # Make your prediction using the test set
-my_prediction = my_tree.predict(test_features)
+my_prediction = my_tree_one.predict(test_features)
 
 # Create a data frame with two columns: PassengerId & Survived. Survived contains your predictions
 my_solution = test.PassengerId
