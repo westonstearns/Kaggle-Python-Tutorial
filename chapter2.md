@@ -185,20 +185,20 @@ train.loc[train["Sex"] == "female", "Sex"] = 1
 
 ```{python}
 #Print the train data to see the available features
-print(train)
+#print(train)
 
 #Create the target and features numpy arrays: target, features
 
-target = np.array(train.Survived).transpose()
-features_one = np.array([train.Pclass, train.Sex, train.Age, train.Fare]).transpose()
+#target = np.array(train.Survived).transpose()
+#features_one = np.array([train.Pclass, train.Sex, train.Age, train.Fare]).transpose()
 
 #Fit your first decision tree: my_tree_one
 
-my_tree_one = tree.DecisionTreeClassifier()
-my_tree_one = my_tree_one.fit(features_one, target)
+#my_tree_one = tree.DecisionTreeClassifier()
+#my_tree_one = my_tree_one.fit(features_one, target)
 
 #Look at the importance of the included features
-my_tree_one.feature_importances_
+#my_tree_one.feature_importances_
 
 ```
 
