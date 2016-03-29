@@ -266,6 +266,8 @@ Next, you need to make sure your output is in line with the submission requireme
 
 *** =hint
 
+When making the `test_features` array make sure that you include the same features in the same order as you did with the train data.
+To initidate the submition DataFrame simply select the `PassengerId` from the `test` data. Then add the column with predications.
 
 
 *** =pre_exercise_code
@@ -357,6 +359,9 @@ By limiting the complexity of your decision tree you will increase its generalit
 
 
 *** =hint
+
+You can always use `train.describe()` in the consol to check the names of the features.
+
 *** =pre_exercise_code
 
 ```{python}
@@ -416,6 +421,9 @@ A valid assumption is that larger families need more time to get together on a s
 - Create a new decision tree. Again use the same variables as last time, but add your feature engineered variable `family_size` as well. Save your new model as `my_tree_three`. 
 
 *** =hint
+
+Don't forget to add `1` to when adding column with the new feature.
+
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
@@ -455,7 +463,7 @@ my_tree_three =
 ```{python}
 # create a new train set with the new variable
 train_two = train
-train_two['family_size'] = train.SibSp + train.Parch
+train_two['family_size'] = train.SibSp + train.Parch + 1
 
 # Create a new decision tree my_tree_three
 features_three = np.array([train.Pclass, train.Sex, train.Age, train.Fare, train.SibSp, train.Parch, train.family_size]).transpose()
