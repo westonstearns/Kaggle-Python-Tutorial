@@ -328,6 +328,11 @@ my_solution.to_csv("my_solution.csv", index = False)
 
 *** =sct
 
+```{python}
+success_msg("Great! You just created your first decision tree. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/ch2_ex4_solution/my_solution.csv), and submit the created csv to Kaggle to see the result of your effort.")
+
+```
+
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Overfitting and how to control it.
 
