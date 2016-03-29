@@ -51,6 +51,8 @@ print(y)
 
 *** =sct
 ```{python}
+test_function("print")
+test_object("y")
 success_msg("Awesome! See how the console shows the result of the Python code you submitted? Now that you're familiar with the interface, let's get down to business!")
 ```
 
@@ -104,8 +106,12 @@ print(train)
 
 *** =sct
 
+```{python}
+test_function("pd.read_csv")
+test_object("train")
+test_object("test")
 success_msg("Well done! Now that your data is loaded in, let's see if you can understand it.")
-
+```
 
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2
 ## Understanding your data
@@ -219,7 +225,12 @@ print(train.Survived[train.Sex == 'female'].value_counts(normalize = True))
 
 *** =sct
 
+```{python}
+
+test_function("value_counts")
 success_msg("Well done! It looks like it makes sense to predict that all females will survive, and all men will die.")
+
+```
 
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Does age play a role?
@@ -294,6 +305,10 @@ print(train.Survived[train.Child == 0].value_counts(normalize = True))
 ```
 
 *** =sct
+```{python}
+test_object("train.Child")
+
+```
 
 --- type:NormalExercise lang:python xp:100 skills:2
 ## First Prediction
@@ -346,6 +361,12 @@ test_one.Survived[test_one.Sex == "female"] = 1
 ```
 
 *** =sct
+
+```{python}
+test_object("test_one")
+test_object("test_one.Survived")
+
+```
 
 success_msg("Well done! If you want, you can already submit these first predictions to Kaggle [by uploading this csv file](http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/ch1_ex4_solution/my_solution.csv). In the next chapter you will learn how to make more advanced predictions and create your own .csv file from Python.")
 
