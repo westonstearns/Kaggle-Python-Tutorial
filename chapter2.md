@@ -72,7 +72,10 @@ Another problem is that the Sex and Embarked variables are categorical but in a 
 - Assign the integer 1 to all females
 - Impute missing values in `Embarked` with class `S`. Use `.fillna()` method.
 - Replace each class of Embarked with a uniques integer. `0` for `S`, `1` for `C`, and `2` for `Q`.
+
 *** =hint
+Use the `.loc` method to select rows, and dont foget the `==` operator.
+
 *** =pre_exercise_code
 
 ```{python}
@@ -146,6 +149,8 @@ Ok time for you to build your first decision tree in Python! The train and testi
 - Look at the importance of features in your tree.
 
 *** =hint
+ To build a tree use the `tree.DecisionTreeClassifier()` syntax.
+ You can look at the importance of features using the `.feature_importances_` attribute.
 
 
 
@@ -260,6 +265,9 @@ Next, you need to make sure your output is in line with the submission requireme
 - Turn your solution into a csv file with the name `my_solution.csv`, ready for submission. Do not forget to set the `index` argument to `False`.
 
 *** =hint
+
+
+
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
