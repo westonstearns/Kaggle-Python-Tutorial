@@ -350,13 +350,17 @@ By limiting the complexity of your decision tree you will increase its generalit
 
 *** =hint
 *** =pre_exercise_code
+
 ```{python}
-import pandas an pd
+import pandas as pd
 import numpy as np
+import sklearn as sk
 from sklearn import tree
 train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
+
 target = np.array(train.Survived).transpose()
+
 ```
 
 *** =sample_code
@@ -373,7 +377,7 @@ my_tree_two =
 *** =solution
 ```{python}
 # Create a new array with the added features: features_two
-features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch,train.Embarked]).transpose()
+features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch, train.Embarked]).transpose()
 
 #Control overfitting by setting "max_depth" to 10 and "min_samples_split" to 5 : my_tree_two
 my_tree_two = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
