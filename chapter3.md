@@ -131,6 +131,7 @@ For this exercise you have `my_forest` and `my_tree_two` available to you. The f
 import pandas as pd
 import numpy as np
 import sklearn as sk
+from sklearn import tree
 from sklearn.ensemble import RandomForestClassifier
 
 train_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
