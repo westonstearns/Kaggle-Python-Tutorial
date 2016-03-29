@@ -153,6 +153,10 @@ features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.Sib
 my_tree_two = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
 my_tree_two = my_tree_two.fit(features_two, target)
 
+features_forest = np.array([train.Pclass, train.Age, train.Sex, train.Fare, train.SibSp, train.Parch, train.Embarked]).transpose()
+forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, n_estimators=100)
+my_forest = forest.fit(features_forest, target)
+
 ```
 
 
