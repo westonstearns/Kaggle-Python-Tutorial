@@ -26,6 +26,7 @@ The latest training and testing data are preloaded for you.
 
 
 *** =hint
+
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
