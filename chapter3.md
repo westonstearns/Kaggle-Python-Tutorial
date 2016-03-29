@@ -233,3 +233,6 @@ my_forest = forest.fit(features_forest, target)
 - `The most important feature was "Age", but it was more significant for "my_forest"`
 
 *** =sct
+
+success_msg("Great! You just created your first decision tree. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/ch2_ex4_solution/my_solution.csv), and submit the created csv to Kaggle to see the result of your effort.")
+
