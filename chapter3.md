@@ -23,7 +23,8 @@ The latest training and testing data are preloaded for you.
 - Build an array with features we used for the most recent tree and call it features_forest.
 - Build the random forest with `n_estimators` set to `100`.
 - Build an array with the features from the test set to make predictions. Use this array and the model to compute the predictions.
-- 
+
+
 *** =hint
 *** =pre_exercise_code
 ```{python}
@@ -33,10 +34,8 @@ import sklearn as sk
 from sklearn import tree
 
 
-train_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
-train = pd.read_csv(train_url)
-test_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
-test = pd.read_csv(test_url)
+train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
+test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
 
 train.loc[train["Sex"] == "male", "Sex"] = 0
 train.loc[train["Sex"] == "female", "Sex"] = 1
@@ -45,10 +44,6 @@ train.loc[train["Embarked"] == "S", "Embarked"] = 0
 train.loc[train["Embarked"] == "C", "Embarked"] = 1
 train.loc[train["Embarked"] == "Q", "Embarked"] = 2
 train["Age"] = train["Age"].fillna(train["Age"].median())
-
-features_forest = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch,train.Embarked]).transpose()
-forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, ___)
-my_forest = forest.fit(features_forest, target)
 
 
 features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch,train.Embarked]).transpose()
