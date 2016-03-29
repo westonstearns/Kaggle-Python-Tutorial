@@ -222,11 +222,13 @@ Have a close look at the attribute of your tree. What variable has the greatest 
 *** =pre_exercise_code
 
 ```{python}
-import pandas an pd
+import pandas as pd
 import numpy as np
+import sklearn as sk
 from sklearn import tree
 train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
+
 target = np.array(train.Survived).transpose()
 
 features_one = np.array([train.Pclass, train.Sex, train.Age,  train.Fare]).transpose()
@@ -235,7 +237,6 @@ my_tree_one = my_tree_one.fit(features_one, target)
 my_tree_one.feature_importances_
 ```
 
-*** =sample_code
 *** =solution
 *** =sct
 
