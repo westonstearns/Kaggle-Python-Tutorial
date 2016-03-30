@@ -110,7 +110,7 @@ print(train)
 
 ```{python}
 
-test_object("train", incorrect_msg = "It looks like the train set is not imported correctly.")
+#test_object("train", incorrect_msg = "It looks like the train set is not imported correctly.")
 test_function("pandas.read_csv",1 , incorrect_msg = "Make sure you are using the `read_csv()` function correctly")
 #test_object("test", incorrect_msg = "It looks like the test set is not imported correctly.")
 test_function("pandas.read_csv",2 ,  incorrect_msg = "Make sure you are using the `read_csv()` function correctly")
