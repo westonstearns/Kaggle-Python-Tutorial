@@ -251,8 +251,8 @@ my_forest = forest.fit(features_forest, target)
 ```
 
 *** =instructions
-- `The most important feature was "Age", but it was more significant for "my_three_two"`
-- `The most important feature was "Sex", but it was more significant for "my_three_two"`
+- `The most important feature was "Age", but it was more significant for "my_tree_two"`
+- `The most important feature was "Sex", but it was more significant for "my_tree_two"`
 - `The most important feature was "Sex", but it was more significant for "my_forest"`
 - `The most important feature was "Age", but it was more significant for "my_forest"`
 
