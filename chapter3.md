@@ -121,7 +121,7 @@ test_function("RandomForestClassifier")
 test_object("features_forest")
 test_object("test_features")
 #test_object("pred_forest")
-test_object("my_forest")
+#test_object("my_forest")
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2
