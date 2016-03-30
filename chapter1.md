@@ -137,7 +137,14 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 ```
 
 *** =sct
+
+```{python}
+
+test_mc(correct = 1, msgs = ["Correct!", "Try again", "Try again", "Try again"])
+
 success_msg("Well done! Now lets move on and explore some of the features in more detail")
+
+```
 
 --- type:NormalExercise lang:python xp:100 skills:1
 ## Rose vs Jack, or Female vs Male
