@@ -374,7 +374,7 @@ my_solution.to_csv("my_solution.csv", index = False)
 test_object("test_features")
 test_object("my_prediction")
 test_object("my_solution")
-test_function("to_csv")
+#test_function("to_csv")
 test_function("shape")
 
 success_msg("Great! You just created your first decision tree. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/ch2_ex4_solution/my_solution.csv), and submit the created csv to Kaggle to see the result of your effort.")
