@@ -313,6 +313,7 @@ print(train.Survived[train.Child == 0].value_counts(normalize = True))
 
 *** =sct
 ```{python}
+test_object_after_expression("train.Child", incorrect_msg = "Makes sure to initiate the vector with NaN)
 
 
 
