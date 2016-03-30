@@ -225,10 +225,9 @@ print(my_tree_one.feature_importances_)
 *** =sct
 
 ```{python}
-
-test_object("my_tree_one")
-test_object("features_one")
 test_object("target")
+test_object("features_one")
+test_object("my_tree_one")
 test_function("print")
 #test_function("feature_importances_")
 
