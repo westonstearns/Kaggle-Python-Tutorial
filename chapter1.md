@@ -9,14 +9,14 @@ attachments :
 ## How it works
 Welcome to our Kaggle Machine Learning Tutorial. In this tutorial you will explore how to tackle Kaggle Titanic competition using Python and Machine Learning. In case you're new to Python, it's recommended that you first take our free [Introduction to Python for Data Science Tutorial](https://www.datacamp.com/courses/intro-to-python-for-data-science). Furthermore, while not required, familiarity with machine learning techniques is a plus so you can get the maximum out of this tutorial.
 
-In the editor on the right you should type Python code to solve the exercises. When you hit the 'Submit Answer' button, every line of code is interpreted and executed by Python and you get a message whether or not your code was correct. The output of your Python code is shown in the console in the lower right corner. Python makes use of the # sign to add comments; these lines are not run as Python code, so they will not influence your result.
+In the editor on the right you should type Python code to solve the exercises. When you hit the 'Submit Answer' button, every line of code is interpreted and executed by Python and you get a message whether or not your code was correct. The output of your Python code is shown in the console in the lower right corner. Python makes use of the `#` sign to add comments; these lines are not run as Python code, so they will not influence your result.
 
 You can also execute Python commands straight in the console. This is a good way to experiment with Python code, as your submission is not checked for correctness.
 
 
 *** =instructions
-- In the editor to the right you see some Python code and annotations. This is what a typical exercise with look like.
-- To complete the exercise and see how the interactive environment works  add the code to compute y and hit the 'Submit Answer' button. Don't forget to print the result.
+- In the editor to the right you see some Python code and annotations. This is what a typical exercise will look like.
+- To complete the exercise and see how the interactive environment works  add the code to compute `y` and hit the `Submit Answer` button. Don't forget to print the result.
 
 
 *** =hint
