@@ -376,7 +376,7 @@ test_one.Survived[test_one.Sex == "female"] = 1
 *** =sct
 
 ```{python}
-test_object("test_one")
+#test_object("test_one")
 test_object_after_expression("test_one.Survived", incorrect_msg ="Make sure you are assigning 1 to female passangers")
 
 ```
