@@ -447,9 +447,9 @@ my_tree_two = my_tree_two.fit(features_two, target)
 
 ```{python}
 test_object("features_two")
-test_obejct("my_tree_two")
-test_object("max_depth")
-test_object("min_samples_split")
+test_object_after_expression("my_tree_two")
+test_object_after_expression("max_depth")
+test_object_after_expression("min_samples_split")
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2
