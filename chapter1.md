@@ -375,7 +375,7 @@ test_one.Survived[test_one.Sex == "female"] = 1
 
 ```{python}
 #test_object("test_one")
-#test_object_after_expression("test_one.Survived", incorrect_msg ="Make sure you are assigning 1 to female passangers")
+#test_object_after_expression("test_one.Survived", incorrect_msg ="Make sure you are assigning 1 to female passengers")
 
 success_msg("Well done! If you want, you can already submit these first predictions to Kaggle [by uploading this csv file](http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/ch1_ex4_solution/my_solution.csv). In the next chapter you will learn how to make more advanced predictions and create your own .csv file from Python.")
 ```
