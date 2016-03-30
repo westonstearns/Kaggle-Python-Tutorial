@@ -230,7 +230,7 @@ test_object("my_tree_one")
 test_object("features_one")
 test_object("target")
 test_function("print")
-test_function("feature_importances_")
+#test_function("feature_importances_")
 
 ```
 
