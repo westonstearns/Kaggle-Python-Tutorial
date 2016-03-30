@@ -125,8 +125,8 @@ train.loc[train["Embarked"] == "Q", "Embarked"] = 2
 
 ```{python}
 
-test_function("loc")
-test_function("fillna")
+test_function("pandas.loc")
+test_function("pandas.fillna")
 test_object("train.Embarked")
 test_object("train.Sex")
 
