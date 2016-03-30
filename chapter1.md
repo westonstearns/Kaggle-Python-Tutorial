@@ -51,7 +51,7 @@ print(y)
 
 *** =sct
 ```{python}
-test_function("print")
+test_function("print",2)
 test_object("y")
 success_msg("Awesome! See how the console shows the result of the Python code you submitted? Now that you're familiar with the interface, let's get down to business!")
 ```
