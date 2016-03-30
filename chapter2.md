@@ -271,6 +271,13 @@ my_tree_one = my_tree_one.fit(features_one, target)
 
 *** =sct
 
+```{python}
+
+test_mc(correct = 2, msgs = ["Try again", "Correct!" "Try again", "Tray again"])
+
+
+```
+
 
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Predict and submit to Kaggle
