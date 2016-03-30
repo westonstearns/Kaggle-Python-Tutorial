@@ -107,8 +107,9 @@ print(train)
 *** =sct
 
 ```{python}
-test_object("train")
-test_object("test")
+test_function("read_csv")
+test_object("train", incorrect_msg = "It looks like the train set is not imported correctly.)
+test_object("test", incorrect_msg = "It looks like the test set is not imported correctly.)
 success_msg("Well done! Now that your data is loaded in, let's see if you can understand it.")
 ```
 
