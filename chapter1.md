@@ -159,9 +159,9 @@ train.Survived.value_counts()
 train.Survived.value_counts(normalize = True)
 ``` 
 
-If you run these commands in the console, you'll see that 549 individuals died (62%) and 342 survived (38%). A simple way prediction heuristic could be: "majority wins". This would mean that you will predict every unseen observation to not survive.
+If you run these commands in the console, you'll see that 549 individuals died (62%) and 342 survived (38%). A simple way to predict heuristically could be: "majority wins". This would mean that you will predict every unseen observation to not survive.
 
-To dive in a little deeper we can perform similar points and percentage calculations on subsets of the Survived column. For example, maybe gender could play a role as well? You can explore this using the `.value_counts()` method for a two-way comparison on the number of males and females that survived, with this syntax:
+To dive in a little deeper we can perform similar counts and percentage calculations on subsets of the Survived column. For example, maybe gender could play a role as well? You can explore this using the `.value_counts()` method for a two-way comparison on the number of males and females that survived, with this syntax:
 
 ```
 train.Survived[train.Sex == 'male'].value_counts()
@@ -233,6 +233,7 @@ print(train.Survived[train.Sex == 'female'].value_counts(normalize = True))
 *** =sct
 
 ```{python}
+test_fucntion("value_counts")
 
 success_msg("Well done! It looks like it makes sense to predict that all females will survive, and all men will die.")
 
