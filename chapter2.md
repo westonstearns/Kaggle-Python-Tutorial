@@ -522,9 +522,9 @@ my_tree_three = my_tree_three.fit(features_three, target)
 
 ```{python}
 
-#test_object("my_tree_three")
+#test_object_after_expression("my_tree_three")
 test_object("features_three")
-test_object("train_two")
+test_object_after_expression("train_two")
 
 ```
 
