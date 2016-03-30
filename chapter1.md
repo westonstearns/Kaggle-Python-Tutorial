@@ -313,7 +313,7 @@ print(train.Survived[train.Child == 0].value_counts(normalize = True))
 
 *** =sct
 ```{python}
-test_object_after_expression("train.Child", incorrect_msg = "Makes sure to initiate the vector with NaN)
+test_object_after_expression("train.Child", incorrect_msg = "Makes sure to initiate the vector with NaN")
 
 
 
@@ -373,7 +373,7 @@ test_one.Survived[test_one.Sex == "female"] = 1
 
 ```{python}
 test_object("test_one")
-
+test_object_after_expression("test_one,Survived", incorrect_msg ="Make sure you are assigning 1 to female passangers")
 
 ```
 
