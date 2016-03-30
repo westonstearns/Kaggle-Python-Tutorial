@@ -75,7 +75,7 @@ Let's start with loading in the training and testing set into your Python enviro
 
 *** =pre_exercise_code
 ```{python}
-
+import pandas as pd
 ```
 
 *** =sample_code
