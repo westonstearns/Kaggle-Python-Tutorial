@@ -296,7 +296,7 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 *** =sample_code
 
 ```{python}
-# Create the column child, and indicate whether child or no child
+# Create the column child, and indicate whether child or not a child. Print the new column.
 
 
 # Normalized Survival Rates for under 18
@@ -308,10 +308,11 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 *** =solution
 
 ```{python}
-# Create the column child, and indicate whether child or no child
+# Create the column child, and indicate whether child or not a child.Print the new column.
 train["Child"] = float('NaN')
 train.Child[train.Age < 18] = 1
 train.Child[train.Age >= 18] = 0
+print(train.Child)
 
 # Normalized Survival Rates for under 18
 print(train.Survived[train.Child == 1].value_counts(normalize = True))
@@ -325,6 +326,7 @@ print(train.Survived[train.Child == 0].value_counts(normalize = True))
 ```{python}
 test_function("print", 1)
 test_function("print", 2)
+test_function("print", 3)
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2
