@@ -78,6 +78,7 @@ Another problem is that the Sex and Embarked variables are categorical but in a 
 - Assign the integer 1 to all females
 - Impute missing values in `Embarked` with class `S`. Use `.fillna()` method.
 - Replace each class of Embarked with a uniques integer. `0` for `S`, `1` for `C`, and `2` for `Q`.
+- Print the `Sex` and `Embarked` columns
 
 *** =hint
 Use the `.loc` method to select rows, and dont foget the `==` operator.
@@ -104,6 +105,7 @@ train["Embarked"] =
 #Convert the Embarked classes to integer form
 train.loc[train["Embarked"] == "S", "Embarked"] = 0
 
+#Print the Sex and Embarked columns
 
 ```
 
@@ -121,18 +123,18 @@ train.loc[train["Embarked"] == "S", "Embarked"] = 0
 train.loc[train["Embarked"] == "C", "Embarked"] = 1
 train.loc[train["Embarked"] == "Q", "Embarked"] = 2
 
+#Print the Sex and Embarked columns
+print(train.Sex)
+print(train.Embarked)
 ```
 *** =sct
 
 ```{python}
 
-test_function("pandas.loc")
-test_function("pandas.fillna")
-test_object("train.Embarked")
-test_object("train.Sex")
+test_function("print", 1)
+test_function("print", 2)
 
 ```
-
 
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Creating your first decision tree
@@ -229,8 +231,8 @@ print(my_tree_one.feature_importances_)
 test_object("target")
 test_object("features_one")
 test_object("my_tree_one")
-test_function("print")
-#test_function("feature_importances_")
+test_function("print",1)
+test_function("print",2)
 
 ```
 
@@ -339,7 +341,7 @@ my_solution = test.PassengerId
 my_solution['Survive'] = my_prediction
 
 # Check that your data frame has 418 entries
-my_solution.shape
+print(my_solution.shape)
 
 # Write your solution to a csv file with the name my_solution.csv
 my_solution.to_csv("my_solution.csv", ___)
@@ -362,7 +364,7 @@ my_solution = test.PassengerId
 my_solution['Survive'] = my_prediction
 
 # Check that your data frame has 418 entries
-my_solution.shape
+print(my_solution.shape)
 
 # Write your solution to a csv file with the name my_solution.csv
 my_solution.to_csv("my_solution.csv", index = False)
@@ -376,7 +378,7 @@ test_object("test_features")
 test_object_after_expression("my_prediction")
 test_object_after_expression("my_solution")
 test_function("pandas.to_csv")
-#test_function("shape")
+test_function("print")
 
 success_msg("Great! You just created your first decision tree. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/ch2_ex4_solution/my_solution.csv), and submit the created csv to Kaggle to see the result of your effort.")
 
@@ -448,9 +450,9 @@ my_tree_two = my_tree_two.fit(features_two, target)
 
 ```{python}
 test_object("features_two")
-test_object_after_expression("my_tree_two")
-test_object_after_expression("max_depth")
-test_object_after_expression("min_samples_split")
+test_object("my_tree_two")
+test_object("max_depth")
+test_object("min_samples_split")
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2
@@ -523,9 +525,9 @@ my_tree_three = my_tree_three.fit(features_three, target)
 
 ```{python}
 
-test_object_after_expression("my_tree_three")
+test_object("train_two")
 test_object("features_three")
-test_object_after_expression("train_two")
+test_object("my_tree_three")
 
 ```
 
