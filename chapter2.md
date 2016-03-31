@@ -337,7 +337,7 @@ test_features = np.array([test.___, ___, ___, ___]).transpose()
 my_prediction = my_tree_one.predict(test_features)
 
 # Create a data frame with two columns: PassengerId & Survived. Survived contains your predictions
-PassengedId = np.array(test[['PassengerId']])
+PassengerId = np.array(test[['PassengerId']])
 my_solution = pd.DataFrame(my_prediction, PassengerId)
 
 # Check that your data frame has 418 entries
@@ -356,12 +356,14 @@ test.Fare[152] = test.Fare.median()
 #Extract the features from the test set
 test_features = np.array([test.Pclass, test.Fare, test.SibSp, test.Parch]).transpose()
 
-# Make your prediction using the test set
+# Make your prediction using the test set and print them.
 my_prediction = my_tree_one.predict(test_features)
+print(my_prediction)
 
 # Create a data frame with two columns: PassengerId & Survived. Survived contains your predictions
-PassengedId = np.array(test[['PassengerId']])
+PassengerId = np.array(test[['PassengerId']])
 my_solution = pd.DataFrame(my_prediction, PassengerId)
+print(my_solution)
 
 # Check that your data frame has 418 entries
 print(my_solution.shape)
@@ -374,10 +376,10 @@ my_solution.to_csv("my_solution.csv", index = False)
 
 ```{python}
 
-#test_object("test_features")
-#test_object("my_prediction")
-#test_object("my_solution")
-#test_function("print")
+test_object("test_features")
+test_function("print",1)
+test_function("print",2)
+test_function("print",3)
 #test_function("pandas.to_csv")
 
 success_msg("Great! You just created your first decision tree. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/ch2_ex4_solution/my_solution.csv), and submit the created csv to Kaggle to see the result of your effort.")
