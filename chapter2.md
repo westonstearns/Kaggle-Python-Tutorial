@@ -57,7 +57,8 @@ from sklearn import tree
 *** =sct
 
 ```{python}
-test_function("import")
+test_import("numpy", same_as = False)
+test_import("tree", same_as = False)
 ```
 
 
