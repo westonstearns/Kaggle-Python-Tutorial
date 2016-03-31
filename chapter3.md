@@ -199,9 +199,10 @@ print(my_forest.score(features_forest, target))
 
 ```{python}
 
-test_function("print")
-#test_function("score")
-test_function("feature_importances_")
+test_function("print", 1)
+test_function("print", 2)
+test_function("print", 3)
+test_function("print", 4)
 
 ```
 
