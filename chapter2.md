@@ -5,6 +5,7 @@ will be introduced to a fundamental concept in machine learning: decision trees.
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
+
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Intro to decision trees
 
