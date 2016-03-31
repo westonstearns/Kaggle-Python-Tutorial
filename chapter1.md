@@ -323,8 +323,8 @@ print(train.Survived[train.Child == 0].value_counts(normalize = True))
 
 *** =sct
 ```{python}
-test_object_after_expression("train.Child", incorrect_msg = "Makes sure to initiate the vector with NaN")
-
+test_function("print", 1)
+test_function("print", 2)
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2
@@ -338,6 +338,7 @@ You use your test set for validating your predictions. You might have seen that,
 - Create a variable `test_one`, identical to dataset `test`
 - Add an additional column, `Survived`, that you initialize to zero.
 - Use vector subsetting like in the previous exercise to set the value of `Survived` to 1 for observations whose `Sex` equals `"female"`.
+- Print the `test_one` dataset to the consol.
 
 *** =hint
 - To create a new variable, `y`, that is a copy of `x`, you can use `y = x`.
@@ -375,13 +376,14 @@ test_one["Survived"] = 0
 
 # Set Survived to 1 if Sex equals "female"
 test_one.Survived[test_one.Sex == "female"] = 1
+print(test_one)
 ```
 
 *** =sct
 
 ```{python}
-#test_object("test_one")
-#test_object_after_expression("test_one.Survived", incorrect_msg ="Make sure you are assigning 1 to female passengers")
+
+test_function("print", incorrect_msg ="Make sure you are assigning 1 to female and 0 to male passengers")
 
 success_msg("Well done! If you want, you can already submit these first predictions to Kaggle [by uploading this csv file](http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/ch1_ex4_solution/my_solution.csv). In the next chapter you will learn how to make more advanced predictions and create your own .csv file from Python.")
 ```
