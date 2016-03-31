@@ -337,8 +337,8 @@ test_features = np.array([test.___, ___, ___, ___]).transpose()
 my_prediction = my_tree_one.predict(test_features)
 
 # Create a data frame with two columns: PassengerId & Survived. Survived contains your predictions
-my_solution = test.PassengerId
-my_solution['Survive'] = my_prediction
+PassengedId = np.array(test[['PassengerId']])
+my_solution = pd.DataFrame(my_prediction, PassengerId)
 
 # Check that your data frame has 418 entries
 print(my_solution.shape)
@@ -360,8 +360,8 @@ test_features = np.array([test.Pclass, test.Fare, test.SibSp, test.Parch]).trans
 my_prediction = my_tree_one.predict(test_features)
 
 # Create a data frame with two columns: PassengerId & Survived. Survived contains your predictions
-my_solution = test.PassengerId
-my_solution['Survive'] = my_prediction
+PassengedId = np.array(test[['PassengerId']])
+my_solution = pd.DataFrame(my_prediction, PassengerId)
 
 # Check that your data frame has 418 entries
 print(my_solution.shape)
