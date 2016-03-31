@@ -231,7 +231,7 @@ print(my_tree_one.feature_importances_)
 test_object("target")
 test_object("features_one")
 #test_object("my_tree_one")
-test_function("print",2)
+test_function("print",1)
 
 ```
 
