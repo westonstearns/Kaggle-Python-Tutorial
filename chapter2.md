@@ -432,6 +432,8 @@ train.loc[train["Embarked"] == "Q", "Embarked"] = 2
 features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, ___, ___, ___]).transpose()
 
 #Control overfitting by setting "max_depth" to 10 and "min_samples_split" to 5 : my_tree_two
+max_depth = 
+min_samples_split =
 my_tree_two = tree.DecisionTreeClassifier(max_depth = ___, min_samples_split = ____)
 my_tree_two = 
 ```
@@ -443,6 +445,8 @@ my_tree_two =
 features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch, train.Embarked]).transpose()
 
 #Control overfitting by setting "max_depth" to 10 and "min_samples_split" to 5 : my_tree_two
+max_depth = 10
+min_samples_split = 5
 my_tree_two = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
 my_tree_two = my_tree_two.fit(features_two, target)
 ```
@@ -451,9 +455,9 @@ my_tree_two = my_tree_two.fit(features_two, target)
 
 ```{python}
 test_object("features_two")
-test_object("my_tree_two")
 test_object("max_depth")
 test_object("min_samples_split")
+#test_object("my_tree_two")
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2
