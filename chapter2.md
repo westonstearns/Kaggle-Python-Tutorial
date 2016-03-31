@@ -58,7 +58,7 @@ from sklearn import tree
 
 ```{python}
 test_import("numpy", same_as = False)
-test_import("sklearn", same_as = False)
+#test_import("sklearn", same_as = False)
 ```
 
 
