@@ -239,6 +239,11 @@ print(train.Survived[train.Sex == 'female'].value_counts(normalize = True))
 ```{python}
 
 test_function("print", 1)
+test_function("print", 2)
+test_function("print", 3)
+test_function("print", 4)
+test_function("print", 5)
+test_function("print", 6)
 
 success_msg("Well done! It looks like it makes sense to predict that all females will survive, and all men will die.")
 
