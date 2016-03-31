@@ -89,10 +89,10 @@ forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, ___)
 my_forest = forest.fit(features_forest, target)
 my_forest.score(features_forest, target)
 
-#Computing Predictions:test_features, pred_forest
+#Compute predictions and print the length of the prediction vector:test_features, pred_forest
 test_features = np.array(___).transpose()
 pred_forest = 
-
+print()
 ```
 
 *** =solution
@@ -110,10 +110,10 @@ forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, n_estimator
 my_forest = forest.fit(features_forest, target)
 
 
-#Compute and print predictions:test_features, pred_forest
+#Compute predictions and print the length of the prediction vector:test_features, pred_forest
 test_features = np.array([test.Pclass,test.Age,test.Sex, test.Fare, test.SibSp, test.Parch,test.Embarked]).transpose()
 pred_forest = my_forest.predict(test_features)
-print(pred_forest)
+print(len(pred_forest))
 
 ```
 
