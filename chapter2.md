@@ -378,8 +378,6 @@ my_solution.to_csv("my_solution.csv", index = False)
 ```{python}
 
 test_object("test_features")
-test_function("print",1)
-test_function("print",2)
 test_function("print",3)
 #test_function("pandas.to_csv")
 
