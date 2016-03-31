@@ -4,6 +4,7 @@ description : "What techniques can you use to improve your predictions even more
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
+
 --- type:NormalExercise lang:python xp:100 skills:2
 ## A Random Forest analysis in Python
 A detailed study of Random Forests would take this tutorial a bit too far. However, since it's an often used machine learning technique, a general understanding and an illustration in Python won't hurt.
