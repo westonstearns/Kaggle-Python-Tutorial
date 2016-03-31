@@ -375,8 +375,8 @@ my_solution.to_csv("my_solution.csv", index = False)
 ```{python}
 
 test_object("test_features")
-test_object("my_prediction")
-test_object("my_solution")
+#test_object("my_prediction")
+#test_object("my_solution")
 test_function("print")
 #test_function("pandas.to_csv")
 
