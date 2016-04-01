@@ -125,10 +125,14 @@ test_import("pandas",  not_imported_msg = msg,  incorrect_as_msg = msg)
 
 test_object("train")
 
-test_function("pandas.read_csv",1 , incorrect_msg = "Make sure you are using the `read_csv()` function correctly")
-test_function("pandas.read_csv",2 ,  incorrect_msg = "Make sure you are using the `read_csv()` function correctly")
+test_function("pandas.read_csv", 1, 
+              incorrect_msg = "Make sure you are using the `read_csv()` function correctly")
+test_function("pandas.read_csv", 2,
+              incorrect_msg = "Make sure you are using the `read_csv()` function correctly")
+
 test_function("print",1)
 test_function("print",2)
+
 success_msg("Well done! Now that your data is loaded in, let's see if you can understand it.")
 ```
 
@@ -159,7 +163,10 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 
 ```{python}
 
-test_mc(correct = 1, msgs = ["Correct!", "Try again", "Try again", "Try again"])
+test_mc(correct = 1, msgs = ["Correct!",
+                              "Try again", 
+                              "Not quite", 
+                              "Try one more time"])
 
 success_msg("Well done! Now lets move on and explore some of the features in more detail")
 
@@ -252,13 +259,28 @@ print(train.Survived[train.Sex == 'female'].value_counts(normalize = True))
 *** =sct
 
 ```{python}
+msg = "Make sure you are using `.value_counts()` method correctly."
+test_function("print", 1
+              incorrect_msg = msg)
 
-test_function("print", 1)
-test_function("print", 2)
-test_function("print", 3)
-test_function("print", 4)
-test_function("print", 5)
-test_function("print", 6)
+msg = "Don't forget to set `normalize = True` when using `.value_counts()`."
+test_function("print", 2
+              incorrect_msg = msg)
+
+msg = "Make sure you are partitioning by males."
+test_function("print", 3
+              incorrect_msg = msg)
+
+msg = "Make sure you are partitioning by females."
+test_function("print", 4
+              incorrect_msg = msg)
+
+msg = "Don't forget to set `normalize = True` when using `.value_counts()`."
+test_function("print", 5
+              incorrect_msg = msg)
+
+test_function("print", 6
+              incorrect_msg = msg)
 
 success_msg("Well done! It looks like it makes sense to predict that all females will survive, and all men will die.")
 
@@ -339,9 +361,17 @@ print(train.Survived[train.Child == 0].value_counts(normalize = True))
 
 *** =sct
 ```{python}
-test_function("print", 1)
-test_function("print", 2)
-test_function("print", 3)
+msg = "Make sure that you initiate with `float('NaN')` and classifying according to the instructions."
+test_function("print", 1
+              incorrect_msg = msg)
+
+msg = "Don't forget to set `normalize = True` when using `.value_counts()`."
+test_function("print", 2
+              incorrect_msg = msg)
+
+msg = "Compute the survival prportions for those OVER 18!"
+test_function("print", 3
+              incorrect_msg = msg)
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2
