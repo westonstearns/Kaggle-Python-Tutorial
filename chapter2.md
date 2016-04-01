@@ -530,15 +530,17 @@ features_three = np.array([train.Pclass, train.Sex, train.Age, train.Fare, train
 my_tree_three = tree.DecisionTreeClassifier()
 my_tree_three = my_tree_three.fit(features_three, target)
 
+# Print the score of this decision tree
+print(my_tree_three.score(features_three, target))
+
 ```
 
 *** =sct
 
 ```{python}
 
-test_object("train_two")
 test_object("features_three")
-test_object("my_tree_three")
+test_function("print")
 
 ```
 
