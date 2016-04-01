@@ -3,7 +3,6 @@ title       : Predicting with Trees
 description : After making your first predictions in the previous chapter, it's time to bring you to the next level. In chapter 2 you
 will be introduced to a fundamental concept in machine learning: decision trees.
 attachments :
-  slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
 
 --- type:NormalExercise lang:python xp:100 skills:2
@@ -395,7 +394,7 @@ test_object("test_features")
 test_function("print",3)
 #test_function("pandas.to_csv")
 
-success_msg("Great! You just created your first decision tree. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/ch2_ex4_solution/my_solution.csv), and submit the created csv to Kaggle to see the result of your effort.")
+success_msg("Great! You just created your first decision tree. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/my_solution_one.csv), and submit the created csv to Kaggle to see the result of your effort.")
 
 ```
 
