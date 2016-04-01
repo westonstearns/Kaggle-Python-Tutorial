@@ -339,7 +339,7 @@ my_prediction = my_tree_one.predict(test_features)
 
 # Create a data frame with two columns: PassengerId & Survived. Survived contains your predictions
 PassengerId =np.array(test['PassengerId']).astype(int)
-my_solution_one = pd.DataFrame(pred_one, PassengerId, columns = ["Survived"])
+my_solution_one = pd.DataFrame(my_prediction, PassengerId, columns = ["Survived"])
 print(my_solution)
 
 # Check that your data frame has 418 entries
@@ -364,7 +364,7 @@ print(my_prediction)
 
 # Create a data frame with two columns: PassengerId & Survived. Survived contains your predictions
 PassengerId =np.array(test['PassengerId']).astype(int)
-my_solution_one = pd.DataFrame(pred_one, PassengerId, columns = ["Survived"])
+my_solution_one = pd.DataFrame(my_prediction, PassengerId, columns = ["Survived"])
 print(my_solution)
 
 # Check that your data frame has 418 entries
