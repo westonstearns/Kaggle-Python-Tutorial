@@ -295,9 +295,9 @@ Next, you need to make sure your output is in line with the submission requireme
 *** =instructions
 - Impute the missing value for Fare in row 153 with the median of the column.
 - Make a prediction on the test set using the `.predict()` method and `my_tree_two`. Assign the result to `my_prediction`.
-- Create a data frame `my_solution` containing the solution and the passenger ids from the test set. Make sure the solution is in line with the standards set forth by Kaggle.
+- Create a data frame `my_solution` containing the solution and the passenger ids from the test set. Make sure the solution is in line with the standards set forth by Kaggle by naming the column appropriately.
 - Check the data frame has 418 entries using `.shape` attribute.
-- Turn your solution into a csv file with the name `my_solution.csv`, ready for submission. Do not forget to set the `index` argument to `False`.
+- Turn your solution into a csv file with the name `my_solution.csv`, ready for submission. Do not forget to set the `index_label` argument to `["PassengerId"]` to make sure you comply with the Kaggle submission format.
 
 *** =hint
 
@@ -338,14 +338,15 @@ test_features = np.array([test.___, ___, ___, ___]).transpose()
 my_prediction = my_tree_one.predict(test_features)
 
 # Create a data frame with two columns: PassengerId & Survived. Survived contains your predictions
-PassengerId = np.array(test[['PassengerId']])
-my_solution = pd.DataFrame(my_prediction, PassengerId)
+PassengerId =np.array(test['PassengerId']).astype(int)
+my_solution_one = pd.DataFrame(pred_one, PassengerId, columns = ["Survived"])
+print(my_solution)
 
 # Check that your data frame has 418 entries
 print(my_solution.shape)
 
 # Write your solution to a csv file with the name my_solution.csv
-my_solution.to_csv("my_solution.csv", ___)
+my_solution_one.to_csv("my_solution_one.csv", index_label = ["PassengerId"])
 ```
 
 *** =solution
@@ -362,15 +363,15 @@ my_prediction = my_tree_one.predict(test_features)
 print(my_prediction)
 
 # Create a data frame with two columns: PassengerId & Survived. Survived contains your predictions
-PassengerId = np.array(test[['PassengerId']])
-my_solution = pd.DataFrame(my_prediction, PassengerId)
+PassengerId =np.array(test['PassengerId']).astype(int)
+my_solution_one = pd.DataFrame(pred_one, PassengerId, columns = ["Survived"])
 print(my_solution)
 
 # Check that your data frame has 418 entries
 print(my_solution.shape)
 
 # Write your solution to a csv file with the name my_solution.csv
-my_solution.to_csv("my_solution.csv", index = False)
+my_solution_one.to_csv("my_solution_one.csv", index_label = ["PassengerId"])
 ```
 
 *** =sct
