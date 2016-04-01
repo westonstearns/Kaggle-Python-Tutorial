@@ -51,8 +51,17 @@ print(y)
 
 *** =sct
 ```{python}
-test_function("print",2)
-test_object("y")
+
+msg = "Don't forget to assign the correct value to y"
+test_object("y", 
+            undefined_msg = msg, 
+            incorrect_msg = msg)
+
+msg = "Print out the resulting object, `s`!"
+test_function("print",2, 
+              not_called_msg = msg,
+              incorrect_msg = msg)
+
 success_msg("Awesome! See how the console shows the result of the Python code you submitted? Now that you're familiar with the interface, let's get down to business!")
 ```
 
