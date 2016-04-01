@@ -436,6 +436,9 @@ max_depth =
 min_samples_split =
 my_tree_two = tree.DecisionTreeClassifier(max_depth = ___, min_samples_split = ____)
 my_tree_two = 
+
+#Print the score of the new decison tree
+
 ```
 
 
@@ -449,6 +452,9 @@ max_depth = 10
 min_samples_split = 5
 my_tree_two = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
 my_tree_two = my_tree_two.fit(features_two, target)
+
+#Print the score of the new decison tree
+print(my_tree_two.score(features_two, target))
 ```
 
 *** =sct
@@ -457,7 +463,7 @@ my_tree_two = my_tree_two.fit(features_two, target)
 test_object("features_two")
 test_object("max_depth")
 test_object("min_samples_split")
-#test_object("my_tree_two")
+test_function("print")
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2
