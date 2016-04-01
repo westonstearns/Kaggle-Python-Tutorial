@@ -434,7 +434,7 @@ print(test_one)
 test_function("print", 
               incorrect_msg ="Make sure you are assigning 1 to female and 0 to male passengers")
 
-success_msg("Well done! If you want, you can already submit these first predictions to Kaggle [by uploading this csv file](http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/ch1_ex4_solution/my_solution.csv). In the next chapter you will learn how to make more advanced predictions and create your own .csv file from Python.")
+success_msg("Well done! If you want, you can already submit these first predictions to Kaggle [by uploading this csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/my_solution_one.csv). In the next chapter you will learn how to make more advanced predictions and create your own .csv file from Python.")
 ```
 
 
