@@ -88,7 +88,7 @@ train = pd.read_csv(train_url)
 
 test_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
 
-#Print the train DataFrame
+#Print the train and test dataframes
 
 ```
 *** =solution
