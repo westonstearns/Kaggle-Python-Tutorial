@@ -113,6 +113,9 @@ print(test)
 
 msg = "Have you correctly imported the `pandas` package? Use the alias `pd`."
 test_import("pandas",  not_imported_msg = msg,  incorrect_as_msg = msg)
+
+test_object("train")
+
 test_function("pandas.read_csv",1 , incorrect_msg = "Make sure you are using the `read_csv()` function correctly")
 test_function("pandas.read_csv",2 ,  incorrect_msg = "Make sure you are using the `read_csv()` function correctly")
 test_function("print",1)
