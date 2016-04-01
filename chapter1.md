@@ -104,6 +104,7 @@ test_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
 ```{python}
 # Import the Pandas library
 import pandas as pd
+
 # Load the train and test datasets to create two DataFrames
 train_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
 train = pd.read_csv(train_url)
@@ -260,26 +261,26 @@ print(train.Survived[train.Sex == 'female'].value_counts(normalize = True))
 
 ```{python}
 msg = "Make sure you are using `.value_counts()` method correctly."
-test_function("print", 1
+test_function("print", 1,
               incorrect_msg = msg)
 
 msg = "Don't forget to set `normalize = True` when using `.value_counts()`."
-test_function("print", 2
+test_function("print", 2,
               incorrect_msg = msg)
 
 msg = "Make sure you are partitioning by males."
-test_function("print", 3
+test_function("print", 3,
               incorrect_msg = msg)
 
 msg = "Make sure you are partitioning by females."
-test_function("print", 4
+test_function("print", 4,
               incorrect_msg = msg)
 
 msg = "Don't forget to set `normalize = True` when using `.value_counts()`."
-test_function("print", 5
+test_function("print", 5,
               incorrect_msg = msg)
 
-test_function("print", 6
+test_function("print", 6,
               incorrect_msg = msg)
 
 success_msg("Well done! It looks like it makes sense to predict that all females will survive, and all men will die.")
@@ -362,15 +363,15 @@ print(train.Survived[train.Child == 0].value_counts(normalize = True))
 *** =sct
 ```{python}
 msg = "Make sure that you initiate with `float('NaN')` and classifying according to the instructions."
-test_function("print", 1
+test_function("print", 1,
               incorrect_msg = msg)
 
 msg = "Don't forget to set `normalize = True` when using `.value_counts()`."
-test_function("print", 2
+test_function("print", 2,
               incorrect_msg = msg)
 
 msg = "Compute the survival prportions for those OVER 18!"
-test_function("print", 3
+test_function("print", 3,
               incorrect_msg = msg)
 ```
 
@@ -430,7 +431,8 @@ print(test_one)
 
 ```{python}
 
-test_function("print", incorrect_msg ="Make sure you are assigning 1 to female and 0 to male passengers")
+test_function("print", 
+              incorrect_msg ="Make sure you are assigning 1 to female and 0 to male passengers")
 
 success_msg("Well done! If you want, you can already submit these first predictions to Kaggle [by uploading this csv file](http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/ch1_ex4_solution/my_solution.csv). In the next chapter you will learn how to make more advanced predictions and create your own .csv file from Python.")
 ```
