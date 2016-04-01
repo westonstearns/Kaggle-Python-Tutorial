@@ -87,7 +87,9 @@ features_forest = np.array(___).transpose()
 n_estimators = 
 forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, ___)
 my_forest = forest.fit(features_forest, target)
-my_forest.score(features_forest, target)
+
+#Print the score of the random forest
+
 
 #Compute predictions and print the length of the prediction vector:test_features, pred_forest
 test_features = np.array(___).transpose()
@@ -109,6 +111,8 @@ n_estimators = 100
 forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, n_estimators = n_estimators)
 my_forest = forest.fit(features_forest, target)
 
+#Print the score of the random forest
+print(my_forest.score(features_forest, target))
 
 #Compute predictions and print the length of the prediction vector:test_features, pred_forest
 test_features = np.array([test.Pclass,test.Age,test.Sex, test.Fare, test.SibSp, test.Parch,test.Embarked]).transpose()
@@ -123,9 +127,9 @@ print(len(pred_forest))
 test_function("RandomForestClassifier")
 test_object("n_estimators")
 test_object("features_forest")
+test_function("print",1)
 test_object("test_features")
-#test_object("pred_forest")
-test_function("print")
+test_function("print",2)
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2
