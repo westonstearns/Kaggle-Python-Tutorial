@@ -67,11 +67,11 @@ Let's start with loading in the training and testing set into your Python enviro
 *** =instructions
 - First import the Pandas library as np.
 - Load the test data similarly to how the train data is loaded.
-- Print the train DataFrame
+- Print the train and test dataframes
 
 *** =hint
 - You can load in the training set with `train = pd.read_csv(train_url)`
-- To print a variable to the console, simply type the name of the variable on a new line.
+- To print a variable to the console, use the print function on a new line.
 
 *** =pre_exercise_code
 ```{python}
