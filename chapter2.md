@@ -157,13 +157,13 @@ my_tree = my_tree.fit(features, target)
 
 ```
 
-One way to quickly see the result of your decision tree is to see the importance of the features that are included. This is done by requesting the `.feature_importances_` attribute of your tree object.
+One way to quickly see the result of your decision tree is to see the importance of the features that are included. This is done by requesting the `.feature_importances_` attribute of your tree object. Another quick metric is the mean accuracy that you can compute using the `.score()` function with `features` and `target` as arguments.
 
 Ok time for you to build your first decision tree in Python! The train and testing data from chapter 1 are available in your workspace.
 
 *** =instructions
 - Build a decision tree `my_tree_one` to predict survival based on the variables Passenger Class, Sex, Age, and Passenger Fare.
-- Look at the importance of features in your tree.
+- Look at the importance of features in your tree and compute the score.
 
 *** =hint
  To build a tree use the `tree.DecisionTreeClassifier()` syntax.
@@ -200,7 +200,7 @@ train.loc[train["Sex"] == "female", "Sex"] = 1
 
 
 
-#Look at the importance of the included features
+#Look at the importance of the included features and print the score
 
 ```
 
@@ -222,6 +222,7 @@ my_tree_one = my_tree_one.fit(features_one, target)
 
 #Look at the importance of the included features
 print(my_tree_one.feature_importances_)
+print(my_tree_one.score(features_one, target))
 
 ```
 
@@ -232,7 +233,7 @@ print(my_tree_one.feature_importances_)
 
 test_object("target")
 test_object("features_one")
-#test_object("my_tree_one")
+test_function("print",3)
 
 ```
 
