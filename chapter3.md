@@ -272,6 +272,6 @@ my_forest = forest.fit(features_forest, target)
 test_mc(correct = 2, msgs = ["Try again", "Correct!", "Try again","Try again"])
 
 
-success_msg("Great! You just created your first decision tree. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/ch2_ex4_solution/my_solution.csv), and submit the created csv to Kaggle to see the result of your effort.")
+success_msg("Great! You just created your first decision tree. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/my_solution_forest.csv), and submit the created csv to Kaggle to see the result of your effort.")
 
 ```
