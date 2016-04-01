@@ -58,7 +58,9 @@ from sklearn import tree
 *** =sct
 
 ```{python}
-test_import("numpy", same_as = False)
+msg = "Make sure you have imported numpy correctly."
+test_import("numpy", same_as = False,
+            incorrect_msg = msg)
 ```
 
 
@@ -130,9 +132,13 @@ print(train.Embarked)
 *** =sct
 
 ```{python}
+msg = "It looks like you coded the `Sex` variable incorecctly."
+test_function("print", 1,
+              incorrect_msg = msg)
 
-test_function("print", 1)
-test_function("print", 2)
+msg = "It looks like you coded the `Embarked` variable incorecctly."
+test_function("print", 2,
+              incorrect_msg = msg)
 
 ```
 
@@ -230,10 +236,17 @@ print(my_tree_one.score(features_one, target))
 *** =sct
 
 ```{python}
+msg = "`target` should be the `Survived` variable from the train dataset. Follow the code in the discussion."
+test_object("target",
+            incorrect_msg = msg)
 
-test_object("target")
-test_object("features_one")
-test_function("print",3)
+msg = "Make sure that you are including the correct features in the stated order. Follow the code in the discussion."
+test_object("features_one",
+            incorrect_msg = msg)
+
+msg = "It looks liek the score was not computed correctly. Try re-submitting the code!"
+test_function("print",3,
+            incorrect_msg = msg)
 
 ```
 
