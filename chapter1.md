@@ -362,9 +362,6 @@ print(train.Survived[train.Child == 0].value_counts(normalize = True))
 
 *** =sct
 ```{python}
-msg = "Make sure that you initiate with `float('NaN')` and classifying according to the instructions."
-test_function("print", 1,
-              incorrect_msg = msg)
 
 msg = "Don't forget to set `normalize = True` when using `.value_counts()`."
 test_function("print", 2,
