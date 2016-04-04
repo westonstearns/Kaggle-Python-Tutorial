@@ -58,8 +58,7 @@ from sklearn import tree
 
 ```{python}
 
-test_import("numpy", same_as = False,
-            msg = "Make sure you have imported numpy correctly.")
+test_import("numpy", same_as = False)
 ```
 
 
