@@ -477,7 +477,7 @@ test_object("max_depth")
 test_object("min_samples_split")
 test_function("print")
 
-success_msg("Great! You just created your second and possibly improved decision tree. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/my_solution_two.csv) .Submit your updated solution to Kaggle to see how despite a lower `.score` you predict better.
+success_msg("Great! You just created your second and possibly improved decision tree. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/my_solution_two.csv) .Submit your updated solution to Kaggle to see how despite a lower `.score` you predict better.")
 
 ```
 
