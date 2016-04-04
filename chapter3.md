@@ -85,7 +85,7 @@ features_forest = np.array(___).transpose()
 
 #Building the Forest: my_forest
 n_estimators = 
-forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, ___)
+forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, ___, random_state = 1)
 my_forest = forest.fit(features_forest, target)
 
 #Print the score of the random forest
@@ -108,7 +108,7 @@ features_forest = np.array([train.Pclass, train.Age, train.Sex, train.Fare, trai
 
 #Building the Forest: my_forest
 n_estimators = 100
-forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, n_estimators = n_estimators)
+forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, n_estimators = n_estimators, random_state = 1)
 my_forest = forest.fit(features_forest, target)
 
 #Print the score of the random forest
@@ -179,7 +179,7 @@ my_tree_two = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
 my_tree_two = my_tree_two.fit(features_two, target)
 
 features_forest = np.array([train.Pclass, train.Age, train.Sex, train.Fare, train.SibSp, train.Parch, train.Embarked]).transpose()
-forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, n_estimators=100)
+forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, n_estimators=100, random_state = 1)
 my_forest = forest.fit(features_forest, target)
 
 ```
