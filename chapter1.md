@@ -383,7 +383,7 @@ You use your test set for validating your predictions. You might have seen that,
 - Create a variable `test_one`, identical to dataset `test`
 - Add an additional column, `Survived`, that you initialize to zero.
 - Use vector subsetting like in the previous exercise to set the value of `Survived` to 1 for observations whose `Sex` equals `"female"`.
-- Print the `test_one` dataset to the consol.
+- Print the `Survived` column of predictions from the `test_one` dataset.
 
 *** =hint
 - To create a new variable, `y`, that is a copy of `x`, you can use `y = x`.
@@ -421,7 +421,7 @@ test_one["Survived"] = 0
 
 # Set Survived to 1 if Sex equals "female"
 test_one.Survived[test_one.Sex == "female"] = 1
-print(test_one)
+print(test_one.Survived)
 ```
 
 *** =sct
