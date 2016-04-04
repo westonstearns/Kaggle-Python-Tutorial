@@ -75,7 +75,7 @@ Let's start with loading in the training and testing set into your Python enviro
 *** =instructions
 - First import the Pandas library as np.
 - Load the test data similarly to how the train data is loaded.
-- Print the train and test dataframes
+- Print the first couple rows of the loaded dataframes using the `.head()` method.
 
 *** =hint
 - You can load in the training set with `train = pd.read_csv(train_url)`
@@ -111,9 +111,9 @@ train = pd.read_csv(train_url)
 test_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
 test = pd.read_csv(test_url)
 
-#Print the train and test dataframes
-print(train)
-print(test)
+#Print the `head` of the train and test dataframes
+print(train.head())
+print(test.head())
 ```
 
 *** =sct
@@ -129,7 +129,8 @@ test_function("pandas.read_csv", 1,
 test_function("pandas.read_csv", 2,
               incorrect_msg = "Make sure you are using the `read_csv()` function correctly")
 
-test_output_contains("print(train)")
+test_function("print",1)
+test_function("print",2)
 
 success_msg("Well done! Now that your data is loaded in, let's see if you can understand it.")
 ```
