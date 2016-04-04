@@ -57,9 +57,9 @@ from sklearn import tree
 *** =sct
 
 ```{python}
-msg = "Make sure you have imported numpy correctly."
+
 test_import("numpy", same_as = False,
-            incorrect_msg = msg)
+            msg = "Make sure you have imported numpy correctly.")
 ```
 
 
