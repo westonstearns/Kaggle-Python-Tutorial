@@ -129,7 +129,7 @@ test_function("pandas.read_csv", 1,
 test_function("pandas.read_csv", 2,
               incorrect_msg = "Make sure you are using the `read_csv()` function correctly")
 
-test("train")
+test_object("train")
 
 success_msg("Well done! Now that your data is loaded in, let's see if you can understand it.")
 ```
