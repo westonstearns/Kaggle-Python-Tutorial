@@ -150,6 +150,9 @@ Make sure you are applying the commands to `my_forest` and are using correct arg
 
 *** =pre_exercise_code
 ```{python}
+import random
+random.seed(1)
+
 import pandas as pd
 import numpy as np
 import sklearn as sk
