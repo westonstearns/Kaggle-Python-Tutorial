@@ -288,7 +288,7 @@ my_tree_one = my_tree_one.fit(features_one, target)
 
 ```{python}
 
-test_mc(correct = 2, msgs = ["Try again", "Correct!" "Try again", "Tray again"])
+test_mc(correct = 2, msgs = ["Try again", "Correct!", "Try again", "Tray again"])
 
 
 ```
