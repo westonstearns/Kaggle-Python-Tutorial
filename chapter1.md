@@ -129,8 +129,8 @@ test_function("pandas.read_csv", 1,
 test_function("pandas.read_csv", 2,
               incorrect_msg = "Make sure you are using the `read_csv()` function correctly")
 
-test_function("print",1)
-test_function("print",2)
+msg = "Don't forget to print out the `cars` DataFrame with [`print()`](https://docs.python.org/3/library/functions.html#print)."
+test_function("print",  not_called_msg = msg, incorrect_msg = msg)
 
 success_msg("Well done! Now that your data is loaded in, let's see if you can understand it.")
 ```
