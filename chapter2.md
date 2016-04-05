@@ -253,7 +253,7 @@ success_msg("Well done! Time to investigate your decision tree a bit more.")
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2
 ## Interpreting your decision tree
 
-The `feature_importances_` attribute make it simple to interpret the significance of the predictors you include. Based on your decision tree, what variable plays the most important role to determine whether or not a passenger survived?
+The `feature_importances_` attribute make it simple to interpret the significance of the predictors you include. Based on your decision tree, what variable plays the most important role to determine whether or not a passenger survived? Your model (`my_tree_one`) is available in the consol.
 
 *** =instructions
 - Passenger Class
@@ -280,7 +280,7 @@ train.loc[train["Sex"] == "female", "Sex"] = 1
 
 target = np.array(train.Survived).transpose()
 features_one = np.array([train.Pclass, train.Sex, train.Age,  train.Fare]).transpose()
-my_tree_one = tree.DecisionTreeClassifier()
+my_tree_one = tree.DecisionTreeClassifier(random_state = 1)
 my_tree_one = my_tree_one.fit(features_one, target)
 
 
@@ -290,8 +290,9 @@ my_tree_one = my_tree_one.fit(features_one, target)
 
 ```{python}
 
-test_mc(correct = 2, msgs = ["Try again", "Correct!", "Try again", "Tray again"])
+test_mc(correct = 2, msgs = ["Try again", "Try again", "Correct!", "Tray again"])
 
+success_msg("Looks like Passenger Fare has most significance in determining survival based on your model. Now let's move on to making your first submission to Kagle!")
 
 ```
 
@@ -344,7 +345,7 @@ my_tree_one = my_tree_one.fit(features_one, target)
 #Impute the missing value with the median
 test.Fare[152] = 
 
-#Extract the features from the test set
+#Extract the features from the test set: Pclass, Sex, Age, and Fare.
 test_features = np.array([test.___, ___, ___, ___]).transpose()
 
 # Make your prediction using the test set
