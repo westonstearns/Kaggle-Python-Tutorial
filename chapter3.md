@@ -2,7 +2,6 @@
 title       : Improving your predictions through Random Forests 
 description : "What techniques can you use to improve your predictions even more? One possible way is by making use of the machine learning method Random Forest. Namely, a forest is just a collection of trees..."
 attachments :
-  slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
 
 --- type:NormalExercise lang:python xp:100 skills:2
