@@ -152,9 +152,9 @@ You will use the `scikit-learn` and `numpy` libraries to build your first decisi
 Take a look at the sample code below to see how this would look like:
 
 ```
-target = np.array(train.Survived).transpose()
+target = train["Survived"].values
 
-features = np.array([train.Sex, train.Age]).transpose()
+features = train[["Sex", "Age"]].values
 
 my_tree = tree.DecisionTreeClassifier()
 
@@ -217,8 +217,8 @@ print(train)
 
 #Create the target and features numpy arrays: target, features
 
-target = np.array(train.Survived).transpose()
-features_one = np.array([train.Pclass, train.Sex, train.Age, train.Fare]).transpose()
+target = train["Survived"].values
+features_one = train[["Pclass", "Sex", "Age", "Fare"]].values
 
 #Fit your first decision tree: my_tree_one
 
@@ -278,7 +278,7 @@ train["Age"] = train["Age"].fillna(train["Age"].median())
 train.loc[train["Sex"] == "male", "Sex"] = 0
 train.loc[train["Sex"] == "female", "Sex"] = 1
 
-target = np.array(train.Survived).transpose()
+target = train["Survived"].values
 features_one = np.array([train.Pclass, train.Sex, train.Age,  train.Fare]).transpose()
 my_tree_one = tree.DecisionTreeClassifier(random_state = 1)
 my_tree_one = my_tree_one.fit(features_one, target)
@@ -332,7 +332,7 @@ train["Age"] = train["Age"].fillna(train["Age"].median())
 train.loc[train["Sex"] == "male", "Sex"] = 0
 train.loc[train["Sex"] == "female", "Sex"] = 1
 
-target = np.array(train.Survived).transpose()
+target = train["Survived"].values
 features_one = np.array([train.Pclass, train.Sex, train.Age,  train.Fare]).transpose()
 my_tree_one = tree.DecisionTreeClassifier(random_state = 1)
 my_tree_one = my_tree_one.fit(features_one, target)
@@ -342,11 +342,11 @@ my_tree_one = my_tree_one.fit(features_one, target)
 *** =sample_code
 
 ```{python}
-#Impute the missing value with the median
+# Impute the missing value with the median
 test.Fare[152] = 
 
-#Extract the features from the test set: Pclass, Sex, Age, and Fare.
-test_features = np.array([test.___, ___, ___, ___]).transpose()
+# Extract the features from the test set: Pclass, Sex, Age, and Fare.
+test_features = test[[___, ___, ___, ___]].values
 
 # Make your prediction using the test set
 my_prediction = my_tree_one.predict(test_features)
@@ -366,11 +366,11 @@ my_solution.to_csv("my_solution_one.csv", index_label = ["PassengerId"])
 *** =solution
 
 ```{python}
-#Impute the missing value with the median
+# Impute the missing value with the median
 test.Fare[152] = test.Fare.median()
 
-#Extract the features from the test set
-test_features = np.array([test.Pclass, test.Fare, test.SibSp, test.Parch]).transpose()
+# Extract the features from the test set: Pclass, Sex, Age, and Fare.
+test_features = test[["Pclass", "Sex", "Age", "Fare"]].values
 
 # Make your prediction using the test set and print them.
 my_prediction = my_tree_one.predict(test_features)
@@ -394,7 +394,6 @@ my_solution.to_csv("my_solution_one.csv", index_label = ["PassengerId"])
 
 test_object("test_features")
 test_function("print",3)
-#test_function("pandas.to_csv")
 
 success_msg("Great! You just created your first decision tree. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/my_solution_one.csv), and submit the created csv to Kaggle to see the result of your effort.")
 
@@ -429,7 +428,7 @@ from sklearn import tree
 train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
 
-target = np.array(train.Survived).transpose()
+target = train[Survived].values
 
 train["Age"] = train["Age"].fillna(train["Age"].median())
 train.loc[train["Sex"] == "male", "Sex"] = 0
@@ -444,7 +443,7 @@ train.loc[train["Embarked"] == "Q", "Embarked"] = 2
 *** =sample_code
 ```{python}
 # Create a new array with the added features: features_two
-features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, ___, ___, ___]).transpose()
+features_two = train[["Pclass","Age","Sex","Fare", ___, ___, ___]].values
 
 #Control overfitting by setting "max_depth" to 10 and "min_samples_split" to 5 : my_tree_two
 max_depth = 
@@ -460,7 +459,7 @@ my_tree_two =
 *** =solution
 ```{python}
 # Create a new array with the added features: features_two
-features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch, train.Embarked]).transpose()
+features_two = train[["Pclass","Age","Sex","Fare", "SibSp", "Parch", "Embarked"]].values
 
 #Control overfitting by setting "max_depth" to 10 and "min_samples_split" to 5 : my_tree_two
 max_depth = 10
@@ -510,7 +509,7 @@ from sklearn import tree
 train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
 
-target = np.array(train.Survived).transpose()
+target = train["Survived"].values
 
 train["Age"] = train["Age"].fillna(train["Age"].median())
 train.loc[train["Sex"] == "male", "Sex"] = 0
@@ -543,7 +542,7 @@ train_two = train
 train_two['family_size'] = train.SibSp + train.Parch + 1
 
 # Create a new decision tree my_tree_three
-features_three = np.array([train.Pclass, train.Sex, train.Age, train.Fare, train.SibSp, train.Parch, train.family_size]).transpose()
+features_three = train[["Pclass", "Sex", "Age", "Fare", "SibSp", "Parch", "family_size"]].values
 
 my_tree_three = tree.DecisionTreeClassifier()
 my_tree_three = my_tree_three.fit(features_three, target)
