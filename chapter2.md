@@ -449,7 +449,7 @@ features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, ___, ___,
 #Control overfitting by setting "max_depth" to 10 and "min_samples_split" to 5 : my_tree_two
 max_depth = 
 min_samples_split =
-my_tree_two = tree.DecisionTreeClassifier(max_depth = ___, min_samples_split = ____)
+my_tree_two = tree.DecisionTreeClassifier(max_depth = ___, min_samples_split = ____, random_state = 1)
 my_tree_two = 
 
 #Print the score of the new decison tree
@@ -465,7 +465,7 @@ features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.Sib
 #Control overfitting by setting "max_depth" to 10 and "min_samples_split" to 5 : my_tree_two
 max_depth = 10
 min_samples_split = 5
-my_tree_two = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
+my_tree_two = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5, random_state = 1)
 my_tree_two = my_tree_two.fit(features_two, target)
 
 #Print the score of the new decison tree
