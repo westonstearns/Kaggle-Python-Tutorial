@@ -290,7 +290,7 @@ my_tree_one = my_tree_one.fit(features_one, target)
 
 ```{python}
 
-test_mc(correct = 2, msgs = ["Try again", "Try again", "Correct!", "Tray again"])
+test_mc(correct = 3, msgs = ["Try again", "Try again", "Correct!", "Tray again"])
 
 success_msg("Looks like Passenger Fare has most significance in determining survival based on your model. Now let's move on to making your first submission to Kagle!")
 
