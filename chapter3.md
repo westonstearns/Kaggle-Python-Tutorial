@@ -52,10 +52,10 @@ train.loc[train["Embarked"] == "Q", "Embarked"] = 2
 
 train["Age"] = train["Age"].fillna(train["Age"].median())
 
-target = np.array(train.Survived).transpose()
+target = train["Survived"].values
 
-features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch,train.Embarked]).transpose()
-my_tree_two = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
+features_two = train[["Pclass", "Age", "Sex", "Fare", "SibSp", "Parch", "Embarked"]].values
+my_tree_two = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5, random_state = 1)
 my_tree_two = my_tree_two.fit(features_two, target)
 
 
@@ -80,7 +80,7 @@ test.Fare[152] = test.Fare.median()
 from sklearn.ensemble import ___
 
 #We want the Pclass, Age, Sex, Fare,SibSp, Parch, and Embarked variables
-features_forest = np.array(___).transpose()
+features_forest = 
 
 #Building the Forest: my_forest
 n_estimators = 
@@ -91,7 +91,7 @@ my_forest = forest.fit(features_forest, target)
 
 
 #Compute predictions and print the length of the prediction vector:test_features, pred_forest
-test_features = np.array(___).transpose()
+test_features = 
 pred_forest = 
 print()
 ```
@@ -103,7 +103,7 @@ print()
 from sklearn.ensemble import RandomForestClassifier
 
 #We want the Pclass, Age, Sex, Fare,SibSp, Parch, and Embarked variables
-features_forest = np.array([train.Pclass, train.Age, train.Sex, train.Fare, train.SibSp, train.Parch, train.Embarked]).transpose()
+features_forest = train[["Pclass", "Age", "Sex", "Fare", "SibSp", "Parch", "Embarked"]].values
 
 #Building the Forest: my_forest
 n_estimators = 100
@@ -114,7 +114,7 @@ my_forest = forest.fit(features_forest, target)
 print(my_forest.score(features_forest, target))
 
 #Compute predictions and print the length of the prediction vector:test_features, pred_forest
-test_features = np.array([test.Pclass,test.Age,test.Sex, test.Fare, test.SibSp, test.Parch,test.Embarked]).transpose()
+test_features = test[["Pclass", "Age", "Sex", "Fare", "SibSp", "Parch", "Embarked"]].values
 pred_forest = my_forest.predict(test_features)
 print(len(pred_forest))
 
@@ -171,13 +171,13 @@ train.loc[train["Embarked"] == "C", "Embarked"] = 1
 train.loc[train["Embarked"] == "Q", "Embarked"] = 2
 train["Age"] = train["Age"].fillna(train["Age"].median())
 
-target = np.array(train.Survived).transpose()
+target = train["Survived"].values
 
-features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch,train.Embarked]).transpose()
+features_two = train[["Pclass", "Age", "Sex", "Fare", "SibSp", "Parch", "Embarked"]].values
 my_tree_two = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5, random_state = 1)
 my_tree_two = my_tree_two.fit(features_two, target)
 
-features_forest = np.array([train.Pclass, train.Age, train.Sex, train.Fare, train.SibSp, train.Parch, train.Embarked]).transpose()
+features_forest = train[["Pclass", "Age", "Sex", "Fare", "SibSp", "Parch", "Embarked"]].values
 forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, n_estimators=100, random_state = 1)
 my_forest = forest.fit(features_forest, target)
 
@@ -249,13 +249,13 @@ train.loc[train["Embarked"] == "C", "Embarked"] = 1
 train.loc[train["Embarked"] == "Q", "Embarked"] = 2
 train["Age"] = train["Age"].fillna(train["Age"].median())
 
-target = np.array(train.Survived).transpose()
+target = train["Survived"].values
 
-features_two = np.array([train.Pclass,train.Age,train.Sex, train.Fare, train.SibSp, train.Parch,train.Embarked]).transpose()
+features_two = train[["Pclass", "Age", "Sex", "Fare", "SibSp", "Parch", "Embarked"]].values
 my_tree_two = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5)
 my_tree_two = my_tree_two.fit(features_two, target)
 
-features_forest = np.array([train.Pclass, train.Age, train.Sex, train.Fare, train.SibSp, train.Parch, train.Embarked]).transpose()
+features_forest = train[["Pclass", "Age", "Sex", "Fare", "SibSp", "Parch", "Embarked"]].values
 forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, n_estimators=100)
 my_forest = forest.fit(features_forest, target)
 
