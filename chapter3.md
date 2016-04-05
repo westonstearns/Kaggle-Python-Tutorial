@@ -274,6 +274,6 @@ my_forest = forest.fit(features_forest, target)
 test_mc(correct = 2, msgs = ["Try again", "Correct!", "Try again","Try again"])
 
 
-success_msg("Great! You just created your first random forest. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/my_solution_forest.csv), and submit the created csv to Kaggle to imporove your score even more")
+success_msg("Great! Now that you created your first random forest and used it for prediction take a look at how well it does in the Kaggle competition. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/my_solution_forest.csv).
 
 ```
