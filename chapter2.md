@@ -279,7 +279,7 @@ train.loc[train["Sex"] == "male", "Sex"] = 0
 train.loc[train["Sex"] == "female", "Sex"] = 1
 
 target = train["Survived"].values
-features_one = np.array([train.Pclass, train.Sex, train.Age,  train.Fare]).transpose()
+features_one = train[["Pclass", "Sex", "Age", "Fare"]].values
 my_tree_one = tree.DecisionTreeClassifier(random_state = 1)
 my_tree_one = my_tree_one.fit(features_one, target)
 
@@ -333,7 +333,7 @@ train.loc[train["Sex"] == "male", "Sex"] = 0
 train.loc[train["Sex"] == "female", "Sex"] = 1
 
 target = train["Survived"].values
-features_one = np.array([train.Pclass, train.Sex, train.Age,  train.Fare]).transpose()
+features_one = train[["Pclass", "Sex", "Age", "Fare"]].values
 my_tree_one = tree.DecisionTreeClassifier(random_state = 1)
 my_tree_one = my_tree_one.fit(features_one, target)
 
