@@ -302,7 +302,7 @@ This code would create a new column in the `train` DataFrame titled `new_var` wi
 To set the values based on the age of the passenger, you make use of a boolean test inside the square bracket operator. With the `[]`-operator you create a subset of rows and assign a value to a certain variable of that subset of observations. For example,
 
 ```
-train.new_var[train$Survived == 1] = 0
+train.new_var[train.Survived == 1] = 0
 ```
 
 would give a value of 0 to the variable `new_var` for the subset of passengers that survived the disaster.
@@ -331,8 +331,8 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 *** =sample_code
 
 ```{python}
-# Create the column child, and indicate whether child or not a child. Print the new column.
-
+# Create the column Child, and indicate whether child or not a child. Print the new column.
+train["Child"] = float('NaN')
 
 # Normalized Survival Rates for under 18
 
@@ -343,7 +343,7 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 *** =solution
 
 ```{python}
-# Create the column child, and indicate whether child or not a child.Print the new column.
+# Create the column Child, and indicate whether child or not a child. Print the new column.
 train["Child"] = float('NaN')
 train.Child[train.Age < 18] = 1
 train.Child[train.Age >= 18] = 0
@@ -367,6 +367,8 @@ test_function("print", 2,
 msg = "Compute the survival prportions for those OVER 18!"
 test_function("print", 3,
               incorrect_msg = msg)
+
+success_msg("Well done! It looks like it makes sense to predict that all females will survive, and all men will die.")
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2
@@ -404,7 +406,7 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 # Initialize a Survived column to 0
 
 
-# Set Survived to 1 if Sex equals "female"
+# Set Survived to 1 if Sex equals "female" and print the `Survived` column from `test_one`
 ```
 
 *** =solution
