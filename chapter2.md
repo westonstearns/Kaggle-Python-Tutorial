@@ -495,7 +495,7 @@ A valid assumption is that larger families need more time to get together on a s
 
 *** =instructions
 - Create a new train set `train_two` that differs from `train` only by having an extra column with your feature engineered variable `family_size`.
-- Create a new decision tree. Again use the same variables as last time, but add your feature engineered variable `family_size` as well. Save your new model as `my_tree_three`. 
+- Create a new decision tree. Add your feature engineered variable `family_size` in addition to `Pclass`, `Sex`, `Age`, `Fare`, `SibSp` and `Parch`. Save your new model as `my_tree_three`. 
 
 *** =hint
 
