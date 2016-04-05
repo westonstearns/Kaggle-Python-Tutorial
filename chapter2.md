@@ -138,7 +138,7 @@ msg = "It looks like you coded the `Embarked` variable incorecctly."
 test_function("print", 2,
               incorrect_msg = msg)
 
-success_msg("Well done! Time to investigate your decision tree a bit more.")
+success_msg("Geat! Now that the data is cleaned up a bit you are ready to begin building your first decision tree.")
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2
@@ -247,6 +247,7 @@ msg = "It looks liek the score was not computed correctly. Try re-submitting the
 test_function("print",3,
             incorrect_msg = msg)
 
+success_msg("Well done! Time to investigate your decision tree a bit more.")
 ```
 
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2
