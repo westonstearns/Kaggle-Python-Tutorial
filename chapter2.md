@@ -143,7 +143,7 @@ test_function("print", 2,
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Creating your first decision tree
 
-You will use the `skit-learn` and `numpy` libraries to build your first decision tree. `skit-learn` can be used to create `tree` objects from the `DecisionTreeClassifier` class. The methods that we will require take `numpy` arrays as inputs and therefore we will need to create those from the `DataFrame` that we already have. We will need the following to build a decision tree
+You will use the `scikit-learn` and `numpy` libraries to build your first decision tree. `scikit-learn` can be used to create `tree` objects from the `DecisionTreeClassifier` class. The methods that we will require take `numpy` arrays as inputs and therefore we will need to create those from the `DataFrame` that we already have. We will need the following to build a decision tree
 
 - `target`: A one dimensional numpy array containing the target/response from the train data. (Survival in your case)
 - `data`: A multidimensional numpy array containing the features/predictors from the train data. (ex. Sex, Age)
