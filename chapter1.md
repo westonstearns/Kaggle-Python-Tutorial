@@ -136,7 +136,7 @@ success_msg("Well done! Now that your data is loaded in, let's see if you can un
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2
 ## Understanding your data
 
-Before starting with the actual analysis, it's important to understand the structure of your data. Both `test` and `train` are DataFrame objects, the ay pandas in Python represents datasets. You can easily explore a data using the `.describe()` method. `.describe()` summarizes the columns/features of the DataFrame, including the count of observations, mean, max and so on. Another useful trick is to look at the dimensions of the DataFrame. This is done by requesting the `.shape` attribute of your DataFrame object. (ex. `your_data.shape`)
+Before starting with the actual analysis, it's important to understand the structure of your data. Both `test` and `train` are DataFrame objects, the way pandas represent datasets. You can easily explore a data using the `.describe()` method. `.describe()` summarizes the columns/features of the DataFrame, including the count of observations, mean, max and so on. Another useful trick is to look at the dimensions of the DataFrame. This is done by requesting the `.shape` attribute of your DataFrame object. (ex. `your_data.shape`)
 
 The training and test set are already available in the workspace, as `train` and `test`. Apply `.describe()` method and print the `.shape` attribute of the training set. Which of the following statements is correct?
 
@@ -194,8 +194,8 @@ train.Survived[train.Sex == 'female'].value_counts()
 To get proportions, you can again pass in the argument `normalize = True` to the `.value_counts()` method.
 
 *** =instructions
-- Calculate the survival rates in absolute numbers using `values_counts()` method.
-- Calculate the survival rates as proportions by setting the `normalize` argument to `True`.
+- Calculate and print the survival rates in absolute numbers using `values_counts()` method.
+- Calculate and print the survival rates as proportions by setting the `normalize` argument to `True`.
 - Repeat the same calculations, but on subsets of survivals based in Sex.
 
 *** =hint
@@ -213,21 +213,22 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 ```{python}
 
 # Passengers that survived vs passengers that passed away
-
+print()
 
 # As proportions
-
+print()
 
 # Males that survived vs males that passed away
-
+print()
 
 # Females that survived vs Females that passed away
-
+print()
 
 # Normalized male survival
-
+print()
 
 # Normalized female survival
+print()
 
 ```
 
