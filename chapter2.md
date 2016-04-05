@@ -146,9 +146,9 @@ test_function("print", 2,
 You will use the `scikit-learn` and `numpy` libraries to build your first decision tree. `scikit-learn` can be used to create `tree` objects from the `DecisionTreeClassifier` class. The methods that we will require take `numpy` arrays as inputs and therefore we will need to create those from the `DataFrame` that we already have. We will need the following to build a decision tree
 
 - `target`: A one dimensional numpy array containing the target/response from the train data. (Survival in your case)
-- `data`: A multidimensional numpy array containing the features/predictors from the train data. (ex. Sex, Age)
+- `features`: A multidimensional numpy array containing the features/predictors from the train data. (ex. Sex, Age)
 
-To how this would look like, take a look at the sample code below: 
+Take a look at the sample code below to see how this would look like:
 
 ```
 target = np.array(train.Survived).transpose()
