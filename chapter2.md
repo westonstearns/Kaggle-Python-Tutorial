@@ -560,5 +560,6 @@ print(my_tree_three.score(features_three, target))
 test_object("features_three")
 test_function("print")
 
+success_msg("Great! Notice that this time the newly created variable is included in the model. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/my_solution_three.csv), and submit the created csv to Kaggle to see the result of the updated model.")
 ```
 
