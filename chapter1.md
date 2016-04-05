@@ -56,7 +56,7 @@ test_object("y",
             undefined_msg = msg, 
             incorrect_msg = msg)
 
-msg = "Print out the resulting object, `s`!"
+msg = "Print out the resulting object, `y`!"
 test_function("print",2, 
               not_called_msg = msg,
               incorrect_msg = msg)
@@ -66,7 +66,7 @@ success_msg("Awesome! See how the console shows the result of the Python code yo
 
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Get the Data with Pandas
-When the Titanic sank, 1502 of the 2224 passengers and crew got killed. One of the main reasons for this high level of casualties was the lack of lifeboats on this self-proclaimed "unsinkable" ship.
+When the Titanic sank, 1502 of the 2224 passengers and crew were killed. One of the main reasons for this high level of casualties was the lack of lifeboats on this self-proclaimed "unsinkable" ship.
 
 Those that have seen the movie know that some individuals were more likely to survive the sinking (lucky Rose) than others (poor Jack). In this course you will learn how to apply machine learning techniques to predict a passenger's chance of surviving using Python.
 
