@@ -220,7 +220,7 @@ test_function("print", 4)
 ## Conclude and Submit
 
 Based on your finding in the previous exercise determine which feature was of most importance, and for which model.
-After this final exercise you will be able to submit your random forest model to Kaggle! 
+After this final exercise you will be able to submit your random forest model to Kaggle! Use `my_forest`, `my_tree_two`, and `feature_importances_` to answer the question.
 
 *** =hint
 
