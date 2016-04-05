@@ -138,6 +138,7 @@ msg = "It looks like you coded the `Embarked` variable incorecctly."
 test_function("print", 2,
               incorrect_msg = msg)
 
+success_msg("Well done! Time to investigate your decision tree a bit more.")
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2
