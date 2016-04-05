@@ -1,5 +1,5 @@
 ---
-title       : Predicting with Trees
+title       : Predicting with Decision Trees
 description : After making your first predictions in the previous chapter, it's time to bring you to the next level. In chapter 2 you
 will be introduced to a fundamental concept in machine learning: decision trees.
 attachments :
