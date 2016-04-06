@@ -8,11 +8,11 @@ attachments :
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Intro to decision trees
 
-In the previous chapter you did all the slicing and dicing yourself to find subsets that have a higher chance of surviving. A decision tree automates this process for you, and outputs a classification model, or classifier.
+In the previous chapter, you did all the slicing and dicing yourself to find subsets that have a higher chance of surviving. A decision tree automates this process for you and outputs a classification model or classifier.
 
 Conceptually, the decision tree algorithm starts with all the data at the root node and scans all the variables for the best one to split on. Once a variable is chosen, you do the split and go down one level (or one node) and repeat. The final nodes at the bottom of the decision tree are known as terminal nodes, and the majority vote of the observations in that node determine how to predict for new observations that end up in that terminal node.
 
-First let's import the necessary libraries:
+First, let's import the necessary libraries:
 
 *** =instructions
 - Import the `numpy` library as `np`
@@ -65,13 +65,13 @@ test_import("numpy", same_as = False)
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Cleaning and Formatting your Data
 
-Before you can begin constructing your trees you need to get your hands dirty and clean the data so that you can use all the features available to you. In the first chapter we saw that the Age variable had some missing value. Missingness is a whole subject with and in itself, but we will use a simple imputation technique where we substitute each missing value with the median of the all present values.
+Before you can begin constructing your trees you need to get your hands dirty and clean the data so that you can use all the features available to you. In the first chapter, we saw that the Age variable had some missing value. Missingness is a whole subject with and in itself, but we will use a simple imputation technique where we substitute each missing value with the median of the all present values.
 
 ```
 train["Age"] = train["Age"].fillna(train["Age"].median())
 ```
 
-Another problem is that the Sex and Embarked variables are categorical but in a non-numeric format. Thus we will need to assign each class a unique integer so that Python can handle the information. Embarked also has some missing values which you should impute witht the most common class of embarkation, which is `"S"`.
+Another problem is that the Sex and Embarked variables are categorical but in a non-numeric format. Thus, we will need to assign each class a unique integer so that Python can handle the information. Embarked also has some missing values which you should impute witht the most common class of embarkation, which is `"S"`.
 
 
 *** =instructions
@@ -144,9 +144,9 @@ success_msg("Geat! Now that the data is cleaned up a bit you are ready to begin 
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Creating your first decision tree
 
-You will use the `scikit-learn` and `numpy` libraries to build your first decision tree. `scikit-learn` can be used to create `tree` objects from the `DecisionTreeClassifier` class. The methods that we will require take `numpy` arrays as inputs and therefore we will need to create those from the `DataFrame` that we already have. We will need the following to build a decision tree
+You will use the `scikit-learn` and `numpy` libraries to build your first decision tree. `scikit-learn` can be used to create `tree` objects from the `DecisionTreeClassifier` class. The methods that we will use take `numpy` arrays as inputs and therefore we will need to create those from the `DataFrame` that we already have. We will need the following to build a decision tree
 
-- `target`: A one dimensional numpy array containing the target/response from the train data. (Survival in your case)
+- `target`: A one-dimensional numpy array containing the target/response from the train data. (Survival in your case)
 - `features`: A multidimensional numpy array containing the features/predictors from the train data. (ex. Sex, Age)
 
 Take a look at the sample code below to see how this would look like:
@@ -164,7 +164,7 @@ my_tree = my_tree.fit(features, target)
 
 One way to quickly see the result of your decision tree is to see the importance of the features that are included. This is done by requesting the `.feature_importances_` attribute of your tree object. Another quick metric is the mean accuracy that you can compute using the `.score()` function with `features` and `target` as arguments.
 
-Ok time for you to build your first decision tree in Python! The train and testing data from chapter 1 are available in your workspace.
+Ok, time for you to build your first decision tree in Python! The train and testing data from chapter 1 are available in your workspace.
 
 *** =instructions
 - Build a decision tree `my_tree_one` to predict survival based on the variables Passenger Class, Sex, Age, and Passenger Fare.
@@ -253,7 +253,7 @@ success_msg("Well done! Time to investigate your decision tree a bit more.")
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2
 ## Interpreting your decision tree
 
-The `feature_importances_` attribute make it simple to interpret the significance of the predictors you include. Based on your decision tree, what variable plays the most important role to determine whether or not a passenger survived? Your model (`my_tree_one`) is available in the consol.
+The `feature_importances_` attribute make it simple to interpret the significance of the predictors you include. Based on your decision tree, what variable plays the most important role in determining whether or not a passenger survived? Your model (`my_tree_one`) is available in the console.
 
 *** =instructions
 - Passenger Class
@@ -300,9 +300,9 @@ success_msg("Looks like Passenger Fare has most significance in determining surv
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Predict and submit to Kaggle
 
-To send a submission to Kaggle you need to predict the survival rates for the observations in the test set. In the last exercise of the previous chapter we created rather amateuristic predictions based on a single subset or none at all. Luckily, with our decision tree we can make use of some simple functions to "generate" our answer without having to manually perform subsetting.
+To send a submission to Kaggle you need to predict the survival rates for the observations in the test set. In the last exercise of the previous chapter, we created simple predictions based on a single subset. Luckily, with our decision tree, we can make use of some simple functions to "generate" our answer without having to manually perform subsetting.
 
-First you make use of the `.predict()` method. You provide it the model (`my_tree_two`), the values of features from the dataset for which predictions need to be made (`test`). To extract the features we will need to create a numpy array in the same way as we did when training the model. However we need to take care of a small but important problem first. There is a missing value in the Fare feature that needs to be imputed.
+First, you make use of the `.predict()` method. You provide it the model (`my_tree_two`), the values of features from the dataset for which predictions need to be made (`test`). To extract the features we will need to create a numpy array in the same way as we did when training the model. However, we need to take care of a small but important problem first. There is a missing value in the Fare feature that needs to be imputed.
 
 Next, you need to make sure your output is in line with the submission requirements of Kaggle: a csv file with exactly 418 entries and two columns: `PassengerId` and `Survived`. So you need to make a new data frame using `DataFrame()`, and create a csv file using `to_csv()` method from Pandas.
 
@@ -316,7 +316,7 @@ Next, you need to make sure your output is in line with the submission requireme
 *** =hint
 
 When making the `test_features` array make sure that you include the same features in the same order as you did with the train data.
-To initidate the submition DataFrame simply select the `PassengerId` from the `test` data. Then add the column with predications.
+To initiate the submission DataFrame simply select the `PassengerId` from the `test` data. Then add the column with predictions.
 
 
 *** =pre_exercise_code
@@ -410,13 +410,13 @@ Maybe we can improve the overfit model by making a less complex model? In `Decis
 
 By limiting the complexity of your decision tree you will increase its generality and thus its usefulness for prediction!
 *** =instructions
-- Include the Siblings/Spouses Aboard, Parents/Childeren Aboard, and Embarked features in a new set of features.
-- Fit your second tree `my_tree_two` with the new features, and control for the the model compelexity by toggling the `max_depth` and `min_samples_split` arguments.
+- Include the Siblings/Spouses Aboard, Parents/Children Aboard, and Embarked features in a new set of features.
+- Fit your second tree `my_tree_two` with the new features, and control for the model compelexity by toggling the `max_depth` and `min_samples_split` arguments.
 
 
 *** =hint
 
-You can always use `train.describe()` in the consol to check the names of the features.
+You can always use `train.describe()` in the console to check the names of the features.
 
 *** =pre_exercise_code
 
@@ -498,7 +498,7 @@ A valid assumption is that larger families need more time to get together on a s
 
 *** =hint
 
-Don't forget to add `1` to when adding column with the new feature.
+Don't forget to add `1` when adding the column with the new feature.
 
 *** =pre_exercise_code
 ```{python}
