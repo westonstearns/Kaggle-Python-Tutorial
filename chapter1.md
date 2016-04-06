@@ -6,15 +6,15 @@ attachments :
 --- type:NormalExercise lang:python xp:100 skills:2
 
 ## How it works
-Welcome to our Kaggle Machine Learning Tutorial. In this tutorial you will explore how to tackle Kaggle Titanic competition using Python and Machine Learning. In case you're new to Python, it's recommended that you first take our free [Introduction to Python for Data Science Tutorial](https://www.datacamp.com/courses/intro-to-python-for-data-science). Furthermore, while not required, familiarity with machine learning techniques is a plus so you can get the maximum out of this tutorial.
+Welcome to our Kaggle Machine Learning Tutorial. In this tutorial, you will explore how to tackle Kaggle Titanic competition using Python and Machine Learning. In case you're new to Python, it's recommended that you first take our free [Introduction to Python for Data Science Tutorial](https://www.datacamp.com/courses/intro-to-python-for-data-science). Furthermore, while not required, familiarity with machine learning techniques is a plus so you can get the maximum out of this tutorial.
 
-In the editor on the right you should type Python code to solve the exercises. When you hit the 'Submit Answer' button, every line of code is interpreted and executed by Python and you get a message whether or not your code was correct. The output of your Python code is shown in the console in the lower right corner. Python makes use of the `#` sign to add comments; these lines are not run as Python code, so they will not influence your result.
+In the editor on the right, you should type Python code to solve the exercises. When you hit the 'Submit Answer' button, every line of code is interpreted and executed by Python and you get a message whether or not your code was correct. The output of your Python code is shown in the console in the lower right corner. Python makes use of the `#` sign to add comments; these lines are not run as Python code, so they will not influence your result.
 
 You can also execute Python commands straight in the console. This is a good way to experiment with Python code, as your submission is not checked for correctness.
 
 
 *** =instructions
-- In the editor to the right you see some Python code and annotations. This is what a typical exercise will look like.
+- In the editor to the right, you see some Python code and annotations. This is what a typical exercise will look like.
 - To complete the exercise and see how the interactive environment works  add the code to compute `y` and hit the `Submit Answer` button. Don't forget to print the result.
 
 
@@ -68,12 +68,12 @@ success_msg("Awesome! See how the console shows the result of the Python code yo
 ## Get the Data with Pandas
 When the Titanic sank, 1502 of the 2224 passengers and crew were killed. One of the main reasons for this high level of casualties was the lack of lifeboats on this self-proclaimed "unsinkable" ship.
 
-Those that have seen the movie know that some individuals were more likely to survive the sinking (lucky Rose) than others (poor Jack). In this course you will learn how to apply machine learning techniques to predict a passenger's chance of surviving using Python.
+Those that have seen the movie know that some individuals were more likely to survive the sinking (lucky Rose) than others (poor Jack). In this course, you will learn how to apply machine learning techniques to predict a passenger's chance of surviving using Python.
 
 Let's start with loading in the training and testing set into your Python environment. You will use the training set to build your model, and the test set to validate it. The data is stored on the web as `csv` files; their URLs are already available as character strings in the sample code. You can load this data with the `read_csv()` method from the Pandas library.
 
 *** =instructions
-- First import the Pandas library as np.
+- First, import the Pandas library as np.
 - Load the test data similarly to how the train data is loaded.
 - Print the first couple rows of the loaded dataframes using the `.head()` method.
 
@@ -165,7 +165,7 @@ test_mc(correct = 1, msgs = ["Correct!",
                               "Not quite", 
                               "Try one more time"])
 
-success_msg("Well done! Now lets move on and explore some of the features in more detail")
+success_msg("Well done! Now move on and explore some of the features in more detail.")
 
 ```
 
@@ -196,7 +196,7 @@ To get proportions, you can again pass in the argument `normalize = True` to the
 *** =instructions
 - Calculate and print the survival rates in absolute numbers using `values_counts()` method.
 - Calculate and print the survival rates as proportions by setting the `normalize` argument to `True`.
-- Repeat the same calculations, but on subsets of survivals based in Sex.
+- Repeat the same calculations but on subsets of survivals based on Sex.
 
 *** =hint
 - The code for the first four tasks is already given in the assignment!
@@ -331,7 +331,7 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 *** =sample_code
 
 ```{python}
-# Create the column Child, and indicate whether child or not a child. Print the new column.
+# Create the column Child and indicate whether child or not a child. Print the new column.
 train["Child"] = float('NaN')
 
 # Normalized Survival Rates for under 18
@@ -376,7 +376,7 @@ success_msg("Well done! It looks like it makes sense to predict that all females
 
 In one of the previous exercises you discovered that in your training set, females had over a 50% chance of surviving and males had less than a 50% chance of surviving. Hence, you could use this information for your first prediction: all females in the test set survive and all males in the test set die. 
 
-You use your test set for validating your predictions. You might have seen that, contrary to the training set, the test set has no `Survived` column. You add such a column using your predicted values. Next, when uploading your results, Kaggle will use this variable (= your predictions) to score your performance. 
+You use your test set for validating your predictions. You might have seen that contrary to the training set, the test set has no `Survived` column. You add such a column using your predicted values. Next, when uploading your results, Kaggle will use this variable (= your predictions) to score your performance. 
 
 *** =instructions
 - Create a variable `test_one`, identical to dataset `test`
@@ -386,7 +386,7 @@ You use your test set for validating your predictions. You might have seen that,
 
 *** =hint
 - To create a new variable, `y`, that is a copy of `x`, you can use `y = x`.
-- To initialize a new column `a` in a data frame `data` to zero, you can use `data['a'] = 0`.
+- To initialize a new column `a` in a dataframe `data` to zero, you can use `data['a'] = 0`.
 - Have another look at the previous exercise if you're struggling with the third instruction.
 
 *** =pre_exercise_code
@@ -430,8 +430,6 @@ print(test_one.Survived)
 test_function("print", 
               incorrect_msg ="Make sure you are assigning 1 to female and 0 to male passengers")
 
-success_msg("Well done! If you want, you can already submit these first predictions to Kaggle [by uploading this csv file](http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/ch1_ex4_solution/my_solution.csv). In the next chapter you will learn how to make more advanced predictions and create your own .csv file from Python.")
+success_msg("Well done! If you want, you can already submit these first predictions to Kaggle [by uploading this csv file](http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/ch1_ex4_solution/my_solution.csv). In the next chapter, you will learn how to make more advanced predictions and create your own .csv file from Python.")
 ```
-
-
 
