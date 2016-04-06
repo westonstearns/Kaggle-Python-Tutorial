@@ -6,11 +6,11 @@ attachments :
 
 --- type:NormalExercise lang:python xp:100 skills:2
 ## A Random Forest analysis in Python
-A detailed study of Random Forests would take this tutorial a bit too far. However, since it's an often used machine learning technique, a general understanding and an illustration in Python won't hurt.
+A detailed study of Random Forests would take this tutorial a bit too far. However, since it's an often used machine learning technique, gaining a general understanding in Python won't hurt.
 
 In layman's terms, the Random Forest technique handles the overfitting problem you faced with decision trees. It grows multiple (very deep) classification trees using the training set. At the time of prediction, each tree is used to come up with a prediction and every outcome is counted as a vote. For example, if you have trained 3 trees with 2 saying a passenger in the test set will survive and 1 says he will not, the passenger will be classified as a survivor. This approach of overtraining trees, but having the majority's vote count as the actual classification decision, avoids overfitting.
 
-Building a random forest in Python looks almost the same as building a decision tree so we can jump right to it. There are two key differences however. Firstly a different class is used. And second a new arguments is necessary. Also, we need to import the necessary library from scikit-learn.
+Building a random forest in Python looks almost the same as building a decision tree; so we can jump right to it. There are two key differences, however. Firstly, a different class is used. And second, a new argument is necessary. Also, we need to import the necessary library from scikit-learn.
 
 - Use `RandomForestClassifier()` class instead of the `DecisionTreeClassifier()` class. 
 - `n_estimators` needs to be set when using the `RandomForestClassifier()` class. This argument allows you to set the number of trees you wish to plant and average over.
@@ -134,10 +134,10 @@ test_function("print",2)
 --- type:NormalExercise lang:python xp:100 skills:2
 ## Interpreting and Comparing
 
-Remember how we looked at `.feature_importances_` attribute for the decision trees? Well you can request the same attribute from your random forest as well and interpret the relevance of the included variables.
-You might also want to compare the models in some quick and easy way. For this we can use the `.score()` method. `.score()` method takes the features data and the target and computes mean accuracy of your model. You can apply this method to both the forest and individual trees. Remember, this measure should be high but not extreme because that would be a sign of overfitting.
+Remember how we looked at `.feature_importances_` attribute for the decision trees? Well, you can request the same attribute from your random forest as well and interpret the relevance of the included variables.
+You might also want to compare the models in some quick and easy way. For this, we can use the `.score()` method. The `.score()` method takes the features data and the target vector and computes mean accuracy of your model. You can apply this method to both the forest and individual trees. Remember, this measure should be high but not extreme because that would be a sign of overfitting.
 
-For this exercise you have `my_forest` and `my_tree_two` available to you. The features and target arrays are also ready for use.
+For this exercise, you have `my_forest` and `my_tree_two` available to you. The features and target arrays are also ready for use.
 
 *** =instructions
 - Explore the feature importance for both models
@@ -220,11 +220,11 @@ test_function("print", 4)
 ## Conclude and Submit
 
 Based on your finding in the previous exercise determine which feature was of most importance, and for which model.
-After this final exercise you will be able to submit your random forest model to Kaggle! Use `my_forest`, `my_tree_two`, and `feature_importances_` to answer the question.
+After this final exercise, you will be able to submit your random forest model to Kaggle! Use `my_forest`, `my_tree_two`, and `feature_importances_` to answer the question.
 
 *** =hint
 
-By significance we simly mean the magnitude of the values.
+By significance, we simply mean the magnitude of the values.
 
 *** =pre_exercise_code
 
@@ -274,6 +274,6 @@ my_forest = forest.fit(features_forest, target)
 test_mc(correct = 2, msgs = ["Try again", "Correct!", "Try again","Try again"])
 
 
-success_msg("Congrats on compleating the course! Now that you created your first random forest and used it for prediction take a look at how well it does in the Kaggle competition. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/my_solution_forest.csv). Having learned about decision trees and random forests you can begin participating in some other Kaggle competitons as well. Good luck and have fun!")
+success_msg("Congrats on compleating the course! Now that you created your first random forest and used it for prediction take a look at how well it does in the Kaggle competition. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/my_solution_forest.csv). Having learned about decision trees and random forests, you can begin participating in some other Kaggle competitons as well. Good luck and have fun!")
 
 ```
