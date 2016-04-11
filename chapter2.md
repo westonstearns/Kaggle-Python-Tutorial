@@ -81,7 +81,7 @@ Another problem is that the Sex and Embarked variables are categorical but in a 
 - Print the `Sex` and `Embarked` columns
 
 *** =hint
-Use the `.loc` method to select rows, and dont foget the `==` operator.
+Use the standard bracket notation to select the appropriate rows, and dont foget the `==` operator.
 
 *** =pre_exercise_code
 
@@ -97,13 +97,13 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 *** =sample_code
 ```{python}
 #Convert the male and female groups to integer form
-train.loc[train["Sex"] == "male", "Sex"] = 0
+train["Sex"][train["Sex"] == "male"] = 0
 
 #Impute the Embarked variable
 train["Embarked"] = 
 
 #Convert the Embarked classes to integer form
-train.loc[train["Embarked"] == "S", "Embarked"] = 0
+train["Embarked"][train["Embarked"] == "S"] = 0
 
 #Print the Sex and Embarked columns
 
@@ -112,16 +112,16 @@ train.loc[train["Embarked"] == "S", "Embarked"] = 0
 *** =solution
 ```{python}
 #Convert the male and female groups to integer form
-train.loc[train["Sex"] == "male", "Sex"] = 0
-train.loc[train["Sex"] == "female", "Sex"] = 1
+train["Sex"][train["Sex"] == "male"] = 0
+train["Sex"][train["Sex"] == "female"] = 1
 
 #Impute the Embarked variable
 train["Embarked"] = train["Embarked"].fillna("S")
 
 #Convert the Embarked classes to integer form
-train.loc[train["Embarked"] == "S", "Embarked"] = 0
-train.loc[train["Embarked"] == "C", "Embarked"] = 1
-train.loc[train["Embarked"] == "Q", "Embarked"] = 2
+train["Embarked"][train["Embarked"] == "S"] = 0
+train["Embarked"][train["Embarked"] == "C"] = 1
+train["Embarked"][train["Embarked"] == "Q"] = 2
 
 #Print the Sex and Embarked columns
 print(train.Sex)
@@ -186,8 +186,8 @@ train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/t
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
 
 train["Age"] = train["Age"].fillna(train["Age"].median())
-train.loc[train["Sex"] == "male", "Sex"] = 0
-train.loc[train["Sex"] == "female", "Sex"] = 1
+train["Sex"][train["Sex"] == "male"] = 0
+train["Sex"][train["Sex"] == "female"] = 1
 
 ```
 
@@ -275,8 +275,8 @@ train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/t
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
 
 train["Age"] = train["Age"].fillna(train["Age"].median())
-train.loc[train["Sex"] == "male", "Sex"] = 0
-train.loc[train["Sex"] == "female", "Sex"] = 1
+train["Sex"][train["Sex"] == "male"] = 0
+train["Sex"][train["Sex"] == "female"] = 1
 
 target = train["Survived"].values
 features_one = train[["Pclass", "Sex", "Age", "Fare"]].values
@@ -329,8 +329,8 @@ train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/t
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
 
 train["Age"] = train["Age"].fillna(train["Age"].median())
-train.loc[train["Sex"] == "male", "Sex"] = 0
-train.loc[train["Sex"] == "female", "Sex"] = 1
+train["Sex"][train["Sex"] == "male"] = 0
+train["Sex"][train["Sex"] == "female"] = 1
 
 target = train["Survived"].values
 features_one = train[["Pclass", "Sex", "Age", "Fare"]].values
@@ -431,12 +431,12 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 target = train[Survived].values
 
 train["Age"] = train["Age"].fillna(train["Age"].median())
-train.loc[train["Sex"] == "male", "Sex"] = 0
-train.loc[train["Sex"] == "female", "Sex"] = 1
+train["Sex"][train["Sex"] == "male"] = 0
+train["Sex"][train["Sex"] == "female"] = 1
 train["Embarked"] = train["Embarked"].fillna("S")
-train.loc[train["Embarked"] == "S", "Embarked"] = 0
-train.loc[train["Embarked"] == "C", "Embarked"] = 1
-train.loc[train["Embarked"] == "Q", "Embarked"] = 2
+train["Embarked"][train["Embarked"] == "S"] = 0
+train["Embarked"][train["Embarked"] == "C"] = 1
+train["Embarked"][train["Embarked"] == "Q"] = 2
 
 ```
 
@@ -512,12 +512,12 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 target = train["Survived"].values
 
 train["Age"] = train["Age"].fillna(train["Age"].median())
-train.loc[train["Sex"] == "male", "Sex"] = 0
-train.loc[train["Sex"] == "female", "Sex"] = 1
+train["Sex"][train["Sex"] == "male"] = 0
+train["Sex"][train["Sex"] == "female"] = 1
 train["Embarked"] = train["Embarked"].fillna("S")
-train.loc[train["Embarked"] == "S", "Embarked"] = 0
-train.loc[train["Embarked"] == "C", "Embarked"] = 1
-train.loc[train["Embarked"] == "Q", "Embarked"] = 2
+train["Embarked"][train["Embarked"] == "S"] = 0
+train["Embarked"][train["Embarked"] == "C"] = 1
+train["Embarked"][train["Embarked"] == "Q"] = 2
 
 ```
 
