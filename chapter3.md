@@ -41,8 +41,8 @@ from sklearn.ensemble import RandomForestClassifier
 train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
 
-train.loc[train["Sex"] == "male", "Sex"] = 0
-train.loc[train["Sex"] == "female", "Sex"] = 1
+train["Sex"][train["Sex"] == "male"] = 0
+train["Sex"][train["Sex"] == "female"] = 1
 
 train["Embarked"] = train["Embarked"].fillna("S")
 
@@ -59,14 +59,14 @@ my_tree_two = tree.DecisionTreeClassifier(max_depth = 10, min_samples_split = 5,
 my_tree_two = my_tree_two.fit(features_two, target)
 
 
-test.loc[test["Sex"] == "male", "Sex"] = 0
-test.loc[test["Sex"] == "female", "Sex"] = 1
+test["Sex"][test["Sex"] == "male"] = 0
+test["Sex"][test["Sex"] == "female"] = 1
 
 test["Embarked"] = test["Embarked"].fillna("S")
 
-test.loc[test["Embarked"] == "S", "Embarked"] = 0
-test.loc[test["Embarked"] == "C", "Embarked"] = 1
-test.loc[test["Embarked"] == "Q", "Embarked"] = 2
+test["Embarked"][test["Embarked"] == "S"] = 0
+test["Embarked"][test["Embarked"] == "C"] = 1
+test["Embarked"][test["Embarked"] == "Q"] = 2
 
 test["Age"] = test["Age"].fillna(test["Age"].median())
 
@@ -163,12 +163,12 @@ train = pd.read_csv(train_url)
 test_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
 test = pd.read_csv(test_url)
 
-train.loc[train["Sex"] == "male", "Sex"] = 0
-train.loc[train["Sex"] == "female", "Sex"] = 1
+train["Sex"][train["Sex"] == "male"] = 0
+train["Sex"][train["Sex"] == "female"] = 1
 train["Embarked"] = train["Embarked"].fillna("S")
-train.loc[train["Embarked"] == "S", "Embarked"] = 0
-train.loc[train["Embarked"] == "C", "Embarked"] = 1
-train.loc[train["Embarked"] == "Q", "Embarked"] = 2
+train["Embarked"][train["Embarked"] == "S"] = 0
+train["Embarked"][train["Embarked"] == "C"] = 1
+train["Embarked"][train["Embarked"] == "Q"] = 2
 train["Age"] = train["Age"].fillna(train["Age"].median())
 
 target = train["Survived"].values
@@ -241,12 +241,12 @@ train = pd.read_csv(train_url)
 test_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
 test = pd.read_csv(test_url)
 
-train.loc[train["Sex"] == "male", "Sex"] = 0
-train.loc[train["Sex"] == "female", "Sex"] = 1
+train["Sex"][train["Sex"] == "male"] = 0
+train["Sex"][train["Sex"] == "female"] = 1
 train["Embarked"] = train["Embarked"].fillna("S")
-train.loc[train["Embarked"] == "S", "Embarked"] = 0
-train.loc[train["Embarked"] == "C", "Embarked"] = 1
-train.loc[train["Embarked"] == "Q", "Embarked"] = 2
+train["Embarked"][train["Embarked"] == "S"] = 0
+train["Embarked"][train["Embarked"] == "C"] = 1
+train["Embarked"][train["Embarked"] == "Q"] = 2
 train["Age"] = train["Age"].fillna(train["Age"].median())
 
 target = train["Survived"].values
@@ -271,8 +271,11 @@ my_forest = forest.fit(features_forest, target)
 
 ```{python}
 
-test_mc(correct = 2, msgs = ["Try again", "Correct!", "Try again","Try again"])
-
+msg1 <- "Wrong choice. Check the hint for some help."
+msg2 <- "Wonderful! You are now at the end of this tutorial and ready to start improving the results yourself"
+msg3 <- msg1
+msg4 <- msg1
+test_mc(correct = 2, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
 success_msg("Congrats on compleating the course! Now that you created your first random forest and used it for prediction take a look at how well it does in the Kaggle competition. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/my_solution_forest.csv). Having learned about decision trees and random forests, you can begin participating in some other Kaggle competitons as well. Good luck and have fun!")
 
