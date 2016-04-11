@@ -160,10 +160,11 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 
 ```{python}
 
-test_mc(correct = 1, msgs = ["Correct!",
-                              "Try again", 
-                              "Not quite", 
-                              "Try one more time"])
+msg1 = "Great job!"
+msg2 = "Wrong, try again. Maybe have a look at the hint."
+msg3 = "Not so good... Maybe have a look at the hint."
+msg4 = "Incorrect. Maybe have a look at the hint."
+test_mc(correct = 1, msgs = [msg1, msg2, msg3, msg4])
 
 success_msg("Well done! Now move on and explore some of the features in more detail.")
 
@@ -172,14 +173,14 @@ success_msg("Well done! Now move on and explore some of the features in more det
 --- type:NormalExercise lang:python xp:100 skills:1
 ## Rose vs Jack, or Female vs Male
 
-How many people in your training set survived the disaster with the Titanic? To see this, you can use the `value_counts()` method in combination with the `.`-operator to select a single column of a DataFrame:
+How many people in your training set survived the disaster with the Titanic? To see this, you can use the `value_counts()` method in combination with standard bracket notation to select a single column of a DataFrame:
 
 ```
 # absolute numbers
-train.Survived.value_counts()
+train["Survived"].value_counts()
 
 # percentages
-train.Survived.value_counts(normalize = True)
+train["Survived"].value_counts(normalize = True)
 ``` 
 
 If you run these commands in the console, you'll see that 549 individuals died (62%) and 342 survived (38%). A simple way to predict heuristically could be: "majority wins". This would mean that you will predict every unseen observation to not survive.
@@ -187,8 +188,8 @@ If you run these commands in the console, you'll see that 549 individuals died (
 To dive in a little deeper we can perform similar counts and percentage calculations on subsets of the Survived column. For example, maybe gender could play a role as well? You can explore this using the `.value_counts()` method for a two-way comparison on the number of males and females that survived, with this syntax:
 
 ```
-train.Survived[train.Sex == 'male'].value_counts()
-train.Survived[train.Sex == 'female'].value_counts()
+train["Survived"][train["Sex"] == 'male'].value_counts()
+train["Survived"][train["Sex"] == 'female'].value_counts()
 ```
 
 To get proportions, you can again pass in the argument `normalize = True` to the `.value_counts()` method.
@@ -239,19 +240,19 @@ print()
 print(train.Survived.value_counts())
 
 # As proportions
-print(train.Survived.value_counts(normalize = True))
+print(train["Survived"].value_counts(normalize = True))
 
 # Males that survived vs males that passed away
-print(train.Survived[train.Sex == 'male'].value_counts())
+print(train["Survived"][train["Sex"] == 'male'].value_counts())
 
 # Females that survived vs Females that passed away
-print(train.Survived[train.Sex == 'female'].value_counts())
+print(train["Survived"][train["Sex"] == 'female'].value_counts())
 
 # Normalized male survival
-print(train.Survived[train.Sex == 'male'].value_counts(normalize = True))
+print(train["Survived"][train["Sex"] == 'male'].value_counts(normalize = True))
 
 # Normalized female survival
-print(train.Survived[train.Sex == 'female'].value_counts(normalize = True))
+print(train["Survived"][train["Sex"] == 'female'].value_counts(normalize = True))
 ```
 
 *** =sct
@@ -302,7 +303,7 @@ This code would create a new column in the `train` DataFrame titled `new_var` wi
 To set the values based on the age of the passenger, you make use of a boolean test inside the square bracket operator. With the `[]`-operator you create a subset of rows and assign a value to a certain variable of that subset of observations. For example,
 
 ```
-train.new_var[train.Survived == 1] = 0
+train["new_var"][train["Survived"] == 1] = 0
 ```
 
 would give a value of 0 to the variable `new_var` for the subset of passengers that survived the disaster.
@@ -315,8 +316,8 @@ would give a value of 0 to the variable `new_var` for the subset of passengers t
 *** =hint
 Suppose you wanted to add a new column `clothes` to the `test` set and give all males the value `"pants"` and the others `"skirt"`:
 ```
-test['clothes'] = "skirt"
-test.clothes[test.Sex == "male"] = "pants"
+test["clothes"] = "skirt"
+test["clothes"][test["Sex"] == "male"] = "pants"
 ```
 
 
@@ -419,7 +420,7 @@ test_one = test
 test_one["Survived"] = 0
 
 # Set Survived to 1 if Sex equals "female"
-test_one.Survived[test_one.Sex == "female"] = 1
+test_one["Survived"][test_one["Sex"] == "female"] = 1
 print(test_one.Survived)
 ```
 
