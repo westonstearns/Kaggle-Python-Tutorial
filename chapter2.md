@@ -243,7 +243,7 @@ msg = "Make sure that you are including the correct features in the stated order
 test_object("features_one",
             incorrect_msg = msg)
 
-msg = "It looks liek the score was not computed correctly. Try re-submitting the code!"
+msg = "It looks like the score was not computed correctly. Try re-submitting the code!"
 test_function("print",3,
             incorrect_msg = msg)
 
