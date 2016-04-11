@@ -46,9 +46,9 @@ train.loc[train["Sex"] == "female", "Sex"] = 1
 
 train["Embarked"] = train["Embarked"].fillna("S")
 
-train.loc[train["Embarked"] == "S", "Embarked"] = 0
-train.loc[train["Embarked"] == "C", "Embarked"] = 1
-train.loc[train["Embarked"] == "Q", "Embarked"] = 2
+train["Embarked"][train["Embarked"] == "S"] = 0
+train["Embarked"][train["Embarked"] == "C"] = 1
+train["Embarked"][train["Embarked"] == "Q"] = 2
 
 train["Age"] = train["Age"].fillna(train["Age"].median())
 
